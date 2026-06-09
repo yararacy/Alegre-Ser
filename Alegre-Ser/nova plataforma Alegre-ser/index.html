@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alegre-Ser — Expansão de Consciência</title>
+  <meta name="description" content="Processos de transformação para empresas, famílias e pessoas. Diálogos de Consciência, Laboratório do Observador e Espiral de Clareza." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;1,300&family=Playfair+Display:ital,wght@1,400;1,500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --terra:     #c84523;
+      --terra-dk:  #a0361c;
+      --amber:     #dc882c;
+      --amber-dk:  #b56d20;
+      --teal:      #229cb2;
+      --teal-dk:   #1a7d8f;
+      --purple:    #962c72;
+      --purple-dk: #761f58;
+      --bg:        #ffffff;
+      --bg-warm:   #fdf9f4;
+      --cream:     #f0e8d8;
+      --text:      #1a1210;
+      --text-md:   #4a3a2e;
+      --text-lt:   #8a7a6a;
+      --border:    #e8e0d4;
+      --border-lt: #f2ede6;
+      --head: 'Space Grotesk', 'Helvetica Neue', sans-serif;
+      --body: 'Inter', 'Helvetica Neue', sans-serif;
+      --serif: 'Playfair Display', Georgia, serif;
+      --r-sm: 6px; --r-md: 14px; --r-lg: 20px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--body); font-weight: 400; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    .wrap    { max-width: 1160px; margin: 0 auto; padding: 0 40px; }
+    .wrap-sm { max-width: 860px;  margin: 0 auto; padding: 0 40px; }
+
+    .eyebrow { font-family: var(--head); font-size: 11px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; }
+    .rule    { width: 32px; height: 3px; border-radius: 2px; margin: 12px 0 20px; }
+
+    /* BUTTONS */
+    .btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--head); font-size: 13px; font-weight: 600; letter-spacing: .04em; padding: 14px 28px; border-radius: var(--r-sm); border: 2px solid transparent; cursor: pointer; transition: all .2s; }
+    .btn svg { transition: transform .2s; flex-shrink: 0; }
+    .btn:hover svg { transform: translateX(3px); }
+    .btn-terra    { background: var(--terra);  color: #fff; border-color: var(--terra); }
+    .btn-terra:hover   { background: var(--terra-dk); border-color: var(--terra-dk); }
+    .btn-teal     { background: var(--teal);   color: #fff; border-color: var(--teal); }
+    .btn-teal:hover    { background: var(--teal-dk);  border-color: var(--teal-dk); }
+    .btn-white    { background: #fff; color: var(--purple); border-color: #fff; }
+    .btn-white:hover   { background: rgba(255,255,255,.9); }
+    .btn-outline  { background: transparent; color: var(--text); border-color: var(--border); }
+    .btn-outline:hover { border-color: var(--text); }
+    .btn-outline-w { background: transparent; color: #fff; border-color: rgba(255,255,255,.55); }
+    .btn-outline-w:hover { border-color: #fff; background: rgba(255,255,255,.08); }
+
+    /* NAV */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(255,255,255,.95); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border-lt); }
+    .nav__in { max-width: 1160px; margin: 0 auto; padding: 0 40px; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .nav__logo { display: flex; align-items: center; gap: 10px; font-family: var(--head); font-size: 20px; font-weight: 700; color: var(--text); letter-spacing: -.02em; }
+    .nav__logo em { color: var(--teal); font-style: normal; }
+    .nav__links { display: flex; align-items: center; gap: 36px; }
+    .nav__links a { font-family: var(--head); font-size: 13px; font-weight: 500; letter-spacing: .04em; color: var(--text-md); transition: color .2s; }
+    .nav__links a:hover { color: var(--text); }
+    .nav__burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav__burger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
+    @media (max-width: 860px) { .nav__links, .nav__cta { display: none; } .nav__burger { display: flex; } }
+
+    /* HERO */
+    .hero { min-height: 100vh; padding-top: 72px; display: grid; grid-template-columns: 1fr 1fr; align-items: center; overflow: hidden; background: var(--bg-warm); }
+    .hero__left { padding: 80px 60px 80px 40px; max-width: 620px; margin-left: auto; }
+    .hero__pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(34,156,178,.08); border: 1px solid rgba(34,156,178,.22); border-radius: 100px; padding: 6px 16px; margin-bottom: 28px; font-family: var(--head); font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--teal-dk); }
+    .hero__pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); animation: pdot 2s ease-in-out infinite; }
+    @keyframes pdot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.65)} }
+    .hero__h1 { font-family: var(--head); font-size: clamp(36px, 4.5vw, 58px); font-weight: 700; line-height: 1.08; letter-spacing: -.035em; color: var(--text); margin-bottom: 24px; }
+    .hero__h1 em   { font-style: italic; font-family: var(--serif); font-weight: 400; color: var(--terra); }
+    .hero__h1 mark { background: none; color: var(--teal); }
+    .hero__sub  { font-size: 17px; color: var(--text-md); line-height: 1.78; margin-bottom: 36px; max-width: 480px; }
+    .hero__ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 52px; }
+    .hero__stats { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .hero__stat  { display: flex; flex-direction: column; }
+    .hero__stat-n { font-family: var(--head); font-size: 28px; font-weight: 700; color: var(--text); letter-spacing: -.035em; line-height: 1; }
+    .hero__stat-l { font-size: 11px; color: var(--text-lt); line-height: 1.4; margin-top: 3px; }
+    .hero__stats-sep { width: 1px; height: 34px; background: var(--border); }
+    .hero__right { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(34,156,178,.06) 0%, rgba(150,44,114,.06) 100%); overflow: hidden; }
+    .hero-svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+    .hero__vis { position: relative; width: 440px; height: 440px; }
+    .hero__ring { position: absolute; border-radius: 50%; border: 1.5px solid; animation: ring-spin linear infinite; }
+    .hero__ring--1 { inset: 0;    border-color: rgba(34,156,178,.18);  animation-duration: 40s; }
+    .hero__ring--2 { inset: 44px; border-color: rgba(150,44,114,.14); animation-duration: 28s; animation-direction: reverse; }
+    .hero__ring--3 { inset: 88px; border-color: rgba(200,69,35,.12);  animation-duration: 18s; }
+    @keyframes ring-spin { from{transform:rotate(0)} to{transform:rotate(360deg)} }
+    .hero__spiral { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; animation: float 6s ease-in-out infinite; }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+    .hero__orb { position: absolute; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--head); font-size: 9.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #fff; box-shadow: 0 8px 28px rgba(0,0,0,.18); text-align: center; line-height: 1.3; }
+    .hero__orb--teal   { width: 88px;  height: 88px;  background: var(--teal);   top: 16px;   right: 54px; }
+    .hero__orb--terra  { width: 80px;  height: 80px;  background: var(--terra);  bottom: 60px; left: 36px; }
+    .hero__orb--purple { width: 84px;  height: 84px;  background: var(--purple); bottom: 36px; right: 42px; }
+    .hero__orb--amber  { width: 68px;  height: 68px;  background: var(--amber);  top: 56px;   left: 50px; }
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero__left { padding: 60px 20px; margin: 0; max-width: none; }
+      .hero__right { min-height: 320px; }
+      .hero__vis { width: 280px; height: 280px; }
+    }
+
+    /* SECTION */
+    .section { padding: 96px 0; }
+    .section--warm  { background: var(--bg-warm); }
+    .s-head { margin-bottom: 56px; }
+    .s-head--c { text-align: center; }
+    .s-head--c .rule { margin: 12px auto 20px; }
+    .s-title { font-family: var(--head); font-size: clamp(26px, 3.2vw, 42px); font-weight: 700; line-height: 1.12; letter-spacing: -.028em; }
+    .s-sub   { font-size: 16px; color: var(--text-md); line-height: 1.8; max-width: 560px; margin-top: 14px; }
+    .s-head--c .s-sub { margin-left: auto; margin-right: auto; }
+
+    /* PRODUTOS */
+    .produtos__grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .produto { border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--border-lt); background: var(--bg); transition: transform .25s, box-shadow .25s; }
+    .produto:hover { transform: translateY(-7px); box-shadow: 0 22px 60px rgba(0,0,0,.09); }
+    .produto__top { padding: 32px 30px 26px; }
+    .produto--teal  .produto__top { background: var(--teal); }
+    .produto--terra .produto__top { background: var(--terra); }
+    .produto--amber .produto__top { background: var(--amber); }
+    .produto__ico { width: 50px; height: 50px; background: rgba(255,255,255,.18); border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+    .produto__cat  { font-family: var(--head); font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.7); margin-bottom: 6px; }
+    .produto__name { font-family: var(--head); font-size: 21px; font-weight: 700; color: #fff; line-height: 1.18; letter-spacing: -.02em; }
+    .produto__body { padding: 26px 30px 30px; }
+    .produto__desc { font-size: 14px; color: var(--text-md); line-height: 1.75; margin-bottom: 20px; }
+    .produto__items { margin-bottom: 26px; }
+    .produto__items li { font-size: 13px; color: var(--text-md); padding: 7px 0; border-bottom: 1px solid var(--border-lt); display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
+    .produto__items li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+    .produto--teal  .produto__items li::before { background: var(--teal); }
+    .produto--terra .produto__items li::before { background: var(--terra); }
+    .produto--amber .produto__items li::before { background: var(--amber-dk); }
+    .produto__cta { display: inline-flex; align-items: center; gap: 7px; font-family: var(--head); font-size: 13px; font-weight: 600; transition: gap .2s; }
+    .produto__cta:hover { gap: 11px; }
+    .produto--teal  .produto__cta { color: var(--teal); }
+    .produto--terra .produto__cta { color: var(--terra); }
+    .produto--amber .produto__cta { color: var(--amber-dk); }
+    @media (max-width: 900px) { .produtos__grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; } }
+
+    /* NR-1 */
+    .nr1 { background: var(--purple); padding: 84px 0; position: relative; overflow: hidden; }
+    .nr1::after { content: 'NR1'; position: absolute; right: -10px; top: -30px; font-family: var(--head); font-size: 220px; font-weight: 800; color: rgba(255,255,255,.04); line-height: 1; pointer-events: none; letter-spacing: -.05em; }
+    .nr1__in { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; }
+    .nr1__title { font-family: var(--head); font-size: clamp(24px, 3vw, 38px); font-weight: 700; color: #fff; line-height: 1.18; letter-spacing: -.025em; margin-bottom: 14px; }
+    .nr1__sub   { font-size: 16px; color: rgba(255,255,255,.75); line-height: 1.78; margin-bottom: 32px; max-width: 440px; }
+    .nr1__list  { display: flex; flex-direction: column; gap: 14px; }
+    .nr1__item  { display: flex; align-items: flex-start; gap: 13px; font-size: 14px; color: rgba(255,255,255,.85); line-height: 1.5; }
+    .nr1__dot   { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); flex-shrink: 0; margin-top: 5px; }
+    .nr1__card  { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); border-radius: var(--r-lg); padding: 32px 28px; }
+    .nr1__card-tag  { font-family: var(--head); font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--amber); margin-bottom: 12px; }
+    .nr1__card-text { font-family: var(--head); font-size: 17px; font-weight: 600; color: #fff; line-height: 1.45; margin-bottom: 22px; }
+    .nr1__card-items { display: flex; flex-direction: column; gap: 10px; }
+    .nr1__card-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: rgba(255,255,255,.78); }
+    .nr1__card-item::before { content: '✓'; color: var(--amber); font-weight: 700; font-size: 13px; flex-shrink: 0; }
+    @media (max-width: 768px) { .nr1__in { grid-template-columns: 1fr; gap: 40px; } .nr1::after { font-size: 100px; } }
+
+    /* PARA QUEM */
+    .publicos__grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 20px; }
+    .pub { border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--border-lt); background: var(--bg); transition: transform .25s, box-shadow .25s; }
+    .pub:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(0,0,0,.07); }
+    .pub--empresas { border-top: 4px solid var(--teal); }
+    .pub--familias { border-top: 4px solid var(--amber); }
+    .pub--pessoas  { border-top: 4px solid var(--terra); }
+    .pub__body  { padding: 28px; }
+    .pub__badge { display: inline-block; font-family: var(--head); font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; margin-bottom: 14px; }
+    .pub--empresas .pub__badge { background: rgba(34,156,178,.1);  color: var(--teal-dk); }
+    .pub--familias .pub__badge { background: rgba(220,136,44,.1);  color: var(--amber-dk); }
+    .pub--pessoas  .pub__badge { background: rgba(200,69,35,.1);   color: var(--terra-dk); }
+    .pub__title { font-family: var(--head); font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 10px; letter-spacing: -.02em; }
+    .pub__list  { margin-bottom: 24px; }
+    .pub__list li { font-size: 13px; color: var(--text-md); padding: 7px 0; border-bottom: 1px solid var(--border-lt); display: flex; align-items: flex-start; gap: 9px; line-height: 1.5; }
+    .pub__list li::before { content: ''; width: 4px; height: 4px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+    .pub--empresas .pub__list li::before { background: var(--teal); }
+    .pub--familias .pub__list li::before { background: var(--amber); }
+    .pub--pessoas  .pub__list li::before { background: var(--terra); }
+    .pub__link { display: inline-flex; align-items: center; gap: 6px; font-family: var(--head); font-size: 13px; font-weight: 600; transition: gap .2s; }
+    .pub__link:hover { gap: 10px; }
+    .pub--empresas .pub__link { color: var(--teal); }
+    .pub--familias .pub__link { color: var(--amber-dk); }
+    .pub--pessoas  .pub__link { color: var(--terra); }
+    @media (max-width: 900px) { .publicos__grid { grid-template-columns: 1fr; } }
+
+    /* DEPOIMENTOS */
+    .provas { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .prova  { background: var(--bg); border: 1px solid var(--border-lt); border-radius: var(--r-lg); padding: 30px 26px; }
+    .prova__q    { font-family: var(--serif); font-size: 52px; line-height: .8; margin-bottom: 10px; opacity: .25; }
+    .prova:nth-child(1) .prova__q { color: var(--teal); }
+    .prova:nth-child(2) .prova__q { color: var(--terra); }
+    .prova:nth-child(3) .prova__q { color: var(--purple); }
+    .prova__text { font-family: var(--serif); font-size: 15px; font-style: italic; color: var(--text); line-height: 1.8; margin-bottom: 22px; }
+    .prova__author { display: flex; align-items: center; gap: 12px; padding-top: 16px; border-top: 1px solid var(--border-lt); }
+    .prova__avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--cream); border: 2px solid var(--border); flex-shrink: 0; }
+    .prova__name { font-family: var(--head); font-size: 13px; font-weight: 600; }
+    .prova__ctx  { font-size: 12px; color: var(--text-lt); }
+    @media (max-width: 768px) { .provas { grid-template-columns: 1fr; } }
+
+    /* CTA BAND */
+    .cta-band { background: linear-gradient(130deg, var(--teal-dk) 0%, var(--teal) 55%, #2bb5d0 100%); padding: 80px 0; text-align: center; position: relative; overflow: hidden; }
+    .cta-band::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 70% 50%, rgba(150,44,114,.3) 0%, transparent 60%); pointer-events: none; }
+    .cta-band .wrap { position: relative; }
+    .cta-band__title { font-family: var(--head); font-size: clamp(24px, 3.5vw, 42px); font-weight: 700; color: #fff; line-height: 1.18; letter-spacing: -.025em; margin-bottom: 14px; }
+    .cta-band__sub   { font-size: 17px; color: rgba(255,255,255,.8); margin-bottom: 32px; }
+    .cta-band__btns  { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    /* FOOTER */
+    .footer { background: #120e0c; color: rgba(255,255,255,.6); padding: 64px 0 36px; }
+    .footer__grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 56px; margin-bottom: 44px; }
+    .footer__brand { font-family: var(--head); font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 10px; letter-spacing: -.02em; }
+    .footer__brand em { color: var(--teal); font-style: normal; }
+    .footer__desc { font-size: 14px; line-height: 1.75; margin-bottom: 22px; }
+    .footer__socials { display: flex; gap: 10px; }
+    .footer__soc { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,255,255,.15); display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: var(--head); font-weight: 700; transition: border-color .2s, color .2s; }
+    .footer__soc:hover { border-color: var(--teal); color: var(--teal); }
+    .footer__col-h { font-family: var(--head); font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 18px; }
+    .footer__links { display: flex; flex-direction: column; gap: 10px; }
+    .footer__links a { font-size: 14px; color: rgba(255,255,255,.5); transition: color .2s; }
+    .footer__links a:hover { color: #fff; }
+    .footer__bottom { border-top: 1px solid rgba(255,255,255,.07); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; }
+    .footer__bottom a { color: rgba(255,255,255,.35); }
+    .footer__bottom a:hover { color: rgba(255,255,255,.7); }
+    @media (max-width: 768px) { .footer__grid { grid-template-columns: 1fr; gap: 32px; } .footer__bottom { flex-direction: column; gap: 8px; text-align: center; } }
+
+    /* WA FLOAT */
+    .wa-float { position: fixed; bottom: 28px; right: 28px; z-index: 100; width: 54px; height: 54px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,.4); transition: transform .2s; }
+    .wa-float:hover { transform: scale(1.08); }
+
+    @media (max-width: 600px) { .section { padding: 64px 0; } .wrap, .wrap-sm { padding: 0 20px; } }
+
+    /* PODSER CARDS (contato) */
+    .pod-card { display:flex; align-items:center; gap:14px; padding:14px 16px; border:1px solid var(--border-lt); border-radius:var(--r-md); text-decoration:none; margin-bottom:10px; background:var(--bg-warm); transition:transform .22s, box-shadow .22s, border-color .22s; }
+    .pod-card:hover { transform:translateX(5px); box-shadow:0 6px 22px rgba(0,0,0,.07); border-color:var(--purple); }
+    .pod-ep { font-family:var(--head); font-size:9px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; color:#fff; background:var(--purple); padding:4px 8px; border-radius:100px; flex-shrink:0; }
+    .pod-title { flex:1; font-family:var(--head); font-size:14px; font-weight:600; color:var(--text); }
+    .pod-play { width:30px; height:30px; border-radius:50%; background:var(--purple); display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:transform .2s; }
+    .pod-card:hover .pod-play { transform:scale(1.1); }
+
+    /* ENTRY CARDS (contato) */
+    .entry-card { display:flex; align-items:center; gap:16px; padding:16px 18px; border:1px solid var(--border-lt); border-radius:var(--r-md); text-decoration:none; margin-bottom:10px; background:var(--bg-warm); transition:transform .22s, box-shadow .22s, border-color .22s; }
+    .entry-card:hover { transform:translateX(6px); box-shadow:0 8px 28px rgba(0,0,0,.07); border-color:var(--border); }
+    .entry-card__bar { width:4px; min-height:44px; border-radius:2px; flex-shrink:0; align-self:stretch; }
+    .entry-card__body { flex:1; }
+    .entry-card__phrase { display:block; font-family:var(--serif); font-size:15px; font-style:italic; color:var(--text); line-height:1.5; margin-bottom:4px; }
+    .entry-card__label { font-family:var(--head); font-size:9.5px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--text-lt); }
+    .entry-card__arrow { font-size:20px; color:var(--text-lt); flex-shrink:0; transition:transform .22s; line-height:1; }
+    .entry-card:hover .entry-card__arrow { transform:translateX(4px); }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══════════════════════════════════════════════ -->
+<nav class="nav">
+  <div class="nav__in">
+    <a href="index.html" class="nav__logo">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <rect x=".8" y=".8" width="30.4" height="30.4" rx="7" stroke="#229cb2" stroke-width="1.4"/>
+        <path d="M16 16 C16 13.8 14.2 12 12 12 C9.2 12 7 14.2 7 17 C7 20.8 10.2 24 14 24 C18.9 24 23 19.9 23 15 C23 9 18.5 5 13 5.5" stroke="#229cb2" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+      </svg>
+      Alegre-<em>Ser</em>
+    </a>
+    <ul class="nav__links">
+      <li><a href="#programas">Programas</a></li>
+      <li><a href="#empresas">Empresas</a></li>
+      <li><a href="#para-quem">Para quem</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+    </ul>
+    <a href="#contato" class="btn btn-terra nav__cta">Falar conosco</a>
+    <div class="nav__burger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+
+<!-- ═══ HERO ══════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero__left">
+    <div class="hero__pill">
+      <span class="hero__pill-dot"></span>
+      Expansão de Consciência · Metodologia JDL
+    </div>
+    <h1 class="hero__h1">
+      Mudar nossa <em>energia</em><br>
+      para mudar nossas<br>
+      <mark>relações.</mark>
+    </h1>
+    <p class="hero__sub">
+      Processos de transformação para empresas, famílias e pessoas —
+      com alegria como estado de consciência e não como emoção passageira.
+    </p>
+    <div class="hero__ctas">
+      <a href="#programas" class="btn btn-terra">
+        Conhecer os Programas
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#empresas" class="btn btn-outline">NR-1 para Empresas</a>
+    </div>
+    <div class="hero__stats">
+      <div class="hero__stat">
+        <span class="hero__stat-n">+10</span>
+        <span class="hero__stat-l">anos de<br>metodologia JDL</span>
+      </div>
+      <div class="hero__stats-sep"></div>
+      <div class="hero__stat">
+        <span class="hero__stat-n">3</span>
+        <span class="hero__stat-l">facilitadoras<br>certificadas</span>
+      </div>
+      <div class="hero__stats-sep"></div>
+      <div class="hero__stat">
+        <span class="hero__stat-n">BR+EX</span>
+        <span class="hero__stat-l">Brasil e<br>exterior</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__right">
+    <svg id="hero-svg" class="hero-svg" viewBox="0 0 480 640" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg>
+  </div>
+</section>
+
+
+<!-- ═══ PROGRAMAS ═════════════════════════════════════════ -->
+<section class="section" id="programas">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="eyebrow" style="color:var(--teal)">Nossos Programas</span>
+      <div class="rule" style="background:var(--teal)"></div>
+      <h2 class="s-title">Processos que criamos<br>para transformar.</h2>
+      <p class="s-sub">Cada programa nasce da nossa própria vivência dentro da Metodologia JDL. São ferramentas práticas para quem quer ir além do convencional.</p>
+    </div>
+
+    <div class="produtos__grid">
+
+      <div class="produto produto--teal">
+        <div class="produto__top">
+          <div class="produto__ico">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 10h8M8 14h5" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="produto__cat">Para equipes e lideranças</div>
+          <div class="produto__name">Diálogos de Consciência</div>
+        </div>
+        <div class="produto__body">
+          <p class="produto__desc">Comunicação que fortalece relações e reduz conflitos. Facilitamos conversas que chegam onde a informação técnica não chega — no campo energético das equipes.</p>
+          <ul class="produto__items">
+            <li>Redução de conflitos e desgaste emocional</li>
+            <li>Comunicação interna mais fluida</li>
+            <li>Liderança consciente e presente</li>
+            <li>Decisões mais alinhadas e coerentes</li>
+          </ul>
+          <a href="#contato" class="produto__cta">Saiba mais <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+
+      <div class="produto produto--terra">
+        <div class="produto__top">
+          <div class="produto__ico">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="3" stroke="white" stroke-width="1.6"/>
+              <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7z" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="produto__cat">Autoresponsabilidade energética</div>
+          <div class="produto__name">Laboratório do Observador</div>
+        </div>
+        <div class="produto__body">
+          <p class="produto__desc">Práticas para estimular a percepção da própria energia dentro do ambiente de trabalho. Quando cada pessoa aprende a se observar, o campo coletivo se transforma.</p>
+          <ul class="produto__items">
+            <li>Autoresponsabilidade nas relações</li>
+            <li>Percepção do próprio padrão energético</li>
+            <li>Saída do piloto automático</li>
+            <li>Mais presença e clareza nas ações</li>
+          </ul>
+          <a href="#contato" class="produto__cta">Saiba mais <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+
+      <div class="produto produto--amber">
+        <div class="produto__top">
+          <div class="produto__ico">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 12 C12 10.6 10.9 9.5 9.5 9.5 C7.8 9.5 6.5 10.8 6.5 12.5 C6.5 14.6 8.2 16.5 10.3 16.5 C13 16.5 15.5 14 15.5 11.3 C15.5 7.9 12.8 5 9.5 5.2" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="produto__cat">Tomada de decisão consciente</div>
+          <div class="produto__name">Espiral de Clareza</div>
+        </div>
+        <div class="produto__body">
+          <p class="produto__desc">Práticas para tomada de decisão, alinhamento de equipe e ação a partir da consciência — não do automatismo. Clareza que move, não que paralisa.</p>
+          <ul class="produto__items">
+            <li>Decisões mais alinhadas com o todo</li>
+            <li>Alinhamento de equipe e propósito</li>
+            <li>Saída do automatismo e reatividade</li>
+            <li>Ação consciente e coerente</li>
+          </ul>
+          <a href="#contato" class="produto__cta">Saiba mais <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ NR-1 ══════════════════════════════════════════════ -->
+<div class="nr1" id="empresas">
+  <div class="wrap">
+    <div class="nr1__in">
+      <div>
+        <span class="eyebrow" style="color:rgba(255,255,255,.5);display:block;margin-bottom:14px;">Foco atual · Empresas</span>
+        <h2 class="nr1__title">Sua empresa vai além<br>do compliance da NR-1?</h2>
+        <p class="nr1__sub">A NR-1 exige atenção à saúde mental. Nós entregamos algo mais profundo: a transformação do campo energético relacional da sua organização.</p>
+        <div class="nr1__list">
+          <div class="nr1__item"><span class="nr1__dot"></span>Diagnóstico de riscos psicossociais com consciência</div>
+          <div class="nr1__item"><span class="nr1__dot"></span>Programas de saúde mental que realmente transformam</div>
+          <div class="nr1__item"><span class="nr1__dot"></span>Cultura organizacional sustentável e viva</div>
+          <div class="nr1__item"><span class="nr1__dot"></span>Atendimento às diretrizes legais + transformação real</div>
+        </div>
+        <div style="margin-top:32px;display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="#contato" class="btn btn-white">Solicitar diagnóstico NR-1</a>
+          <a href="#contato" class="btn btn-outline-w">Saiba mais</a>
+        </div>
+      </div>
+      <div class="nr1__card">
+        <div class="nr1__card-tag">O que entregamos</div>
+        <div class="nr1__card-text">Palestras · Workshops · Laboratório do Observador · Espiral de Clareza · Diálogos de Consciência · Processos Contínuos</div>
+        <div class="nr1__card-items">
+          <div class="nr1__card-item">Presencial ou online</div>
+          <div class="nr1__card-item">Projetos pontuais ou processos contínuos</div>
+          <div class="nr1__card-item">Brasil e exterior</div>
+          <div class="nr1__card-item">Valores sob consulta</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══ PARA QUEM ══════════════════════════════════════════ -->
+<section class="section section--warm" id="para-quem">
+  <div class="wrap">
+    <div class="s-head s-head--c">
+      <span class="eyebrow" style="color:var(--text-lt)">Para quem é</span>
+      <div class="rule" style="background:var(--border);margin:12px auto 20px"></div>
+      <h2 class="s-title">Três frentes. Uma frequência.</h2>
+      <p class="s-sub">Do indivíduo em processo interno à organização em transformação cultural — o Alegre-Ser sustenta essa travessia.</p>
+    </div>
+    <div class="publicos__grid">
+
+      <div class="pub pub--empresas">
+        <div class="pub__body">
+          <span class="pub__badge">Foco principal</span>
+          <h3 class="pub__title">Empresas</h3>
+          <ul class="pub__list">
+            <li>Equipe que cumpre metas mas está esgotada</li>
+            <li>Clima pesado sem causa aparente</li>
+            <li>NR-1: quer mais do que compliance</li>
+            <li>Liderança que sabe o que fazer mas não inspira</li>
+            <li>Conflitos e desengajamento crônicos</li>
+          </ul>
+          <a href="#contato" class="pub__link">Solicitar proposta <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+
+      <div class="pub pub--familias">
+        <div class="pub__body">
+          <span class="pub__badge">Famílias</span>
+          <h3 class="pub__title">Para sua família</h3>
+          <ul class="pub__list">
+            <li>Relações com ruído, distância ou conflito</li>
+            <li>Padrões que se repetem entre gerações</li>
+            <li>Desejo de mais presença e harmonia</li>
+            <li>Busca por convívio mais consciente</li>
+          </ul>
+          <a href="#contato" class="pub__link">Saiba mais <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+
+      <div class="pub pub--pessoas">
+        <div class="pub__body">
+          <span class="pub__badge">Individual</span>
+          <h3 class="pub__title">Para você</h3>
+          <ul class="pub__list">
+            <li>Desejo de mais clareza e leveza interna</li>
+            <li>Repetição de padrões sem explicação</li>
+            <li>Cansaço emocional ou energético</li>
+            <li>Transição de vida importante</li>
+          </ul>
+          <a href="#contato" class="pub__link">Ver Trilha Individual <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ FACILITADORAS ═════════════════════════════════════ -->
+<section class="section" id="sobre">
+  <div class="wrap">
+    <div class="s-head s-head--c">
+      <span class="eyebrow" style="color:var(--text-lt)">As facilitadoras</span>
+      <div class="rule" style="background:var(--border);margin:12px auto 20px"></div>
+      <h2 class="s-title">Três arquétipos. Um campo.</h2>
+      <p class="s-sub">Psicóloga, advogada e jornalista — todas Canais de Luz certificadas pelo Método JDL. Trajetórias de transformação real, não apenas ensinada.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+
+      <div style="border:1px solid var(--border-lt);border-radius:var(--r-lg);overflow:hidden;background:var(--bg);transition:transform .25s,box-shadow .25s" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 18px 50px rgba(0,0,0,.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="background:var(--terra);padding:32px 28px 24px">
+          <div style="width:48px;height:48px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:14px">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="8" r="4" stroke="white" stroke-width="1.4"/><path d="M3 19c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </div>
+          <div style="font-family:var(--head);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:5px">A Polinizadora</div>
+          <div style="font-family:var(--head);font-size:21px;font-weight:700;color:#fff;letter-spacing:-.02em">Chrys Hellen</div>
+        </div>
+        <div style="padding:22px 28px 26px">
+          <div style="font-size:12px;color:var(--text-lt);margin-bottom:10px">Psicóloga · Canal de Luz JDL desde 2013</div>
+          <p style="font-family:var(--serif);font-size:14px;font-style:italic;color:var(--text-md);line-height:1.7">"Infinito potencial de criação e manifestação."</p>
+        </div>
+      </div>
+
+      <div style="border:1px solid var(--border-lt);border-radius:var(--r-lg);overflow:hidden;background:var(--bg);transition:transform .25s,box-shadow .25s" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 18px 50px rgba(0,0,0,.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="background:var(--amber);padding:32px 28px 24px">
+          <div style="width:48px;height:48px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:14px">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="8" r="4" stroke="white" stroke-width="1.4"/><path d="M3 19c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </div>
+          <div style="font-family:var(--head);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:5px">A Transmissora Estelar</div>
+          <div style="font-family:var(--head);font-size:21px;font-weight:700;color:#fff;letter-spacing:-.02em">Robertha Aranha</div>
+        </div>
+        <div style="padding:22px 28px 26px">
+          <div style="font-size:12px;color:var(--text-lt);margin-bottom:10px">Advogada e mediadora · Canal de Luz JDL desde 2007</div>
+          <p style="font-family:var(--serif);font-size:14px;font-style:italic;color:var(--text-md);line-height:1.7">"Comunicar entregando códigos energéticos que ampliam a consciência."</p>
+        </div>
+      </div>
+
+      <div style="border:1px solid var(--border-lt);border-radius:var(--r-lg);overflow:hidden;background:var(--bg);transition:transform .25s,box-shadow .25s" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 18px 50px rgba(0,0,0,.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="background:var(--teal);padding:32px 28px 24px">
+          <div style="width:48px;height:48px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:14px">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="8" r="4" stroke="white" stroke-width="1.4"/><path d="M3 19c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </div>
+          <div style="font-family:var(--head);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:5px">O Farol</div>
+          <div style="font-family:var(--head);font-size:21px;font-weight:700;color:#fff;letter-spacing:-.02em">Yara Racy</div>
+        </div>
+        <div style="padding:22px 28px 26px">
+          <div style="font-size:12px;color:var(--text-lt);margin-bottom:10px">Jornalista · Canal de Luz JDL desde 2015</div>
+          <p style="font-family:var(--serif);font-size:14px;font-style:italic;color:var(--text-md);line-height:1.7">"Coloco mentes para dormir e corações para sentir."</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ DEPOIMENTOS ═══════════════════════════════════════ -->
+<section class="section section--warm" id="depoimentos">
+  <div class="wrap">
+    <div class="s-head s-head--c">
+      <span class="eyebrow" style="color:var(--text-lt)">Depoimentos</span>
+      <div class="rule" style="background:var(--border);margin:12px auto 20px"></div>
+      <h2 class="s-title">Quem viveu conta.</h2>
+    </div>
+    <div class="provas">
+      <div class="prova">
+        <div class="prova__q">"</div>
+        <p class="prova__text">Depois da Trilha, percebi que não era o meu trabalho que estava me esgotando — era a frequência que eu sustentava sem perceber. A clareza que veio foi imediata.</p>
+        <div class="prova__author">
+          <div class="prova__avatar"></div>
+          <div><div class="prova__name">[Nome do cliente]</div><div class="prova__ctx">Trilha Alegre-Ser · São Paulo</div></div>
+        </div>
+      </div>
+      <div class="prova">
+        <div class="prova__q">"</div>
+        <p class="prova__text">Nunca imaginei que um trabalho assim pudesse impactar tanto o ambiente da empresa. Em poucas semanas, a equipe estava diferente — e os resultados acompanharam.</p>
+        <div class="prova__author">
+          <div class="prova__avatar"></div>
+          <div><div class="prova__name">[Nome do gestor]</div><div class="prova__ctx">Programa Corporativo · RH</div></div>
+        </div>
+      </div>
+      <div class="prova">
+        <div class="prova__q">"</div>
+        <p class="prova__text">O que me surpreendeu foi a especificidade. Não é papo vago sobre energia — é algo que você sente no corpo e vê acontecer nas suas relações.</p>
+        <div class="prova__author">
+          <div class="prova__avatar"></div>
+          <div><div class="prova__name">[Nome do cliente]</div><div class="prova__ctx">Sessão Individual · Online</div></div>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:20px;font-size:12px;color:var(--text-lt);font-style:italic;">↑ Substituir pelos depoimentos reais com foto, nome e contexto.</p>
+  </div>
+</section>
+
+
+<!-- ═══ CTA BAND ═══════════════════════════════════════════ -->
+<div class="cta-band">
+  <div class="wrap">
+    <h2 class="cta-band__title">Pronto para mudar sua energia<br>e mudar suas relações?</h2>
+    <p class="cta-band__sub">Do processo individual ao programa corporativo — o Alegre-Ser sustenta essa travessia.</p>
+    <div class="cta-band__btns">
+      <a href="#contato" class="btn btn-white">Fale conosco</a>
+      <a href="#programas" class="btn btn-outline-w">Ver os Programas</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══ CONTATO ════════════════════════════════════════════ -->
+<section class="section" id="contato">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start">
+
+      <div>
+        <span class="eyebrow" style="color:var(--teal)">Contato</span>
+        <div class="rule" style="background:var(--teal)"></div>
+        <h2 class="s-title">Por onde você<br>quer começar?</h2>
+        <p style="font-size:16px;color:var(--text-md);line-height:1.8;margin-top:14px;margin-bottom:36px">Não há resposta errada. Há o que ressoa agora.</p>
+
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <a href="https://wa.me/5516981862829?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Alegre-Ser." target="_blank" style="display:flex;align-items:center;gap:18px;padding:18px 22px;border:1px solid var(--border-lt);border-radius:var(--r-md);transition:border-color .2s,transform .2s" onmouseover="this.style.borderColor='#25D366';this.style.transform='translateX(4px)'" onmouseout="this.style.borderColor='';this.style.transform=''">
+            <div style="width:42px;height:42px;background:rgba(37,211,102,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="20" height="20" viewBox="0 0 22 22" fill="none"><path d="M11 2C6.03 2 2 6.03 2 11c0 1.64.44 3.17 1.2 4.5L2 20l4.62-1.18A9 9 0 1 0 11 2z" stroke="#25D366" stroke-width="1.4"/><path d="M8 9.5c.5 1 1.5 2.5 3 3l1-1 2 1-1 2c-2.5 0-5.5-3-6-5.5L8 8l1 1.5z" stroke="#25D366" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg>
+            </div>
+            <div><div style="font-family:var(--head);font-size:13px;font-weight:600;color:var(--text)">WhatsApp</div><div style="font-size:12px;color:var(--text-lt)">Fale diretamente com a gente</div></div>
+          </a>
+
+          <a href="https://www.instagram.com/alegre_seroficial" target="_blank" style="display:flex;align-items:center;gap:18px;padding:18px 22px;border:1px solid var(--border-lt);border-radius:var(--r-md);transition:border-color .2s,transform .2s" onmouseover="this.style.borderColor='var(--terra)';this.style.transform='translateX(4px)'" onmouseout="this.style.borderColor='';this.style.transform=''">
+            <div style="width:42px;height:42px;background:rgba(200,69,35,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="2" y="2" width="16" height="16" rx="5" stroke="#c84523" stroke-width="1.4"/><circle cx="10" cy="10" r="4" stroke="#c84523" stroke-width="1.4"/><circle cx="15" cy="5" r="1" fill="#c84523"/></svg>
+            </div>
+            <div><div style="font-family:var(--head);font-size:13px;font-weight:600;color:var(--text)">Instagram</div><div style="font-size:12px;color:var(--text-lt)">@alegre_seroficial</div></div>
+          </a>
+
+          <a href="https://www.youtube.com/@Alegre-Ser" target="_blank" style="display:flex;align-items:center;gap:18px;padding:18px 22px;border:1px solid var(--border-lt);border-radius:var(--r-md);transition:border-color .2s,transform .2s" onmouseover="this.style.borderColor='var(--purple)';this.style.transform='translateX(4px)'" onmouseout="this.style.borderColor='';this.style.transform=''">
+            <div style="width:42px;height:42px;background:rgba(150,44,114,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="20" height="16" viewBox="0 0 22 16" fill="none"><rect x="1" y="1" width="20" height="14" rx="4" stroke="#962c72" stroke-width="1.4"/><path d="M9 5.5l5 2.5-5 2.5V5.5z" stroke="#962c72" stroke-width="1.2" stroke-linejoin="round" fill="none"/></svg>
+            </div>
+            <div><div style="font-family:var(--head);font-size:13px;font-weight:600;color:var(--text)">YouTube · PodSer</div><div style="font-size:12px;color:var(--text-lt)">@Alegre-Ser · Episódios do PodSer</div></div>
+          </a>
+        </div>
+      </div>
+
+      <div style="background:var(--bg);border-radius:var(--r-lg);padding:38px 34px;border:1px solid var(--border-lt)">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px">
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--purple);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 2.5l10 5.5-10 5.5V2.5z" fill="white"/></svg>
+          </div>
+          <div>
+            <span class="eyebrow" style="color:var(--purple)">PodSer · Podcast Alegre-Ser</span>
+            <p style="font-size:11px;color:var(--text-lt);margin-top:2px">Quinzenal · YouTube + plataformas</p>
+          </div>
+        </div>
+        <div class="rule" style="background:var(--purple)"></div>
+        <p style="font-size:13.5px;color:var(--text-md);line-height:1.75;margin-bottom:24px;font-family:var(--serif);font-style:italic">Episódios que expandem o que você já sente mas ainda não sabe nomear.</p>
+
+        <a href="https://www.youtube.com/@Alegre-Ser" target="_blank" class="pod-card">
+          <span class="pod-ep">EP 10</span>
+          <span class="pod-title">O Chato do Ego</span>
+          <span class="pod-play"><svg width="10" height="12" viewBox="0 0 10 12" fill="none"><path d="M1 1l8 5-8 5V1z" fill="white"/></svg></span>
+        </a>
+
+        <a href="https://www.youtube.com/@Alegre-Ser" target="_blank" class="pod-card">
+          <span class="pod-ep">EP 09</span>
+          <span class="pod-title">Ataques Energéticos</span>
+          <span class="pod-play"><svg width="10" height="12" viewBox="0 0 10 12" fill="none"><path d="M1 1l8 5-8 5V1z" fill="white"/></svg></span>
+        </a>
+
+        <a href="https://www.youtube.com/@Alegre-Ser" target="_blank" class="pod-card">
+          <span class="pod-ep">EP 07</span>
+          <span class="pod-title">Escolhas que curam e enfermam</span>
+          <span class="pod-play"><svg width="10" height="12" viewBox="0 0 10 12" fill="none"><path d="M1 1l8 5-8 5V1z" fill="white"/></svg></span>
+        </a>
+
+        <a href="https://www.youtube.com/@Alegre-Ser" target="_blank" class="pod-card">
+          <span class="pod-ep">EP 06</span>
+          <span class="pod-title">Atravessando os Incômodos</span>
+          <span class="pod-play"><svg width="10" height="12" viewBox="0 0 10 12" fill="none"><path d="M1 1l8 5-8 5V1z" fill="white"/></svg></span>
+        </a>
+
+        <a href="https://www.youtube.com/@Alegre-Ser" target="_blank" class="btn btn-outline" style="width:100%;justify-content:center;margin-top:18px;font-size:12px">
+          Ver todos os episódios
+          <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ FOOTER ════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand">Alegre-<em>Ser</em></div>
+        <p class="footer__desc">Expansão de consciência para empresas, famílias e pessoas.<br>Extensão da Metodologia Quântica Juan de la Luz no Brasil.</p>
+        <div class="footer__socials">
+          <a href="https://www.instagram.com/alegre_seroficial" target="_blank" class="footer__soc">IG</a>
+          <a href="https://www.youtube.com/@Alegre-Ser" target="_blank" class="footer__soc">YT</a>
+          <a href="https://wa.me/5516981862829" target="_blank" class="footer__soc">WA</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-h">Programas</div>
+        <ul class="footer__links">
+          <li><a href="#programas">Diálogos de Consciência</a></li>
+          <li><a href="#programas">Laboratório do Observador</a></li>
+          <li><a href="#programas">Espiral de Clareza</a></li>
+          <li><a href="#empresas">NR-1 para Empresas</a></li>
+          <li><a href="#para-quem">Trilha Individual</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-h">Alegre-Ser</div>
+        <ul class="footer__links">
+          <li><a href="#sobre">Quem somos</a></li>
+          <li><a href="#sobre">As facilitadoras</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li><a href="https://alegre-ser.com.br" target="_blank">alegre-ser.com.br</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Alegre-Ser · São Paulo, Brasil</span>
+      <span>Metodologia Quântica Juan de la Luz · <a href="https://alegre-ser.com.br">alegre-ser.com.br</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5516981862829?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Alegre-Ser." target="_blank" aria-label="WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+    <path d="M13 2C7.03 2 2 7.03 2 13c0 1.9.51 3.68 1.4 5.22L2 24l5.92-1.38A11 11 0 1 0 13 2z" fill="white"/>
+    <path d="M9.5 11.5c.6 1.2 1.8 3 3.6 3.6l1.2-1.2 2.4 1.2-1.2 2.4c-3 0-6.6-3.6-7.2-6.6l1.2-1.8 2.4 1.2-1.2 1.2z" fill="#25D366"/>
+  </svg>
+</a>
+
+
+<script>
+(function() {
+  'use strict';
+  var ns = 'http://www.w3.org/2000/svg';
+  var xl = 'http://www.w3.org/1999/xlink';
+  var svg = document.getElementById('hero-svg');
+  if (!svg) return;
+
+  /* ── Spiral params ──────────────────────────────────── */
+  var CX=240, CY=320, TURNS=2.75, SR=12, ER=220, N=280;
+
+  /* ── Generate spiral path string ────────────────────── */
+  var pts = [];
+  for (var i = 0; i <= N; i++) {
+    var t = i / N;
+    var a = t * TURNS * 2 * Math.PI - Math.PI / 2;
+    var r = SR + (ER - SR) * t;
+    pts.push( (CX + r * Math.cos(a)).toFixed(2) + ',' + (CY + r * Math.sin(a)).toFixed(2) );
+  }
+  var pd = 'M' + pts.join('L');
+
+  /* ── Defs: hidden path for animateMotion ─────────────── */
+  var defs = document.createElementNS(ns, 'defs');
+  var pEl  = document.createElementNS(ns, 'path');
+  pEl.setAttribute('id', 'sp');
+  pEl.setAttribute('d', pd);
+  defs.appendChild(pEl);
+  svg.appendChild(defs);
+
+  /* ── Draw visible spiral strokes ─────────────────────── */
+  function stroke(c, w, op, da) {
+    var p = document.createElementNS(ns, 'path');
+    p.setAttribute('d', pd);
+    p.setAttribute('fill', 'none');
+    p.setAttribute('stroke', c);
+    p.setAttribute('stroke-width', w);
+    p.setAttribute('opacity', op);
+    if (da) p.setAttribute('stroke-dasharray', da);
+    return p;
+  }
+  svg.appendChild(stroke('#229cb2', 1.6, 0.20, null));   /* teal solid */
+  svg.appendChild(stroke('#962c72', 0.9, 0.07, '6 14')); /* purple dashed */
+  svg.appendChild(stroke('#c84523', 0.7, 0.06, '2 18')); /* terra dotted */
+
+  /* ── Inner spiral accent: EXACT same formula, first 1.4 turns ── */
+  /* Uses identical CX/CY/TURNS/SR/ER/N so it aligns perfectly with pd */
+  var innerMax = Math.round(N * 1.4 / TURNS);
+  var iPts = [];
+  for (var k = 0; k <= innerMax; k++) {
+    var tk = k / N;
+    var ak = tk * TURNS * 2 * Math.PI - Math.PI / 2;
+    var rk = SR + (ER - SR) * tk;
+    iPts.push((CX + rk * Math.cos(ak)).toFixed(1) + ',' + (CY + rk * Math.sin(ak)).toFixed(1));
+  }
+  var centerSpiral = document.createElementNS(ns, 'path');
+  centerSpiral.setAttribute('d', 'M' + iPts.join('L'));
+  centerSpiral.setAttribute('fill', 'none');
+  centerSpiral.setAttribute('stroke', '#229cb2');
+  centerSpiral.setAttribute('stroke-width', '3.2');
+  centerSpiral.setAttribute('opacity', '0.16');
+  centerSpiral.setAttribute('stroke-linecap', 'round');
+  svg.appendChild(centerSpiral);
+
+  /* ── animateMotion helper ─────────────────────────────── */
+  function addAnimated(innerSVG, dur, beginSec, rotate) {
+    var g = document.createElementNS(ns, 'g');
+    g.innerHTML = innerSVG;
+    var am = document.createElementNS(ns, 'animateMotion');
+    am.setAttribute('dur', dur + 's');
+    am.setAttribute('begin', beginSec + 's');
+    am.setAttribute('repeatCount', 'indefinite');
+    am.setAttribute('rotate', rotate);
+    var mp = document.createElementNS(ns, 'mpath');
+    mp.setAttributeNS(xl, 'href', '#sp');
+    am.appendChild(mp);
+    g.appendChild(am);
+    svg.appendChild(g);
+  }
+
+  /* ── STICK FIGURE base ───────────────────────────────── */
+  /* dx/dy = position offset, s = scale (1 = adult, 0.72 = child) */
+  function fig(dx, dy, s, c) {
+    return '<circle cx="'+dx+'" cy="'+(dy-13*s)+'" r="'+(5*s)+'" fill="'+c+'"/>'
+      +'<line x1="'+dx+'" y1="'+(dy-8*s)+'" x2="'+dx+'" y2="'+(dy+4*s)+'" stroke="'+c+'" stroke-width="'+(2*s)+'" stroke-linecap="round"/>'
+      +'<line x1="'+(dx-5*s)+'" y1="'+(dy-2*s)+'" x2="'+(dx+5*s)+'" y2="'+(dy-2*s)+'" stroke="'+c+'" stroke-width="'+(2*s)+'" stroke-linecap="round"/>'
+      +'<line x1="'+dx+'" y1="'+(dy+4*s)+'" x2="'+(dx-4*s)+'" y2="'+(dy+13*s)+'" stroke="'+c+'" stroke-width="'+(2*s)+'" stroke-linecap="round"/>'
+      +'<line x1="'+dx+'" y1="'+(dy+4*s)+'" x2="'+(dx+4*s)+'" y2="'+(dy+13*s)+'" stroke="'+c+'" stroke-width="'+(2*s)+'" stroke-linecap="round"/>';
+  }
+
+  /* ── SPEECH BUBBLE ────────────────────────────────────── */
+  /* bx/by = top-left corner, w/h = size, c = color, bubLeft = bubble is to the left of person */
+  function bubble(bx, by, bW, bH, c, bubLeft) {
+    var tailY1 = by + bH;
+    var tailY2 = by + bH + 7;
+    var tail;
+    if (bubLeft) {
+      /* tail on right edge (person is to the right) */
+      tail = '<polygon points="'+(bx+bW-5)+','+tailY1+' '+(bx+bW)+','+tailY1+' '+(bx+bW)+','+tailY2+'" fill="'+c+'"/>';
+    } else {
+      /* tail on left edge (person is to the left) */
+      tail = '<polygon points="'+bx+','+tailY1+' '+(bx+5)+','+tailY1+' '+bx+','+tailY2+'" fill="'+c+'"/>';
+    }
+    var lines = '';
+    if (bW >= 14) {
+      lines += '<line x1="'+(bx+4)+'" y1="'+(by+6)+'" x2="'+(bx+bW-4)+'" y2="'+(by+6)+'" stroke="white" stroke-width="1.2" stroke-linecap="round"/>';
+    }
+    if (bH >= 13) {
+      lines += '<line x1="'+(bx+4)+'" y1="'+(by+11)+'" x2="'+(bx+bW/2+2)+'" y2="'+(by+11)+'" stroke="white" stroke-width="1.2" stroke-linecap="round"/>';
+    }
+    if (bW < 14) {
+      /* dots for tiny bubbles */
+      lines = '<circle cx="'+(bx+4)+'" cy="'+(by+4)+'" r="1.2" fill="white" opacity="0.85"/>'
+             +'<circle cx="'+(bx+7)+'" cy="'+(by+4)+'" r="1.2" fill="white" opacity="0.85"/>';
+    }
+    return '<rect x="'+bx+'" y="'+by+'" width="'+bW+'" height="'+bH+'" rx="'+(bH/2)+'" fill="'+c+'"/>'+tail+lines;
+  }
+
+  /* ── LABELED ORB (Empresas / Famílias / Pessoas / Energia) ─ */
+  function labeledOrb(c, label) {
+    return '<circle cx="0" cy="0" r="26" fill="'+c+'" opacity="0.9"/>'
+      +'<circle cx="0" cy="0" r="26" fill="none" stroke="white" stroke-width="1.2" opacity="0.22"/>'
+      +'<circle cx="-7" cy="-7" r="6" fill="white" opacity="0.13"/>'
+      +'<text x="0" y="4" text-anchor="middle" font-family="Space Grotesk,sans-serif" '
+      +'font-size="7.5" font-weight="700" fill="white" letter-spacing="0.1em">'+label+'</text>';
+  }
+
+  /* ── SINGLE PERSON + BUBBLE ─────────────────────────── */
+  function singlePerson(c, bubLeft, bubSize) {
+    var bW = bubSize==='lg' ? 27 : bubSize==='md' ? 20 : 12;
+    var bH = bubSize==='lg' ? 14 : bubSize==='md' ? 11 :  8;
+    var bx = bubLeft ? -(bW + 5) : 7;
+    return fig(0,0,1,c) + bubble(bx, -33, bW, bH, c, bubLeft);
+  }
+
+  /* ── COUPLE (2 adults + shared bubble) ─────────────── */
+  function couple(c1, c2) {
+    return fig(-12,0,1,c1) + fig(12,0,1,c2)
+      + '<rect x="-17" y="-38" width="34" height="13" rx="5.5" fill="'+c1+'" opacity="0.92"/>'
+      + '<polygon points="-4,-25 0,-25 -4,-20" fill="'+c1+'" opacity="0.92"/>'
+      + '<line x1="-12" y1="-32" x2="12" y2="-32" stroke="white" stroke-width="1.3" stroke-linecap="round"/>'
+      + '<line x1="-12" y1="-27" x2="2" y2="-27" stroke="white" stroke-width="1.3" stroke-linecap="round"/>';
+  }
+
+  /* ── FAMILY GROUP (adult + child + adult + big bubble + small bubble) ── */
+  function family(ca, cc, cb) {
+    var adultL = fig(-18, 0, 1,    ca);
+    var child  = fig(  0, 2, 0.72, cc);   /* child slightly lower + smaller */
+    var adultR = fig( 18, 0, 1,    cb);
+    /* large shared bubble above all three */
+    var bigBub = '<rect x="-22" y="-45" width="44" height="16" rx="6" fill="'+ca+'" opacity="0.9"/>'
+      + '<polygon points="-5,-29 0,-29 -5,-24" fill="'+ca+'" opacity="0.9"/>'
+      + '<line x1="-17" y1="-38" x2="17" y2="-38" stroke="white" stroke-width="1.3" stroke-linecap="round"/>'
+      + '<line x1="-17" y1="-32" x2="5" y2="-32" stroke="white" stroke-width="1.3" stroke-linecap="round"/>';
+    /* small extra bubble for right adult */
+    var smallR = '<rect x="22" y="-25" width="14" height="9" rx="4" fill="'+cb+'" opacity="0.88"/>'
+      + '<polygon points="22,-16 22,-20 26,-20" fill="'+cb+'" opacity="0.88"/>'
+      + '<circle cx="27" cy="-21" r="1.2" fill="white" opacity="0.85"/>'
+      + '<circle cx="31" cy="-21" r="1.2" fill="white" opacity="0.85"/>';
+    return adultL + child + adultR + bigBub + smallR;
+  }
+
+  /* ── MAGNIFYING GLASS ─────────────────────────────────── */
+  function magnifier(c) {
+    return '<circle cx="0" cy="-2" r="9" fill="rgba(255,255,255,0.9)" stroke="'+c+'" stroke-width="2.2"/>'
+      + '<circle cx="0" cy="-2" r="5" fill="none" stroke="'+c+'" stroke-width="0.6" opacity="0.3"/>'
+      + '<line x1="6" y1="4" x2="13" y2="11" stroke="'+c+'" stroke-width="2.8" stroke-linecap="round"/>'
+      + '<circle cx="-2" cy="-4" r="2.5" fill="white" opacity="0.5"/>';
+  }
+
+  /* ════════════════════════════════════════════════════════
+     ADD ALL ANIMATED ELEMENTS TO SPIRAL
+     ════════════════════════════════════════════════════════ */
+
+  /* LABELED ORBS — upright, 36s cycle, spread evenly at ¼ intervals */
+  addAnimated(labeledOrb('#229cb2', 'EMPRESAS'), 36,   0, '0');
+  addAnimated(labeledOrb('#dc882c', 'FAMÍLIAS'), 36,  -9, '0');
+  addAnimated(labeledOrb('#c84523', 'PESSOAS'),  36, -18, '0');
+  addAnimated(labeledOrb('#962c72', 'ENERGIA'),  36, -27, '0');
+
+  /* FAMILY GROUP — upright */
+  addAnimated(family('#c84523', '#dc882c', '#962c72'), 32,  -4, '0');
+
+  /* COUPLE — upright */
+  addAnimated(couple('#229cb2', '#c84523'),            28, -14, '0');
+
+  /* SINGLE PERSONS — varied bubble sizes, upright */
+  addAnimated(singlePerson('#c84523', false, 'lg'), 26,  -8, '0');
+  addAnimated(singlePerson('#962c72', true,  'sm'), 26, -19, '0');
+  addAnimated(singlePerson('#229cb2', false, 'md'), 26, -23, '0');
+
+  /* MAGNIFIERS — rotate with path, subtle */
+  addAnimated(magnifier('#dc882c'), 22,  -5, 'auto');
+  addAnimated(magnifier('#229cb2'), 22, -16, 'auto');
+
+})();
+</script>
+</body>
+</html>
