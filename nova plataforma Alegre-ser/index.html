@@ -235,6 +235,11 @@
 
     @media (max-width: 600px) { .section { padding: 64px 0; } .wrap, .wrap-sm { padding: 0 20px; } }
 
+    /* FACILITADORAS + CONTATO grids */
+    .facilit-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .contato-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    @media (max-width: 900px) { .facilit-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; } .contato-grid { grid-template-columns: 1fr; gap: 40px; } }
+
     /* PODSER CARDS (contato) */
     .pod-card { display:flex; align-items:center; gap:14px; padding:14px 16px; border:1px solid var(--border-lt); border-radius:var(--r-md); text-decoration:none; margin-bottom:10px; background:var(--bg-warm); transition:transform .22s, box-shadow .22s, border-color .22s; }
     .pod-card:hover { transform:translateX(5px); box-shadow:0 6px 22px rgba(0,0,0,.07); border-color:var(--purple); }
@@ -513,7 +518,7 @@
       <p class="s-sub">Psicóloga, advogada e jornalista — todas Canais de Luz certificadas pelo Método JDL. Trajetórias de transformação real, não apenas ensinada.</p>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+    <div class="facilit-grid">
 
       <div style="border:1px solid var(--border-lt);border-radius:var(--r-lg);overflow:hidden;background:var(--bg);transition:transform .25s,box-shadow .25s" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 18px 50px rgba(0,0,0,.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
         <div style="background:var(--terra);padding:32px 28px 24px">
@@ -578,7 +583,7 @@
 <!-- ═══ CONTATO ════════════════════════════════════════════ -->
 <section class="section" id="contato">
   <div class="wrap">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start">
+    <div class="contato-grid">
 
       <div>
         <span class="eyebrow" style="color:var(--teal)">Contato</span>
