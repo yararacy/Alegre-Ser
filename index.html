@@ -114,6 +114,20 @@
     /* SECTION */
     .section { padding: 96px 0; }
     .section--warm  { background: var(--bg-warm); }
+
+    /* VÍDEOS — facilitadoras apresentam */
+    .vids-grid { display: flex; gap: 48px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
+    .vidcard { width: 300px; max-width: 100%; }
+    .vidcard__video { width: 100%; aspect-ratio: 9 / 16; background: #000; border-radius: var(--r-lg); display: block; box-shadow: 0 20px 54px rgba(0,0,0,.16); border-top: 4px solid var(--teal); }
+    .vidcard--amber .vidcard__video { border-top-color: var(--amber); }
+    .vidcard__cap { text-align: center; margin-top: 20px; }
+    .vidcard__arche { display: block; font-family: var(--head); font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--teal); margin-bottom: 7px; }
+    .vidcard--amber .vidcard__arche { color: var(--amber-dk); }
+    .vidcard__name { display: block; font-family: var(--head); font-size: 20px; font-weight: 700; letter-spacing: -.02em; color: var(--text); }
+    .vidcard__prog { display: block; font-size: 13.5px; color: var(--text-md); margin-top: 4px; }
+    .vidcard__prog b { font-weight: 600; color: var(--teal-dk); }
+    .vidcard--amber .vidcard__prog b { color: var(--amber-dk); }
+    @media (max-width: 640px) { .vids-grid { gap: 40px; } .vidcard { width: 268px; } }
     .s-head { margin-bottom: 56px; }
     .s-head--c { text-align: center; }
     .s-head--c .rule { margin: 12px auto 20px; }
@@ -559,6 +573,47 @@
           <p style="font-family:var(--serif);font-size:14px;font-style:italic;color:var(--text-md);line-height:1.7">"Coloco mentes para dormir e corações para sentir."</p>
         </div>
       </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ VÍDEOS — FACILITADORAS APRESENTAM ═══════════════════ -->
+<section class="section section--warm" id="apresentacoes">
+  <div class="wrap">
+    <div class="s-head s-head--c">
+      <span class="eyebrow" style="color:var(--teal)">Na voz de quem cria</span>
+      <div class="rule" style="background:var(--teal);margin:12px auto 20px"></div>
+      <h2 class="s-title">As facilitadoras apresentam.</h2>
+      <p class="s-sub">Conheça dois dos nossos processos pela voz de quem os conduz.</p>
+    </div>
+
+    <div class="vids-grid">
+
+      <figure class="vidcard vidcard--teal">
+        <video class="vidcard__video" controls preload="metadata" playsinline>
+          <source src="videos/robertha-ciranda-de-consciencia.mp4" type="video/mp4" />
+          Seu navegador não suporta vídeo.
+        </video>
+        <figcaption class="vidcard__cap">
+          <span class="vidcard__arche">A Transmissora Estelar</span>
+          <span class="vidcard__name">Robertha Aranha</span>
+          <span class="vidcard__prog">apresenta a <b>Ciranda de Consciência</b></span>
+        </figcaption>
+      </figure>
+
+      <figure class="vidcard vidcard--amber">
+        <video class="vidcard__video" controls preload="metadata" playsinline>
+          <source src="videos/yara-espiral-de-clareza.mp4" type="video/mp4" />
+          Seu navegador não suporta vídeo.
+        </video>
+        <figcaption class="vidcard__cap">
+          <span class="vidcard__arche">O Farol</span>
+          <span class="vidcard__name">Yara Racy</span>
+          <span class="vidcard__prog">apresenta a <b>Espiral de Clareza</b></span>
+        </figcaption>
+      </figure>
 
     </div>
   </div>
