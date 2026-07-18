@@ -64,14 +64,16 @@
     .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(255,255,255,.95); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border-lt); }
     .nav__in { max-width: 1160px; margin: 0 auto; padding: 0 40px; height: 72px; display: flex; align-items: center; justify-content: space-between; }
     .nav__logo { display: flex; align-items: center; gap: 10px; font-family: var(--head); font-size: 20px; font-weight: 700; color: var(--text); letter-spacing: -.02em; }
+    .nav__logo em { font-family: var(--serif); font-style: italic; font-weight: 500; letter-spacing: 0; margin-left: -9px; }
     .nav__mark { width: 34px; height: 34px; border-radius: 50%; background: var(--terra); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .nav__mark img { width: 74%; height: 74%; object-fit: contain; display: block; }
-    .nav__links { display: flex; align-items: center; gap: 36px; }
+    .nav__links { display: flex; align-items: center; gap: 30px; }
+    .nav__links a { white-space: nowrap; }
     .nav__links a { font-family: var(--head); font-size: 13px; font-weight: 500; letter-spacing: .04em; color: var(--text-md); transition: color .2s; }
     .nav__links a:hover { color: var(--text); }
     .nav__burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
     .nav__burger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
-    @media (max-width: 860px) { .nav__links, .nav__cta { display: none; } .nav__burger { display: flex; } }
+    @media (max-width: 980px) { .nav__links, .nav__cta { display: none; } .nav__burger { display: flex; } }
 
     /* HERO */
     .hero { min-height: 100vh; padding-top: 72px; display: grid; grid-template-columns: 1fr 1fr; align-items: center; overflow: hidden; background: var(--bg-warm); }
@@ -281,11 +283,12 @@
   <div class="nav__in">
     <a href="index.html" class="nav__logo">
       <span class="nav__mark"><img src="espiral-alegre-ser.png" alt="Alegre-Ser" /></span>
-      Alegre-Ser
+      Alegre-<em>Ser</em>
     </a>
     <ul class="nav__links">
       <li><a href="#programas">Programas</a></li>
-      <li><a href="#empresas">Empresas</a></li>
+      <li><a href="empresas.html">Empresas</a></li>
+      <li><a href="trilha-individual.html">Trilha Individual</a></li>
       <li><a href="#para-quem">Para quem</a></li>
       <li><a href="#sobre">Sobre</a></li>
     </ul>
@@ -443,7 +446,7 @@
         </div>
         <div style="margin-top:32px;display:flex;gap:12px;flex-wrap:wrap;">
           <a href="#contato" class="btn btn-white">Solicitar diagnóstico NR-1</a>
-          <a href="#contato" class="btn btn-outline-w">Saiba mais</a>
+          <a href="empresas.html" class="btn btn-outline-w">Saiba mais</a>
         </div>
       </div>
       <div class="nr1__card">
@@ -511,7 +514,7 @@
             <li>Cansaço emocional ou energético</li>
             <li>Transição de vida importante</li>
           </ul>
-          <a href="#contato" class="pub__link">Ver Trilha Individual <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="trilha-individual.html" class="pub__link">Ver Trilha Individual <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
 

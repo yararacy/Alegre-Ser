@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trilha Individual — Alegre-Ser</title>
+  <meta name="description" content="A Trilha Alegre-Ser é um processo individual estruturado em 5 etapas para alinhar o que você sente, pensa e faz — e transformar clareza em critério de decisão. Método Quântico Juan de la Luz." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;1,300&family=Playfair+Display:ital,wght@1,400;1,500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --terra:     #c84523;
+      --terra-dk:  #a0361c;
+      --amber:     #dc882c;
+      --amber-dk:  #b56d20;
+      --teal:      #229cb2;
+      --teal-dk:   #1a7d8f;
+      --purple:    #962c72;
+      --purple-dk: #761f58;
+      --bg:        #ffffff;
+      --bg-warm:   #fdf9f4;
+      --cream:     #f0e8d8;
+      --text:      #1a1210;
+      --text-md:   #4a3a2e;
+      --text-lt:   #8a7a6a;
+      --border:    #e8e0d4;
+      --border-lt: #f2ede6;
+      --petrol:    #155e6b;
+      --petrol-dk: #104a54;
+      --teal-t1:   #d8eef1;
+      --teal-t2:   #bfe6ec;
+      --sand:      #f5efe0;
+      --terra-t:   #fdede6;
+      --amber-t:   #fbedd5;
+      --head: 'Space Grotesk', 'Helvetica Neue', sans-serif;
+      --body: 'Inter', 'Helvetica Neue', sans-serif;
+      --serif: 'Playfair Display', Georgia, serif;
+      --r-sm: 6px; --r-md: 14px; --r-lg: 20px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--body); font-weight: 400; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    .wrap    { max-width: 1160px; margin: 0 auto; padding: 0 40px; }
+    .eyebrow { font-family: var(--head); font-size: 11px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; }
+    .rule    { width: 32px; height: 3px; border-radius: 2px; margin: 12px 0 20px; }
+
+    /* BUTTONS */
+    .btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--head); font-size: 13px; font-weight: 600; letter-spacing: .04em; padding: 14px 28px; border-radius: var(--r-sm); border: 2px solid transparent; cursor: pointer; transition: all .2s; }
+    .btn svg { transition: transform .2s; flex-shrink: 0; }
+    .btn:hover svg { transform: translateX(3px); }
+    .btn-terra    { background: var(--terra);  color: #fff; border-color: var(--terra); }
+    .btn-terra:hover   { background: var(--terra-dk); border-color: var(--terra-dk); }
+    .btn-white    { background: #fff; color: var(--terra); border-color: #fff; }
+    .btn-white:hover   { background: rgba(255,255,255,.9); }
+    .btn-outline  { background: transparent; color: var(--text); border-color: var(--border); }
+    .btn-outline:hover { border-color: var(--text); }
+    .btn-outline-w { background: transparent; color: #fff; border-color: rgba(255,255,255,.55); }
+    .btn-outline-w:hover { border-color: #fff; background: rgba(255,255,255,.08); }
+
+    /* NAV */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(255,255,255,.95); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border-lt); }
+    .nav__in { max-width: 1160px; margin: 0 auto; padding: 0 40px; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .nav__logo { display: flex; align-items: center; gap: 10px; font-family: var(--head); font-size: 20px; font-weight: 700; color: var(--text); letter-spacing: -.02em; }
+    .nav__logo em { font-family: var(--serif); font-style: italic; font-weight: 500; letter-spacing: 0; margin-left: -9px; }
+    .nav__mark { width: 34px; height: 34px; border-radius: 50%; background: var(--terra); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .nav__mark img { width: 74%; height: 74%; object-fit: contain; display: block; }
+    .nav__links { display: flex; align-items: center; gap: 30px; }
+    .nav__links a { font-family: var(--head); font-size: 13px; font-weight: 500; letter-spacing: .04em; color: var(--text-md); transition: color .2s; white-space: nowrap; }
+    .nav__links a:hover, .nav__links a.is-active { color: var(--terra); }
+    .nav__links a.is-active { font-weight: 700; }
+    .nav__burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav__burger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
+    @media (max-width: 980px) { .nav__links, .nav__cta { display: none; } .nav__burger { display: flex; } }
+
+    /* SECTION */
+    .section { padding: 96px 0; }
+    .section--warm  { background: var(--bg-warm); }
+    .section--sand  { background: var(--sand); }
+    .s-head { margin-bottom: 56px; }
+    .s-head--c { text-align: center; }
+    .s-head--c .rule { margin: 12px auto 20px; }
+    .s-title { font-family: var(--head); font-size: clamp(26px, 3.2vw, 42px); font-weight: 700; line-height: 1.12; letter-spacing: -.028em; }
+    .s-sub   { font-size: 16px; color: var(--text-md); line-height: 1.8; max-width: 620px; margin-top: 14px; }
+    .s-head--c .s-sub { margin-left: auto; margin-right: auto; }
+
+    /* HERO */
+    .thero { position: relative; padding: 152px 0 96px; overflow: hidden;
+             background: linear-gradient(135deg, var(--terra-dk) 0%, var(--terra) 48%, var(--amber) 100%); }
+    .thero::after { content: ''; position: absolute; right: -120px; top: -110px; width: 440px; height: 440px; border-radius: 50%;
+                    background: radial-gradient(circle, rgba(255,255,255,.12) 0%, transparent 68%); pointer-events: none; }
+    .thero__in { position: relative; z-index: 2; max-width: 820px; }
+    .thero__pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.3); border-radius: 100px; padding: 6px 16px; margin-bottom: 26px; font-family: var(--head); font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #fff; }
+    .thero__pill svg { display: block; }
+    .thero__h1 { font-family: var(--head); font-size: clamp(34px, 5vw, 58px); font-weight: 700; line-height: 1.08; letter-spacing: -.035em; color: #fff; margin-bottom: 22px; }
+    .thero__h1 em { font-style: italic; font-family: var(--serif); font-weight: 400; color: #ffe6c2; }
+    .thero__sub { font-size: 17px; color: rgba(255,255,255,.9); line-height: 1.78; max-width: 640px; margin-bottom: 34px; }
+    .thero__ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* CARDS (custo do problema) */
+    .cards3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+    .kcard { background: var(--bg); border: 1px solid var(--border-lt); border-top: 4px solid var(--terra); border-radius: var(--r-lg); padding: 30px 28px; transition: transform .25s, box-shadow .25s; }
+    .kcard:nth-child(2) { border-top-color: var(--amber); }
+    .kcard:nth-child(3) { border-top-color: var(--purple); }
+    .kcard:hover { transform: translateY(-6px); box-shadow: 0 20px 54px rgba(0,0,0,.08); }
+    .kcard__ico { width: 44px; height: 44px; border-radius: 50%; background: var(--terra-t); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+    .kcard:nth-child(2) .kcard__ico { background: var(--amber-t); }
+    .kcard:nth-child(3) .kcard__ico { background: #f0dcea; }
+    .kcard__p { font-size: 15px; color: var(--text-md); line-height: 1.65; }
+
+    /* ETAPAS (como funciona) */
+    .etapas { display: flex; flex-direction: column; gap: 16px; max-width: 860px; }
+    .etapa { display: grid; grid-template-columns: 60px 1fr; gap: 22px; align-items: center; background: var(--bg); border: 1px solid var(--border-lt); border-radius: var(--r-lg); padding: 26px 30px; transition: transform .2s, box-shadow .2s; }
+    .etapa:hover { transform: translateX(5px); box-shadow: 0 10px 30px rgba(0,0,0,.06); }
+    .etapa__n { width: 56px; height: 56px; border-radius: 50%; background: var(--terra); color: #fff; font-family: var(--head); font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; letter-spacing: -.01em; }
+    .etapa:nth-child(2) .etapa__n { background: var(--amber); }
+    .etapa:nth-child(3) .etapa__n { background: var(--purple); }
+    .etapa:nth-child(4) .etapa__n { background: var(--petrol); font-size: 15px; }
+    .etapa__h { font-family: var(--head); font-size: 18px; font-weight: 700; letter-spacing: -.02em; margin-bottom: 4px; color: var(--terra-dk); }
+    .etapa:nth-child(2) .etapa__h { color: var(--amber-dk); }
+    .etapa:nth-child(3) .etapa__h { color: var(--purple-dk); }
+    .etapa:nth-child(4) .etapa__h { color: var(--petrol); }
+    .etapa__p { font-size: 14px; color: var(--text-md); line-height: 1.6; }
+    .etapa__tag { display: inline-block; font-family: var(--head); font-size: 9.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #fff; background: rgba(0,0,0,.18); padding: 3px 9px; border-radius: 100px; margin-left: 8px; vertical-align: middle; }
+    .etapas__note { font-size: 14px; color: var(--text-md); line-height: 1.7; max-width: 860px; margin-top: 24px; padding: 18px 22px; background: var(--bg-warm); border-left: 3px solid var(--amber); border-radius: 0 var(--r-md) var(--r-md) 0; }
+    .etapas__note b { color: var(--text); font-weight: 600; }
+
+    /* PARA QUEM (checklist) */
+    .para-quem { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 40px; max-width: 900px; }
+    .pq-item { display: flex; align-items: flex-start; gap: 14px; font-size: 16px; color: var(--text-md); line-height: 1.5; padding: 6px 0; }
+    .pq-check { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: var(--amber); display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+    @media (max-width: 700px) { .para-quem { grid-template-columns: 1fr; } }
+
+    /* RESULTADO (dark) */
+    .resultado { background: var(--terra-dk); color: #fff; padding: 96px 0; position: relative; overflow: hidden; }
+    .resultado::before { content: '\201C'; position: absolute; left: 3%; top: -34px; font-family: var(--serif); font-style: italic; font-size: 280px; color: rgba(255,255,255,.08); line-height: 1; pointer-events: none; }
+    .resultado__in { position: relative; max-width: 860px; }
+    .resultado__text { font-family: var(--serif); font-style: italic; font-size: clamp(22px,2.9vw,32px); line-height: 1.45; color: #fff; margin-bottom: 26px; }
+    .resultado__note { font-size: 16px; color: rgba(255,255,255,.85); line-height: 1.8; }
+    .resultado__note b { color: #ffe6c2; font-weight: 400; font-family: var(--serif); font-style: italic; }
+
+    /* CTA BAND */
+    .cta-band { background: linear-gradient(130deg, var(--terra-dk) 0%, var(--terra) 50%, var(--amber) 100%); padding: 84px 0; text-align: center; position: relative; overflow: hidden; }
+    .cta-band::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 72% 45%, rgba(255,255,255,.18) 0%, transparent 62%); pointer-events: none; }
+    .cta-band .wrap { position: relative; }
+    .cta-band__title { font-family: var(--head); font-size: clamp(26px, 3.6vw, 44px); font-weight: 700; color: #fff; line-height: 1.14; letter-spacing: -.028em; margin-bottom: 14px; }
+    .cta-band__title em { font-style: italic; font-family: var(--serif); font-weight: 400; color: #fff; }
+    .cta-band__sub   { font-size: 16.5px; color: rgba(255,255,255,.92); margin: 0 auto 30px; max-width: 620px; line-height: 1.7; }
+    .cta-band__sub b { font-weight: 600; color: #fff; }
+    .cta-band__btns  { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    /* FOOTER */
+    .footer { background: #120e0c; color: rgba(255,255,255,.6); padding: 64px 0 36px; }
+    .footer__grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 56px; margin-bottom: 44px; }
+    .footer__brand { font-family: var(--head); font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 10px; letter-spacing: -.02em; }
+    .footer__brand em { color: var(--teal); font-style: normal; }
+    .footer__desc { font-size: 14px; line-height: 1.75; margin-bottom: 22px; }
+    .footer__socials { display: flex; gap: 10px; }
+    .footer__soc { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,255,255,.15); display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: var(--head); font-weight: 700; transition: border-color .2s, color .2s; }
+    .footer__soc:hover { border-color: var(--teal); color: var(--teal); }
+    .footer__col-h { font-family: var(--head); font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 18px; }
+    .footer__links { display: flex; flex-direction: column; gap: 10px; }
+    .footer__links a { font-size: 14px; color: rgba(255,255,255,.5); transition: color .2s; }
+    .footer__links a:hover { color: #fff; }
+    .footer__bottom { border-top: 1px solid rgba(255,255,255,.07); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; }
+    .footer__bottom a { color: rgba(255,255,255,.35); }
+    .footer__bottom a:hover { color: rgba(255,255,255,.7); }
+    @media (max-width: 768px) { .footer__grid { grid-template-columns: 1fr; gap: 32px; } .footer__bottom { flex-direction: column; gap: 8px; text-align: center; } }
+
+    /* WA FLOAT */
+    .wa-float { position: fixed; bottom: 28px; right: 28px; z-index: 100; width: 54px; height: 54px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,.4); transition: transform .2s; }
+    .wa-float:hover { transform: scale(1.08); }
+
+    @media (max-width: 900px) { .cards3 { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; } }
+    @media (max-width: 640px) { .etapa { grid-template-columns: 1fr; gap: 12px; text-align: left; } }
+    @media (max-width: 600px) { .section { padding: 64px 0; } .wrap { padding: 0 20px; } .thero { padding: 130px 0 72px; } }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav class="nav">
+  <div class="nav__in">
+    <a href="index.html" class="nav__logo">
+      <span class="nav__mark"><img src="espiral-alegre-ser.png" alt="Alegre-Ser" /></span>
+      Alegre-<em>Ser</em>
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html#programas">Programas</a></li>
+      <li><a href="empresas.html">Empresas</a></li>
+      <li><a href="trilha-individual.html" class="is-active">Trilha Individual</a></li>
+      <li><a href="index.html#para-quem">Para quem</a></li>
+      <li><a href="index.html#sobre">Sobre</a></li>
+    </ul>
+    <a href="index.html#contato" class="btn btn-terra nav__cta">Falar conosco</a>
+    <div class="nav__burger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+
+<!-- ═══ HERO (slide 1) ═══ -->
+<header class="thero">
+  <div class="wrap">
+    <div class="thero__in">
+      <div class="thero__pill">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="3.4" r="2.1" stroke="#fff" stroke-width="1.3"/><path d="M2.4 12c0-2.2 2-3.9 4.6-3.9S11.6 9.8 11.6 12" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/><path d="M2.6 6.2L1 5m10.4 1.2L13 5" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/></svg>
+        Trilha Alegre-Ser · Processo Individual
+      </div>
+      <h1 class="thero__h1">Alinhe o que você<br><em>sente</em>, pensa e faz.</h1>
+      <p class="thero__sub">Não é uma sessão avulsa de terapia. Não é curso de autoconhecimento genérico. É um processo estruturado de clareza — em 5 etapas — para reorganizar o que está desalinhado dentro de você.</p>
+      <div class="thero__ctas">
+        <a href="https://wa.me/5516981862829?text=Olá!%20Quero%20começar%20minha%20Trilha%20Alegre-Ser." target="_blank" class="btn btn-white">
+          Começar minha Trilha
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#como-funciona" class="btn btn-outline-w">Como funciona</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- ═══ CUSTO DO PROBLEMA (slide 2) ═══ -->
+<section class="section">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="eyebrow" style="color:var(--terra)">O custo da incongruência</span>
+      <div class="rule" style="background:var(--terra)"></div>
+      <h2 class="s-title">A distância entre o que você sente,<br>pensa e faz tem um custo real.</h2>
+      <p class="s-sub">O que a psicologia chama de <em style="font-family:var(--serif);font-style:italic">incongruência interna</em> cobra seu preço no dia a dia — nem sempre de forma óbvia:</p>
+    </div>
+    <div class="cards3">
+      <div class="kcard">
+        <div class="kcard__ico"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 3v8l5 3" stroke="#c84523" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="11" r="8" stroke="#c84523" stroke-width="1.5"/></svg></div>
+        <p class="kcard__p">Decisões que parecem certas na hora, mas não se sustentam depois.</p>
+      </div>
+      <div class="kcard">
+        <div class="kcard__ico"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 8a7 7 0 0 1 12-3m2 1V3m0 3h-3M18 14a7 7 0 0 1-12 3m-2-1v3m0-3h3" stroke="#dc882c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <p class="kcard__p">Os mesmos padrões se repetindo em relações diferentes.</p>
+      </div>
+      <div class="kcard">
+        <div class="kcard__ico"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 18S3.5 13.5 3.5 8.2A3.8 3.8 0 0 1 11 6.8a3.8 3.8 0 0 1 7.5 1.4C18.5 13.5 11 18 11 18z" stroke="#962c72" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+        <p class="kcard__p">Um cansaço que não é só físico — é emocional, e não passa com descanso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ COMO FUNCIONA — 5 ETAPAS (slide 3) ═══ -->
+<section class="section section--warm" id="como-funciona">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="eyebrow" style="color:var(--amber-dk)">Como funciona</span>
+      <div class="rule" style="background:var(--amber)"></div>
+      <h2 class="s-title">Um processo em 5 etapas —<br>não uma sessão isolada.</h2>
+    </div>
+    <div class="etapas">
+      <div class="etapa">
+        <div class="etapa__n">1</div>
+        <div>
+          <div class="etapa__h">Os 5 Passos Essenciais</div>
+          <p class="etapa__p">Identifica os padrões que se repetem nas suas escolhas.</p>
+        </div>
+      </div>
+      <div class="etapa">
+        <div class="etapa__n">2</div>
+        <div>
+          <div class="etapa__h">Consciência Multidimensional</div>
+          <p class="etapa__p">Reorganiza o que está desalinhado no presente.</p>
+        </div>
+      </div>
+      <div class="etapa">
+        <div class="etapa__n">3</div>
+        <div>
+          <div class="etapa__h">Quântica em Ação</div>
+          <p class="etapa__p">Aplica a clareza no seu dia a dia.</p>
+        </div>
+      </div>
+      <div class="etapa">
+        <div class="etapa__n">4·5</div>
+        <div>
+          <div class="etapa__h">Ciranda de Consciência<span class="etapa__tag">em grupo</span></div>
+          <p class="etapa__p">Consolida o processo, ampliando a percepção junto com outras pessoas.</p>
+        </div>
+      </div>
+    </div>
+    <p class="etapas__note">As <b>3 primeiras são sessões individuais</b> — entregam a informação e a reorganização energética inicial. As <b>2 Cirandas finais acontecem em grupo</b>: o espaço de prática e integração coletiva que sustenta a mudança no cotidiano. <em style="font-family:var(--serif);font-style:italic">20% informação, 80% prática.</em></p>
+  </div>
+</section>
+
+
+<!-- ═══ PARA QUEM É (slide 4) ═══ -->
+<section class="section">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="eyebrow" style="color:var(--purple)">Para quem é</span>
+      <div class="rule" style="background:var(--purple)"></div>
+      <h2 class="s-title">A Trilha é para você que sente:</h2>
+    </div>
+    <div class="para-quem">
+      <div class="pq-item">
+        <span class="pq-check"><svg width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2l2.3 2.3L9.7 3.6" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        Desejo de viver com mais clareza, leveza e verdade
+      </div>
+      <div class="pq-item">
+        <span class="pq-check"><svg width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2l2.3 2.3L9.7 3.6" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        Confusão interna ou repetição de padrões
+      </div>
+      <div class="pq-item">
+        <span class="pq-check"><svg width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2l2.3 2.3L9.7 3.6" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        Cansaço emocional ou energético
+      </div>
+      <div class="pq-item">
+        <span class="pq-check"><svg width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2l2.3 2.3L9.7 3.6" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        Dificuldade em sustentar escolhas alinhadas
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ RESULTADO (slide 5) ═══ -->
+<section class="resultado">
+  <div class="wrap resultado__in">
+    <span class="eyebrow" style="color:rgba(255,255,255,.6);display:block;margin-bottom:22px;">Resultado</span>
+    <p class="resultado__text">Ao final da Trilha, a clareza deixa de ser um estado passageiro e se torna um critério de decisão.</p>
+    <p class="resultado__note">Isso não é <b>"se sentir melhor por um tempo"</b>. É mudar a forma como você escolhe — de forma sustentável.</p>
+  </div>
+</section>
+
+
+<!-- ═══ CTA (slide 6) ═══ -->
+<div class="cta-band">
+  <div class="wrap">
+    <h2 class="cta-band__title">Comece sua <em>Trilha</em><br>Alegre-Ser.</h2>
+    <p class="cta-band__sub"><b>3 sessões individuais de 35 min</b> + <b>2 sessões em grupo de 45 min</b>.<br>Online ou presencial · Semanal ou quinzenal.</p>
+    <div class="cta-band__btns">
+      <a href="https://wa.me/5516981862829?text=Olá!%20Quero%20começar%20minha%20Trilha%20Alegre-Ser." target="_blank" class="btn btn-white">Quero começar</a>
+      <a href="index.html#contato" class="btn btn-outline-w">Falar conosco</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand">Alegre-<em>Ser</em></div>
+        <p class="footer__desc">Expansão de consciência para empresas, famílias e pessoas.<br>Extensão da Metodologia Quântica Juan de la Luz no Brasil.</p>
+        <div class="footer__socials">
+          <a href="https://www.instagram.com/alegre_seroficial" target="_blank" class="footer__soc">IG</a>
+          <a href="https://www.youtube.com/@Alegre-Ser" target="_blank" class="footer__soc">YT</a>
+          <a href="https://wa.me/5516981862829" target="_blank" class="footer__soc">WA</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-h">Programas</div>
+        <ul class="footer__links">
+          <li><a href="index.html#programas">Ciranda de Consciência</a></li>
+          <li><a href="index.html#programas">Laboratório do Observador</a></li>
+          <li><a href="index.html#programas">Espiral de Clareza</a></li>
+          <li><a href="empresas.html">Diálogos de Consciência</a></li>
+          <li><a href="trilha-individual.html">Trilha Individual</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-h">Alegre-Ser</div>
+        <ul class="footer__links">
+          <li><a href="index.html#sobre">Quem somos</a></li>
+          <li><a href="index.html#sobre">As facilitadoras</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+          <li><a href="https://alegre-ser.com.br" target="_blank">alegre-ser.com.br</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Alegre-Ser · São Paulo, Brasil</span>
+      <span>Metodologia Quântica Juan de la Luz · <a href="https://alegre-ser.com.br">alegre-ser.com.br</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5516981862829?text=Olá!%20Quero%20saber%20mais%20sobre%20a%20Trilha%20Individual%20do%20Alegre-Ser." target="_blank" aria-label="WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+    <path d="M13 2C7.03 2 2 7.03 2 13c0 1.9.51 3.68 1.4 5.22L2 24l5.92-1.38A11 11 0 1 0 13 2z" fill="white"/>
+    <path d="M9.5 11.5c.6 1.2 1.8 3 3.6 3.6l1.2-1.2 2.4 1.2-1.2 2.4c-3 0-6.6-3.6-7.2-6.6l1.2-1.8 2.4 1.2-1.2 1.2z" fill="#25D366"/>
+  </svg>
+</a>
+
+</body>
+</html>

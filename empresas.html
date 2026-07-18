@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Empresas · Diálogos de Consciência — Alegre-Ser</title>
+  <meta name="description" content="Programa in company Diálogos de Consciência: uma jornada de 10 movimentos para elevar a consciência nas relações profissionais. NR-1, saúde mental e transformação do campo energético da sua organização — Método Quântico Juan de la Luz." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;1,300&family=Playfair+Display:ital,wght@1,400;1,500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --terra:     #c84523;
+      --terra-dk:  #a0361c;
+      --amber:     #dc882c;
+      --amber-dk:  #b56d20;
+      --teal:      #229cb2;
+      --teal-dk:   #1a7d8f;
+      --purple:    #962c72;
+      --purple-dk: #761f58;
+      /* paleta do PPT (Diálogos de Consciência) mesclada à identidade */
+      --petrol:    #155e6b;
+      --petrol-dk: #104a54;
+      --teal-t1:   #d8eef1;
+      --teal-t2:   #bfe6ec;
+      --teal-t3:   #e4f3f5;
+      --sand:      #f5efe0;
+      --terra-t:   #fdede6;
+      --purple-t:  #f0dcea;
+      --bg:        #ffffff;
+      --bg-warm:   #fdf9f4;
+      --cream:     #f0e8d8;
+      --text:      #1a1210;
+      --text-md:   #4a3a2e;
+      --text-lt:   #8a7a6a;
+      --border:    #e8e0d4;
+      --border-lt: #f2ede6;
+      --head: 'Space Grotesk', 'Helvetica Neue', sans-serif;
+      --body: 'Inter', 'Helvetica Neue', sans-serif;
+      --serif: 'Playfair Display', Georgia, serif;
+      --r-sm: 6px; --r-md: 14px; --r-lg: 20px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--body); font-weight: 400; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    .wrap    { max-width: 1160px; margin: 0 auto; padding: 0 40px; }
+    .wrap-sm { max-width: 860px;  margin: 0 auto; padding: 0 40px; }
+
+    .eyebrow { font-family: var(--head); font-size: 11px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; }
+    .rule    { width: 32px; height: 3px; border-radius: 2px; margin: 12px 0 20px; }
+
+    /* BUTTONS */
+    .btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--head); font-size: 13px; font-weight: 600; letter-spacing: .04em; padding: 14px 28px; border-radius: var(--r-sm); border: 2px solid transparent; cursor: pointer; transition: all .2s; }
+    .btn svg { transition: transform .2s; flex-shrink: 0; }
+    .btn:hover svg { transform: translateX(3px); }
+    .btn-terra    { background: var(--terra);  color: #fff; border-color: var(--terra); }
+    .btn-terra:hover   { background: var(--terra-dk); border-color: var(--terra-dk); }
+    .btn-teal     { background: var(--teal);   color: #fff; border-color: var(--teal); }
+    .btn-teal:hover    { background: var(--teal-dk);  border-color: var(--teal-dk); }
+    .btn-white    { background: #fff; color: var(--purple); border-color: #fff; }
+    .btn-white:hover   { background: rgba(255,255,255,.9); }
+    .btn-outline  { background: transparent; color: var(--text); border-color: var(--border); }
+    .btn-outline:hover { border-color: var(--text); }
+    .btn-outline-w { background: transparent; color: #fff; border-color: rgba(255,255,255,.55); }
+    .btn-outline-w:hover { border-color: #fff; background: rgba(255,255,255,.08); }
+
+    /* NAV */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(255,255,255,.95); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border-lt); }
+    .nav__in { max-width: 1160px; margin: 0 auto; padding: 0 40px; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .nav__logo { display: flex; align-items: center; gap: 10px; font-family: var(--head); font-size: 20px; font-weight: 700; color: var(--text); letter-spacing: -.02em; }
+    .nav__logo em { font-family: var(--serif); font-style: italic; font-weight: 500; letter-spacing: 0; margin-left: -9px; }
+    .nav__mark { width: 34px; height: 34px; border-radius: 50%; background: var(--terra); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .nav__mark img { width: 74%; height: 74%; object-fit: contain; display: block; }
+    .nav__links { display: flex; align-items: center; gap: 30px; }
+    .nav__links a { white-space: nowrap; }
+    .nav__links a { font-family: var(--head); font-size: 13px; font-weight: 500; letter-spacing: .04em; color: var(--text-md); transition: color .2s; }
+    .nav__links a:hover, .nav__links a.is-active { color: var(--teal-dk); }
+    .nav__links a.is-active { font-weight: 700; }
+    .nav__burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav__burger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
+    @media (max-width: 980px) { .nav__links, .nav__cta { display: none; } .nav__burger { display: flex; } }
+
+    /* SECTION */
+    .section { padding: 96px 0; }
+    .section--warm  { background: var(--bg-warm); }
+    .section--mist  { background: var(--teal-t3); }
+    .section--sand  { background: var(--sand); }
+    .section--petrol { background: var(--petrol); }
+    .s-head { margin-bottom: 56px; }
+    .s-head--c { text-align: center; }
+    .s-head--c .rule { margin: 12px auto 20px; }
+    .s-title { font-family: var(--head); font-size: clamp(26px, 3.2vw, 42px); font-weight: 700; line-height: 1.12; letter-spacing: -.028em; }
+    .s-sub   { font-size: 16px; color: var(--text-md); line-height: 1.8; max-width: 620px; margin-top: 14px; }
+    .s-head--c .s-sub { margin-left: auto; margin-right: auto; }
+
+    /* ═══ PAGE HERO ═══ */
+    .phero { position: relative; padding: 152px 0 96px; overflow: hidden;
+             background: linear-gradient(135deg, var(--petrol-dk) 0%, var(--petrol) 48%, var(--teal) 100%); }
+    .phero::after { content: ''; position: absolute; right: -140px; top: -120px; width: 460px; height: 460px; border-radius: 50%;
+                    background: radial-gradient(circle, rgba(255,255,255,.10) 0%, transparent 68%); pointer-events: none; }
+    .phero__in { position: relative; z-index: 2; max-width: 820px; }
+    .phero__pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.28); border-radius: 100px; padding: 6px 16px; margin-bottom: 26px; font-family: var(--head); font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #fff; }
+    .phero__pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--amber); }
+    .phero__kicker { font-family: var(--head); font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.72); margin-bottom: 18px; }
+    .phero__h1 { font-family: var(--head); font-size: clamp(34px, 5vw, 58px); font-weight: 700; line-height: 1.08; letter-spacing: -.035em; color: #fff; margin-bottom: 22px; }
+    .phero__h1 em { font-style: italic; font-family: var(--serif); font-weight: 400; color: #ffd9a6; }
+    .phero__sub { font-size: 17px; color: rgba(255,255,255,.86); line-height: 1.78; max-width: 620px; margin-bottom: 34px; }
+    .phero__ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* ═══ CARD GRID (Quem somos · Método) ═══ */
+    .cards3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .card { border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--border-lt); background: var(--bg); transition: transform .25s, box-shadow .25s; }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 20px 54px rgba(0,0,0,.09); }
+    .card__top { padding: 30px 28px 24px; color: #fff; }
+    .card--teal   .card__top { background: var(--teal); }
+    .card--terra  .card__top { background: var(--terra); }
+    .card--amber  .card__top { background: var(--amber); }
+    .card--purple .card__top { background: var(--purple); }
+    .card__avatar { width: 54px; height: 54px; border-radius: 50%; background: rgba(255,255,255,.2); display: flex; align-items: center; justify-content: center; font-family: var(--head); font-weight: 700; font-size: 18px; letter-spacing: .04em; margin-bottom: 16px; }
+    .card__cat  { font-family: var(--head); font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.72); margin-bottom: 6px; }
+    .card__name { font-family: var(--head); font-size: 21px; font-weight: 700; line-height: 1.18; letter-spacing: -.02em; }
+    .card__body { padding: 22px 28px 28px; }
+    .card__meta { font-size: 12px; color: var(--text-lt); margin-bottom: 10px; font-family: var(--head); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+    .card__desc { font-size: 14px; color: var(--text-md); line-height: 1.75; }
+    .card__desc em { font-family: var(--serif); font-style: italic; color: var(--text); }
+
+    /* ═══ STATS (Por que importa) ═══ */
+    .stats { background: var(--petrol); padding: 84px 0; position: relative; overflow: hidden; }
+    .stats::after { content: 'NR1'; position: absolute; right: -10px; top: -30px; font-family: var(--head); font-size: 220px; font-weight: 800; color: rgba(255,255,255,.05); line-height: 1; pointer-events: none; letter-spacing: -.05em; }
+    .stats__in { position: relative; }
+    .stats__grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin: 40px 0 28px; }
+    .stat { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.20); border-radius: var(--r-lg); padding: 28px 26px; }
+    .stat__n { font-family: var(--head); font-size: clamp(24px,2.6vw,30px); font-weight: 700; color: #fff; letter-spacing: -.02em; line-height: 1.05; margin-bottom: 10px; }
+    .stat__d { font-size: 14px; color: rgba(255,255,255,.78); line-height: 1.6; }
+    .stats__callout { display: flex; gap: 14px; align-items: flex-start; background: var(--terra); color: #fff; padding: 20px 24px; border-radius: var(--r-md); font-size: 14.5px; line-height: 1.6; }
+    .stats__callout b { font-weight: 700; }
+    .stats__source { font-size: 12px; color: rgba(255,255,255,.6); margin-top: 20px; }
+
+    /* ═══ QUOTE (Empresas são energia) ═══ */
+    .quote { background: var(--petrol-dk); color: #fff; padding: 96px 0; position: relative; overflow: hidden; }
+    .quote::before { content: '\201C'; position: absolute; left: 4%; top: -30px; font-family: var(--serif); font-style: italic; font-size: 280px; color: rgba(255,255,255,.07); line-height: 1; pointer-events: none; }
+    .quote__in { position: relative; max-width: 860px; }
+    .quote__text { font-family: var(--serif); font-style: italic; font-size: clamp(21px,2.7vw,30px); line-height: 1.5; color: #fff; margin-bottom: 26px; }
+    .quote__note { font-size: 16px; color: rgba(255,255,255,.82); line-height: 1.8; }
+    .quote__note b { color: #ffd9a6; font-weight: 400; font-family: var(--serif); font-style: italic; }
+
+    /* ═══ MAPA DA JORNADA — blocos coloridos por etapa (slide 6) ═══ */
+    .jmap { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-bottom: 20px; }
+    .jblock { border-radius: var(--r-lg); padding: 26px 22px 24px; min-height: 188px; display: flex; flex-direction: column; }
+    .jblock--1 { background: var(--teal); }
+    .jblock--2 { background: var(--terra); }
+    .jblock--3 { background: var(--purple); }
+    .jblock--4 { background: var(--petrol); }
+    .jblock__label { font-family: var(--head); font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #fff; line-height: 1.4; margin-bottom: auto; }
+    .jblock__nums { display: flex; gap: 9px; margin-top: 22px; }
+    .jnum { width: 38px; height: 38px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; font-family: var(--head); font-weight: 700; font-size: 15px; }
+    .jblock--1 .jnum { color: var(--teal); }
+    .jblock--2 .jnum { color: var(--terra); }
+    .jblock--3 .jnum { color: var(--purple); }
+    .jblock--4 .jnum { color: var(--petrol); }
+    .jmap__note { font-size: 13px; color: var(--text-lt); font-style: italic; margin-bottom: 44px; }
+    @media (max-width: 860px) { .jmap { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 460px) { .jmap { grid-template-columns: 1fr; } }
+
+    /* ═══ MOVIMENTOS (A jornada) ═══ */
+    .movements { display: grid; grid-template-columns: repeat(2,1fr); gap: 22px; }
+    .mv { border-radius: var(--r-lg); border: 1px solid var(--border-lt); background: var(--bg); padding: 30px 30px 26px; border-top: 4px solid var(--teal); }
+    .mv:nth-child(2) { border-top-color: var(--terra); }
+    .mv:nth-child(3) { border-top-color: var(--amber); }
+    .mv:nth-child(4) { border-top-color: var(--purple); }
+    .mv__tag { font-family: var(--head); font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--teal-dk); margin-bottom: 8px; }
+    .mv:nth-child(2) .mv__tag { color: var(--terra-dk); }
+    .mv:nth-child(3) .mv__tag { color: var(--amber-dk); }
+    .mv:nth-child(4) .mv__tag { color: var(--purple-dk); }
+    .mv__title { font-family: var(--head); font-size: 22px; font-weight: 700; letter-spacing: -.02em; margin-bottom: 18px; }
+    .mv__item { display: flex; gap: 14px; padding: 12px 0; border-top: 1px solid var(--border-lt); }
+    .mv__item:first-of-type { border-top: none; }
+    .mv__num { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: var(--cream); color: var(--text-md); font-family: var(--head); font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+    .mv:nth-child(1) .mv__num { background: var(--teal-t1);  color: var(--teal-dk); }
+    .mv:nth-child(2) .mv__num { background: var(--terra-t);  color: var(--terra-dk); }
+    .mv:nth-child(3) .mv__num { background: #faecd4;         color: var(--amber-dk); }
+    .mv:nth-child(4) .mv__num { background: var(--purple-t); color: var(--purple-dk); }
+    .mv__h { font-family: var(--head); font-size: 14.5px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+    .mv__d { font-size: 13px; color: var(--text-md); line-height: 1.55; }
+
+    /* ═══ PILARES ═══ */
+    .pillars { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; max-width: 900px; margin: 0 auto; }
+    .pillar { background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.20); border-radius: var(--r-lg); padding: 30px 30px; }
+    .pillar__glyph { display: none; }
+    .pillar__h { font-family: var(--head); font-size: 21px; font-weight: 700; letter-spacing: -.02em; margin-bottom: 10px; color: #fff; }
+    .pillar__p { font-size: 14px; color: rgba(255,255,255,.78); line-height: 1.7; }
+
+    /* ═══ STEPS (Da palestra ao programa) ═══ */
+    .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; align-items: stretch; }
+    .step { background: var(--sand); border: 1px solid #e7ddc7; border-radius: var(--r-lg); padding: 34px 30px; text-align: center; }
+    .step__n { width: 52px; height: 52px; border-radius: 50%; background: transparent; border: 2px solid var(--teal); color: var(--teal); font-family: var(--head); font-size: 21px; font-weight: 700; letter-spacing: -.02em; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; }
+    .step__h { font-family: var(--head); font-size: 19px; font-weight: 700; letter-spacing: -.02em; margin-bottom: 10px; color: var(--petrol); }
+    .step__p { font-size: 14px; color: #46433e; line-height: 1.7; }
+    /* card do meio em destaque — turquesa sólido */
+    .step:nth-child(2) { background: var(--teal); border-color: var(--teal); box-shadow: 0 16px 40px rgba(34,156,178,.28); }
+    .step:nth-child(2) .step__n { background: rgba(255,255,255,.18); border-color: rgba(255,255,255,.7); color: #fff; }
+    .step:nth-child(2) .step__h { color: #fff; }
+    .step:nth-child(2) .step__p { color: rgba(255,255,255,.92); }
+
+    /* ═══ DEPOIMENTOS ═══ */
+    .provas { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .prova  { background: var(--bg); border: 1px solid var(--border-lt); border-radius: var(--r-lg); padding: 30px 26px; }
+    .prova__q    { font-family: var(--serif); font-size: 52px; line-height: .8; margin-bottom: 10px; opacity: .25; }
+    .prova:nth-child(1) .prova__q { color: var(--teal); }
+    .prova:nth-child(2) .prova__q { color: var(--terra); }
+    .prova:nth-child(3) .prova__q { color: var(--purple); }
+    .prova__text { font-family: var(--serif); font-size: 15px; font-style: italic; color: var(--text); line-height: 1.8; margin-bottom: 22px; }
+    .prova__author { padding-top: 16px; border-top: 1px solid var(--border-lt); }
+    .prova__name { font-family: var(--head); font-size: 13px; font-weight: 600; }
+    .prova__ctx  { font-size: 12px; color: var(--text-lt); }
+    .provas__cap { font-size: 12.5px; color: var(--text-lt); font-style: italic; margin-top: 22px; text-align: center; }
+
+    /* ═══ RESULTADOS (+ vídeo Laroche) ═══ */
+    .results { background: var(--petrol); color: #fff; padding: 96px 0; position: relative; overflow: hidden; }
+    .results::after { content: ''; position: absolute; left: -160px; bottom: -160px; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.08) 0%, transparent 68%); pointer-events: none; }
+    .results__grid { position: relative; display: grid; grid-template-columns: 1.05fr .95fr; gap: 60px; align-items: center; }
+    .results__q { font-family: var(--head); font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.7); margin-bottom: 14px; }
+    .results__title { font-family: var(--head); font-size: clamp(28px,3.4vw,44px); font-weight: 700; line-height: 1.12; letter-spacing: -.03em; color: #fff; margin-bottom: 14px; }
+    .results__title em { font-style: italic; font-family: var(--serif); font-weight: 400; color: #ffd9a6; }
+    .results__lead { font-size: 16px; color: rgba(255,255,255,.82); line-height: 1.75; margin-bottom: 30px; max-width: 470px; }
+    .results__list { display: flex; flex-direction: column; gap: 12px; }
+    .results__item { display: flex; align-items: flex-start; gap: 13px; font-size: 15.5px; color: #fff; line-height: 1.5; }
+    .results__check { flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%; background: var(--amber); display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+    .results__video-wrap { justify-self: center; width: 300px; max-width: 100%; }
+    .results__video { width: 100%; aspect-ratio: 9 / 16; background: #000; border-radius: var(--r-lg); display: block; box-shadow: 0 24px 60px rgba(0,0,0,.35); border-top: 4px solid var(--amber); }
+    .results__vcap { text-align: center; margin-top: 16px; }
+    .results__vcap b { display: block; font-family: var(--head); font-size: 13px; font-weight: 700; letter-spacing: .02em; color: #fff; }
+    .results__vcap span { display: block; font-size: 12px; color: rgba(255,255,255,.65); margin-top: 3px; }
+    @media (max-width: 860px) { .results__grid { grid-template-columns: 1fr; gap: 40px; } .results__video-wrap { order: -1; } }
+
+    /* ═══ CAMINHO ═══ */
+    .path { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 12px; align-items: stretch; }
+    .path__step { border-radius: var(--r-lg); padding: 28px 26px; }
+    .path__step--1 { background: #fff; border: 1.5px solid var(--teal); }
+    .path__step--2 { background: var(--terra); border: 1.5px solid var(--terra); box-shadow: 0 16px 40px rgba(200,69,35,.24); }
+    .path__step--3 { background: #fff; border: 1.5px solid var(--purple); }
+    .path__num { font-family: var(--head); font-size: 40px; font-weight: 700; letter-spacing: -.04em; line-height: 1; margin-bottom: 14px; }
+    .path__step--1 .path__num { color: var(--teal); }
+    .path__step--2 .path__num { color: #fff; }
+    .path__step--3 .path__num { color: var(--purple); }
+    .path__tag { font-family: var(--head); font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 10px; }
+    .path__step--1 .path__tag { color: var(--teal-dk); }
+    .path__step--2 .path__tag { color: rgba(255,255,255,.85); }
+    .path__step--3 .path__tag { color: var(--purple-dk); }
+    .path__h { font-family: var(--head); font-size: 18px; font-weight: 700; letter-spacing: -.02em; margin-bottom: 8px; }
+    .path__step--1 .path__h { color: var(--teal-dk); }
+    .path__step--2 .path__h { color: #fff; }
+    .path__step--3 .path__h { color: var(--purple-dk); }
+    .path__p { font-size: 13.5px; color: #4a463f; line-height: 1.65; }
+    .path__step--2 .path__p { color: rgba(255,255,255,.92); }
+    .path__here { display: inline-block; margin-top: 12px; font-family: var(--head); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--terra); background: #fff; padding: 4px 10px; border-radius: 100px; }
+    .path__arrow { display: flex; align-items: center; color: var(--text-lt); font-size: 22px; }
+    @media (max-width: 860px) { .path { grid-template-columns: 1fr; } .path__arrow { display: none; } }
+
+    /* ═══ CTA BAND ═══ */
+    .cta-band { background: linear-gradient(130deg, var(--petrol-dk) 0%, var(--petrol) 45%, var(--teal) 100%); padding: 84px 0; text-align: center; position: relative; overflow: hidden; }
+    .cta-band::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 72% 45%, rgba(34,156,178,.35) 0%, transparent 62%); pointer-events: none; }
+    .cta-band .wrap { position: relative; }
+    .cta-band__title { font-family: var(--head); font-size: clamp(26px, 3.6vw, 44px); font-weight: 700; color: #fff; line-height: 1.14; letter-spacing: -.028em; margin-bottom: 14px; }
+    .cta-band__title em { font-style: italic; font-family: var(--serif); font-weight: 400; color: #ffe6c2; }
+    .cta-band__sub   { font-size: 17px; color: rgba(255,255,255,.85); margin-bottom: 32px; }
+    .cta-band__btns  { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .cta-band__social { margin-top: 30px; font-family: var(--head); font-size: 12px; font-weight: 500; letter-spacing: .06em; color: rgba(255,255,255,.8); }
+    .cta-band__social a { color: #fff; font-weight: 600; }
+
+    /* ═══ FOOTER ═══ */
+    .footer { background: #120e0c; color: rgba(255,255,255,.6); padding: 64px 0 36px; }
+    .footer__grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 56px; margin-bottom: 44px; }
+    .footer__brand { font-family: var(--head); font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 10px; letter-spacing: -.02em; }
+    .footer__brand em { color: var(--teal); font-style: normal; }
+    .footer__desc { font-size: 14px; line-height: 1.75; margin-bottom: 22px; }
+    .footer__socials { display: flex; gap: 10px; }
+    .footer__soc { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,255,255,.15); display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: var(--head); font-weight: 700; transition: border-color .2s, color .2s; }
+    .footer__soc:hover { border-color: var(--teal); color: var(--teal); }
+    .footer__col-h { font-family: var(--head); font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 18px; }
+    .footer__links { display: flex; flex-direction: column; gap: 10px; }
+    .footer__links a { font-size: 14px; color: rgba(255,255,255,.5); transition: color .2s; }
+    .footer__links a:hover { color: #fff; }
+    .footer__bottom { border-top: 1px solid rgba(255,255,255,.07); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; }
+    .footer__bottom a { color: rgba(255,255,255,.35); }
+    .footer__bottom a:hover { color: rgba(255,255,255,.7); }
+    @media (max-width: 768px) { .footer__grid { grid-template-columns: 1fr; gap: 32px; } .footer__bottom { flex-direction: column; gap: 8px; text-align: center; } }
+
+    /* WA FLOAT */
+    .wa-float { position: fixed; bottom: 28px; right: 28px; z-index: 100; width: 54px; height: 54px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,.4); transition: transform .2s; }
+    .wa-float:hover { transform: scale(1.08); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .cards3, .stats__grid, .movements, .pillars, .steps, .provas { grid-template-columns: 1fr; max-width: 460px; margin-left: auto; margin-right: auto; }
+      .s-head .cards3, .movements { max-width: none; }
+    }
+    @media (max-width: 900px) { .movements { grid-template-columns: 1fr; } }
+    @media (max-width: 600px) { .section { padding: 64px 0; } .wrap, .wrap-sm { padding: 0 20px; } .phero { padding: 130px 0 72px; } }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══════════════════════════════════════════════ -->
+<nav class="nav">
+  <div class="nav__in">
+    <a href="index.html" class="nav__logo">
+      <span class="nav__mark"><img src="espiral-alegre-ser.png" alt="Alegre-Ser" /></span>
+      Alegre-<em>Ser</em>
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html#programas">Programas</a></li>
+      <li><a href="empresas.html" class="is-active">Empresas</a></li>
+      <li><a href="trilha-individual.html">Trilha Individual</a></li>
+      <li><a href="index.html#para-quem">Para quem</a></li>
+      <li><a href="index.html#sobre">Sobre</a></li>
+    </ul>
+    <a href="index.html#contato" class="btn btn-terra nav__cta">Falar conosco</a>
+    <div class="nav__burger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+
+<!-- ═══ HERO (slide 1) ════════════════════════════════════ -->
+<header class="phero">
+  <div class="wrap">
+    <div class="phero__in">
+      <div class="phero__pill"><span class="phero__pill-dot"></span>Palestra · Programa In Company</div>
+      <div class="phero__kicker">Alegre-Ser · Expansão de Consciência</div>
+      <h1 class="phero__h1">Mudar nossa <em>energia</em><br>para mudar nossas relações.</h1>
+      <p class="phero__sub">Diálogos de Consciência: uma jornada de 10 movimentos para elevar a consciência nas relações pessoais e profissionais — Método Quântico Juan de la Luz aplicado à cultura das organizações.</p>
+      <div class="phero__ctas">
+        <a href="index.html#contato" class="btn btn-white">
+          Solicitar proposta
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#programa" class="btn btn-outline-w">Ver como funciona</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- ═══ QUEM SOMOS (slide 2) ══════════════════════════════ -->
+<section class="section" id="quem-somos">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="eyebrow" style="color:var(--teal)">Quem conduz</span>
+      <div class="rule" style="background:var(--teal)"></div>
+      <h2 class="s-title">Canais da Metodologia Quântica<br>Juan de la Luz há mais de uma década.</h2>
+      <p class="s-sub">O Alegre-Ser atua — através da frequência elevada da alegria — com pessoas, empresas, famílias e comunidades, convidando a diálogos de consciência para expansão energética e elevação de frequência.</p>
+    </div>
+    <div class="cards3">
+      <div class="card card--teal">
+        <div class="card__top">
+          <div class="card__avatar">CH</div>
+          <div class="card__cat">Psicóloga</div>
+          <div class="card__name">Chrys Hellen Machado</div>
+        </div>
+        <div class="card__body">
+          <div class="card__meta">Praticante JDL há +10 anos</div>
+          <p class="card__desc">Presença que abre espaço para o outro se ver com honestidade — sem defesa nem julgamento.</p>
+        </div>
+      </div>
+      <div class="card card--terra">
+        <div class="card__top">
+          <div class="card__avatar">RA</div>
+          <div class="card__cat">Advogada</div>
+          <div class="card__name">Robertha Aranha</div>
+        </div>
+        <div class="card__body">
+          <div class="card__meta">Praticante JDL há +10 anos</div>
+          <p class="card__desc">Comunicação que entrega códigos energéticos capazes de ampliar a consciência nas relações.</p>
+        </div>
+      </div>
+      <div class="card card--amber">
+        <div class="card__top">
+          <div class="card__avatar">YR</div>
+          <div class="card__cat">Jornalista</div>
+          <div class="card__name">Yara Racy</div>
+        </div>
+        <div class="card__body">
+          <div class="card__meta">Praticante JDL há +10 anos</div>
+          <p class="card__desc">A palavra como frequência que organiza o disperso e devolve clareza ao essencial.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ O MÉTODO JDL (slide 3) ════════════════════════════ -->
+<section class="section section--warm" id="metodo">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="eyebrow" style="color:var(--purple)">O Método JDL</span>
+      <div class="rule" style="background:var(--purple)"></div>
+      <h2 class="s-title">A metodologia quântica<br>Juan de la Luz.</h2>
+      <p class="s-sub">Existe há mais de duas décadas. Promove vivências terapêuticas onde os participantes vão adentrando o vazio quântico, ampliando a consciência de si mesmos e reprogramando hábitos e crenças — para elevar sua frequência, mudar sua realidade e viver com consciência.</p>
+    </div>
+    <div class="cards3">
+      <div class="card card--purple">
+        <div class="card__top">
+          <div class="card__cat">Prática diária</div>
+          <div class="card__name">Imersões quânticas diárias</div>
+        </div>
+        <div class="card__body">
+          <p class="card__desc">Prática constante que sustenta a mudança de frequência.</p>
+        </div>
+      </div>
+      <div class="card card--teal">
+        <div class="card__top">
+          <div class="card__cat">Individual</div>
+          <div class="card__name">Sessões personalizadas</div>
+        </div>
+        <div class="card__body">
+          <p class="card__desc">Atendimento individual, no ritmo de cada processo.</p>
+        </div>
+      </div>
+      <div class="card card--terra">
+        <div class="card__top">
+          <div class="card__cat">Em grupo · presencial</div>
+          <div class="card__name">Retiros energéticos</div>
+        </div>
+        <div class="card__body">
+          <p class="card__desc">Mergulho profundo em grupo, presencial.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ POR QUE IMPORTA AGORA (slide 4) ═══════════════════ -->
+<section class="stats">
+  <div class="wrap stats__in">
+    <span class="eyebrow" style="color:rgba(255,255,255,.5);display:block;margin-bottom:14px;">Por que isso importa agora</span>
+    <h2 class="s-title" style="color:#fff;">Saúde mental virou pauta obrigatória<br>nas empresas brasileiras.</h2>
+    <div class="stats__grid">
+      <div class="stat">
+        <div class="stat__n">+400 mil</div>
+        <div class="stat__d">trabalhadores afastados por transtorno mental no Brasil em 2024.</div>
+      </div>
+      <div class="stat">
+        <div class="stat__n">80.276 → 141.414</div>
+        <div class="stat__d">casos de transtornos ansiosos entre 2023 e 2024.</div>
+      </div>
+      <div class="stat">
+        <div class="stat__n">67.399 → 113.604</div>
+        <div class="stat__d">episódios depressivos entre 2023 e 2024.</div>
+      </div>
+    </div>
+    <div class="stats__callout">
+      <span>A <b>NR-1</b> (Norma Regulamentadora 1) exige, desde 26 de maio de 2025, avaliação e gerenciamento de riscos psicossociais — estresse, assédio, carga mental excessiva — em todas as empresas.</span>
+    </div>
+    <div class="stats__source">Fonte: Ministério da Previdência Social · MTE · Revide, ed. 1.254 (14/03/25)</div>
+  </div>
+</section>
+
+
+<!-- ═══ EMPRESAS SÃO ENERGIA (slide 5) ════════════════════ -->
+<section class="quote">
+  <div class="wrap quote__in">
+    <span class="eyebrow" style="color:rgba(255,255,255,.55);display:block;margin-bottom:22px;">Empresas são energia</span>
+    <p class="quote__text">Empresas são núcleos energéticos, que materializam vibrações e se correspondem — interna e externamente — em uma mesma frequência: como uma ciranda, um movimento espiral, que pode ser expansivo ou limitante.</p>
+    <p class="quote__note">Para ser expansivo, as energias em correspondência precisam se alinhar — movimento que o Alegre-Ser faz através de diálogos em consciência, sustentados pelos 4 pilares do Método Quântico Juan de la Luz. <b>Deste alinhamento — em alegria, em energia de Amor — nasce a expansão.</b></p>
+  </div>
+</section>
+
+
+<!-- ═══ A JORNADA + MOVIMENTOS (slides 6-10) ══════════════ -->
+<section class="section" id="jornada">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="eyebrow" style="color:var(--teal)">A jornada</span>
+      <div class="rule" style="background:var(--teal)"></div>
+      <h2 class="s-title">Uma jornada de 10 movimentos.</h2>
+      <p class="s-sub">Do coletivo ao individual, da comunicação à integração — cada movimento é sustentado pelos pilares de humildade, gratidão, confiança e constância. Nomenclatura adaptável ao contexto de cada empresa ou plateia.</p>
+    </div>
+
+    <div class="jmap">
+      <div class="jblock jblock--1">
+        <div class="jblock__label">Presença e<br>Colaboração</div>
+        <div class="jblock__nums"><span class="jnum">1</span><span class="jnum">2</span><span class="jnum">3</span></div>
+      </div>
+      <div class="jblock jblock--2">
+        <div class="jblock__label">Amor Próprio e<br>Equilíbrio</div>
+        <div class="jblock__nums"><span class="jnum">4</span><span class="jnum">5</span><span class="jnum">6</span></div>
+      </div>
+      <div class="jblock jblock--3">
+        <div class="jblock__label">Escuta e<br>Coerência</div>
+        <div class="jblock__nums"><span class="jnum">7</span><span class="jnum">8</span><span class="jnum">9</span></div>
+      </div>
+      <div class="jblock jblock--4">
+        <div class="jblock__label">Integração</div>
+        <div class="jblock__nums"><span class="jnum">10</span></div>
+      </div>
+    </div>
+    <p class="jmap__note">Detalhamento dos 10 temas abaixo — nomenclatura genérica, adaptável ao contexto da empresa ou plateia.</p>
+
+    <div class="movements">
+
+      <div class="mv">
+        <div class="mv__tag">Movimento 1</div>
+        <h3 class="mv__title">Presença e Colaboração</h3>
+        <div class="mv__item"><span class="mv__num">1</span><div><div class="mv__h">Humildade e colaboração</div><div class="mv__d">Como a arrogância limita relações, mina a colaboração e cria um campo energético denso.</div></div></div>
+        <div class="mv__item"><span class="mv__num">2</span><div><div class="mv__h">Incômodos</div><div class="mv__d">Impaciência e mau humor polarizam o clima e estimulam a reatividade nas equipes.</div></div></div>
+        <div class="mv__item"><span class="mv__num">3</span><div><div class="mv__h">Reclamações</div><div class="mv__d">Broncas e resmungos constantes são energia limitante — o contraponto é a atitude de solução.</div></div></div>
+      </div>
+
+      <div class="mv">
+        <div class="mv__tag">Movimento 2</div>
+        <h3 class="mv__title">Amor Próprio e Equilíbrio</h3>
+        <div class="mv__item"><span class="mv__num">4</span><div><div class="mv__h">Amor próprio × Egocentrismo</div><div class="mv__d">A falta de amor próprio dificulta valorizar o outro e cria ambientes tóxicos e competitivos.</div></div></div>
+        <div class="mv__item"><span class="mv__num">5</span><div><div class="mv__h">Busca excessiva por validação</div><div class="mv__d">A necessidade de reconhecimento revela a fragilidade do ego e alimenta o esgotamento.</div></div></div>
+        <div class="mv__item"><span class="mv__num">6</span><div><div class="mv__h">Equilíbrio emocional</div><div class="mv__d">Base para inspirar confiança e liderança — o oposto do comportamento narcisista que bloqueia vínculos genuínos.</div></div></div>
+      </div>
+
+      <div class="mv">
+        <div class="mv__tag">Movimento 3</div>
+        <h3 class="mv__title">Escuta e Coerência</h3>
+        <div class="mv__item"><span class="mv__num">7</span><div><div class="mv__h">A importância de ouvir</div><div class="mv__d">A escuta ativa cria interação; o monólogo — palavra sem propósito — afasta e divide.</div></div></div>
+        <div class="mv__item"><span class="mv__num">8</span><div><div class="mv__h">Coerência entre expressar e manifestar</div><div class="mv__d">Culpar os outros prejudica a autocrítica e o crescimento — não é energia limpa.</div></div></div>
+        <div class="mv__item"><span class="mv__num">9</span><div><div class="mv__h">Vitimização como barreira</div><div class="mv__d">Romper ciclos de negação da autorresponsabilidade é o que permite a expansão real do Ser.</div></div></div>
+      </div>
+
+      <div class="mv">
+        <div class="mv__tag">Movimento 4</div>
+        <h3 class="mv__title">Integração</h3>
+        <div class="mv__item"><span class="mv__num">10</span><div><div class="mv__h">Alinhamento entre discurso e ação</div><div class="mv__d">Somos 100% responsáveis pelo que criamos, em consciência ou inconsciência. Alinhar o que falamos ao que fazemos gera uma energia limpa de expansão — para a pessoa, a equipe e a empresa.</div></div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ 4 PILARES (slide 11) ══════════════════════════════ -->
+<section class="section section--petrol">
+  <div class="wrap">
+    <div class="s-head s-head--c">
+      <span class="eyebrow" style="color:rgba(255,255,255,.65)">Como sustentamos a jornada</span>
+      <div class="rule" style="background:var(--teal-t2);margin:12px auto 20px"></div>
+      <h2 class="s-title" style="color:#fff">Os 4 pilares do Método JDL.</h2>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar__glyph"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2v18M2 11h18" stroke="#229cb2" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <h3 class="pillar__h">Constância</h3>
+        <p class="pillar__p">A prática sustentada é o que transforma — não o evento isolado.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar__glyph"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 3l6 3v5c0 4-3 6-6 8-3-2-6-4-6-8V6l6-3z" stroke="#c84523" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+        <h3 class="pillar__h">Confiança</h3>
+        <p class="pillar__p">No processo, em si mesmo e na energia que se está construindo.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar__glyph"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 15c3-6 11-6 14 0" stroke="#b56d20" stroke-width="1.6" stroke-linecap="round"/><circle cx="11" cy="7" r="3" stroke="#b56d20" stroke-width="1.6"/></svg></div>
+        <h3 class="pillar__h">Humildade</h3>
+        <p class="pillar__p">Abertura para se ver com honestidade, sem defesa nem julgamento.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar__glyph"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 17S4 12.5 4 8a3.5 3.5 0 0 1 7-.8A3.5 3.5 0 0 1 18 8c0 4.5-7 9-7 9z" stroke="#962c72" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+        <h3 class="pillar__h">Gratidão</h3>
+        <p class="pillar__p">O estado que reconhece o que já se move, mesmo em meio ao processo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ DA PALESTRA AO PROGRAMA (slide 12) ════════════════ -->
+<section class="section" id="programa">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="eyebrow" style="color:var(--teal)">Da palestra ao programa</span>
+      <div class="rule" style="background:var(--teal)"></div>
+      <h2 class="s-title">Como funciona o programa in company.</h2>
+      <p class="s-sub">Formato aplicado com sucesso em empresas parceiras — ajustável em número de sessões e periodicidade conforme a necessidade de cada empresa.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step__n">01</div>
+        <h3 class="step__h">Reunião inicial</h3>
+        <p class="step__p">Alinhamento de logística, participantes e objetivos com a liderança.</p>
+      </div>
+      <div class="step">
+        <div class="step__n">02</div>
+        <h3 class="step__h">10 sessões quinzenais</h3>
+        <p class="step__p">2h cada: 60min de tema + 60min de diálogos de consciência em grupo.</p>
+      </div>
+      <div class="step">
+        <div class="step__n">03</div>
+        <h3 class="step__h">Reunião final</h3>
+        <p class="step__p">Feedback e relatório com recomendações de manutenção do alinhamento energético.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ RESULTADOS + VÍDEO LAROCHE ════════════════════════ -->
+<section class="results" id="resultados">
+  <div class="wrap">
+    <div class="results__grid">
+      <div>
+        <div class="results__q">O que geramos?</div>
+        <h2 class="results__title">Mudamos a <em>energia</em><br>da sua empresa.</h2>
+        <p class="results__lead">Todo líder faz a si mesmo a mesma pergunta: que resultado isso entrega? Aqui está o que a jornada gera, na prática, dentro da cultura da organização.</p>
+        <div class="results__list">
+          <div class="results__item">
+            <span class="results__check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2l2.3 2.3L9.7 3.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Melhoria da comunicação interna
+          </div>
+          <div class="results__item">
+            <span class="results__check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2l2.3 2.3L9.7 3.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Redução de conflitos e desgaste emocional
+          </div>
+          <div class="results__item">
+            <span class="results__check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2l2.3 2.3L9.7 3.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Fortalecimento da liderança consciente
+          </div>
+          <div class="results__item">
+            <span class="results__check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2l2.3 2.3L9.7 3.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Ambientes mais colaborativos e saudáveis
+          </div>
+          <div class="results__item">
+            <span class="results__check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2l2.3 2.3L9.7 3.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Atendimento às diretrizes da NR-1
+          </div>
+        </div>
+      </div>
+
+      <div class="results__video-wrap">
+        <video class="results__video" controls preload="metadata" playsinline poster="videos/laroche-case-poster.jpg">
+          <source src="videos/laroche-case.mp4" type="video/mp4" />
+          Seu navegador não suporta vídeo.
+        </video>
+        <div class="results__vcap">
+          <b>Case Laroche</b>
+          <span>Programa in company Alegre-Ser</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ IMPACTO REAL (slide 13) ═══════════════════════════ -->
+<section class="section section--warm">
+  <div class="wrap">
+    <div class="s-head s-head--c">
+      <span class="eyebrow" style="color:var(--terra)">Impacto real</span>
+      <div class="rule" style="background:var(--terra);margin:12px auto 20px"></div>
+      <h2 class="s-title">O que dizem os participantes.</h2>
+    </div>
+    <div class="provas">
+      <div class="prova">
+        <div class="prova__q">&ldquo;</div>
+        <p class="prova__text">Aprendi que memórias inconscientes podem nos levar à reatividade. Agora busco me equilibrar e não deixar as emoções dominarem.</p>
+        <div class="prova__author">
+          <div class="prova__name">Dogival Mendonça</div>
+          <div class="prova__ctx">Industrial · praticante JDL há 16 anos</div>
+        </div>
+      </div>
+      <div class="prova">
+        <div class="prova__q">&ldquo;</div>
+        <p class="prova__text">Foi um divisor de águas: me ajudou a superar dificuldades emocionais e a parar de tomar medicamentos controlados.</p>
+        <div class="prova__author">
+          <div class="prova__name">João Lucas Galone</div>
+          <div class="prova__ctx">Multiplicador de treinamentos</div>
+        </div>
+      </div>
+      <div class="prova">
+        <div class="prova__q">&ldquo;</div>
+        <p class="prova__text">Sinto um profundo bem-estar, equilíbrio e motivação após uma sessão. Isso faz toda diferença na minha área.</p>
+        <div class="prova__author">
+          <div class="prova__name">Marcelo Adriano de Paula</div>
+          <div class="prova__ctx">Modelista e designer de criação</div>
+        </div>
+      </div>
+    </div>
+    <p class="provas__cap">Depoimentos publicados na Revide, ed. 1.254 (14/03/2025) — case Laroche.</p>
+  </div>
+</section>
+
+
+<!-- ═══ O CAMINHO COMPLETO (slide 14) ═════════════════════ -->
+<section class="section">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="eyebrow" style="color:var(--purple)">O caminho completo</span>
+      <div class="rule" style="background:var(--purple)"></div>
+      <h2 class="s-title">Do diagnóstico à sustentação.</h2>
+      <p class="s-sub">Esta palestra é a porta de entrada. O trabalho de consciência se sustenta com constância — como qualquer mudança real.</p>
+    </div>
+    <div class="path">
+      <div class="path__step path__step--1">
+        <div class="path__num">01</div>
+        <h3 class="path__h">Diagnóstico</h3>
+        <p class="path__p">Levantamento de riscos psicossociais (NR-1) + leitura da energia do ambiente.</p>
+      </div>
+      <div class="path__arrow">→</div>
+      <div class="path__step path__step--2">
+        <div class="path__num">02</div>
+        <h3 class="path__h">Ativação</h3>
+        <p class="path__p">Palestras, workshops e cirandas de consciência.</p>
+        <span class="path__here">Você está aqui</span>
+      </div>
+      <div class="path__arrow">→</div>
+      <div class="path__step path__step--3">
+        <div class="path__num">03</div>
+        <h3 class="path__h">Sustentação</h3>
+        <p class="path__p">Programas in company contínuos: Diálogos de Consciência, Laboratório do Observador e Espiral de Clareza.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ CTA FINAL (slide 15) ══════════════════════════════ -->
+<div class="cta-band">
+  <div class="wrap">
+    <h2 class="cta-band__title">Mude sua <em>energia</em>.<br>Mude suas relações.</h2>
+    <p class="cta-band__sub">Leve os Diálogos de Consciência para dentro da sua empresa — presencial ou online, pontual ou contínuo.</p>
+    <div class="cta-band__btns">
+      <a href="index.html#contato" class="btn btn-white">Solicitar proposta</a>
+      <a href="https://wa.me/5516981862829?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20programa%20Diálogos%20de%20Consciência%20para%20empresas." target="_blank" class="btn btn-outline-w">Falar no WhatsApp</a>
+    </div>
+    <p class="cta-band__social">@alegre_seroficial · <a href="https://alegre-ser.com.br">alegre-ser.com.br</a> · YouTube: <a href="https://www.youtube.com/@Alegre-Ser" target="_blank">@Alegre-Ser</a></p>
+  </div>
+</div>
+
+
+<!-- ═══ FOOTER ════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand">Alegre-<em>Ser</em></div>
+        <p class="footer__desc">Expansão de consciência para empresas, famílias e pessoas.<br>Extensão da Metodologia Quântica Juan de la Luz no Brasil.</p>
+        <div class="footer__socials">
+          <a href="https://www.instagram.com/alegre_seroficial" target="_blank" class="footer__soc">IG</a>
+          <a href="https://www.youtube.com/@Alegre-Ser" target="_blank" class="footer__soc">YT</a>
+          <a href="https://wa.me/5516981862829" target="_blank" class="footer__soc">WA</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-h">Programas</div>
+        <ul class="footer__links">
+          <li><a href="index.html#programas">Ciranda de Consciência</a></li>
+          <li><a href="index.html#programas">Laboratório do Observador</a></li>
+          <li><a href="index.html#programas">Espiral de Clareza</a></li>
+          <li><a href="empresas.html">Diálogos de Consciência</a></li>
+          <li><a href="index.html#para-quem">Trilha Individual</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-h">Alegre-Ser</div>
+        <ul class="footer__links">
+          <li><a href="index.html#sobre">Quem somos</a></li>
+          <li><a href="index.html#sobre">As facilitadoras</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+          <li><a href="https://alegre-ser.com.br" target="_blank">alegre-ser.com.br</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Alegre-Ser · São Paulo, Brasil</span>
+      <span>Metodologia Quântica Juan de la Luz · <a href="https://alegre-ser.com.br">alegre-ser.com.br</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5516981862829?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20programa%20para%20empresas%20do%20Alegre-Ser." target="_blank" aria-label="WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+    <path d="M13 2C7.03 2 2 7.03 2 13c0 1.9.51 3.68 1.4 5.22L2 24l5.92-1.38A11 11 0 1 0 13 2z" fill="white"/>
+    <path d="M9.5 11.5c.6 1.2 1.8 3 3.6 3.6l1.2-1.2 2.4 1.2-1.2 2.4c-3 0-6.6-3.6-7.2-6.6l1.2-1.8 2.4 1.2-1.2 1.2z" fill="#25D366"/>
+  </svg>
+</a>
+
+</body>
+</html>
