@@ -134,14 +134,17 @@
     /* VÍDEOS — facilitadoras apresentam */
     .vids-grid { display: flex; gap: 48px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
     .vidcard { width: 300px; max-width: 100%; }
-    .vidcard__video { width: 100%; aspect-ratio: 9 / 16; background: #000; border-radius: var(--r-lg); display: block; box-shadow: 0 20px 54px rgba(0,0,0,.16); border-top: 4px solid var(--teal); }
+    .vidcard__video { width: 100%; aspect-ratio: 9 / 16; background: #000; border-radius: var(--r-lg); display: block; object-fit: cover; box-shadow: 0 20px 54px rgba(0,0,0,.16); border-top: 4px solid var(--teal); }
+    .vidcard--terra .vidcard__video { border-top-color: var(--terra); }
     .vidcard--amber .vidcard__video { border-top-color: var(--amber); }
     .vidcard__cap { text-align: center; margin-top: 20px; }
     .vidcard__arche { display: block; font-family: var(--head); font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--teal); margin-bottom: 7px; }
+    .vidcard--terra .vidcard__arche { color: var(--terra-dk); }
     .vidcard--amber .vidcard__arche { color: var(--amber-dk); }
     .vidcard__name { display: block; font-family: var(--head); font-size: 20px; font-weight: 700; letter-spacing: -.02em; color: var(--text); }
     .vidcard__prog { display: block; font-size: 13.5px; color: var(--text-md); margin-top: 4px; }
     .vidcard__prog b { font-weight: 600; color: var(--teal-dk); }
+    .vidcard--terra .vidcard__prog b { color: var(--terra-dk); }
     .vidcard--amber .vidcard__prog b { color: var(--amber-dk); }
     @media (max-width: 640px) { .vids-grid { gap: 40px; } .vidcard { width: 268px; } }
     .s-head { margin-bottom: 56px; }
@@ -633,7 +636,7 @@
       <span class="eyebrow" style="color:var(--teal)">Na voz de quem cria</span>
       <div class="rule" style="background:var(--teal);margin:12px auto 20px"></div>
       <h2 class="s-title">As facilitadoras apresentam.</h2>
-      <p class="s-sub">Conheça dois dos nossos processos pela voz de quem os conduz.</p>
+      <p class="s-sub">Conheça os três processos pela voz de quem os conduz.</p>
     </div>
 
     <div class="vids-grid">
@@ -647,6 +650,18 @@
           <span class="vidcard__arche">A Transmissora Estelar</span>
           <span class="vidcard__name">Robertha Aranha</span>
           <span class="vidcard__prog">apresenta a <b>Ciranda de Consciência</b></span>
+        </figcaption>
+      </figure>
+
+      <figure class="vidcard vidcard--terra">
+        <video class="vidcard__video" controls preload="metadata" playsinline poster="videos/chrys-laboratorio-do-observador-poster.jpg">
+          <source src="videos/chrys-laboratorio-do-observador.mp4" type="video/mp4" />
+          Seu navegador não suporta vídeo.
+        </video>
+        <figcaption class="vidcard__cap">
+          <span class="vidcard__arche">A Polinizadora</span>
+          <span class="vidcard__name">Chrys Hellen</span>
+          <span class="vidcard__prog">apresenta o <b>Laboratório do Observador</b></span>
         </figcaption>
       </figure>
 
