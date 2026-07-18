@@ -71,9 +71,23 @@
     .nav__links a { white-space: nowrap; }
     .nav__links a { font-family: var(--head); font-size: 13px; font-weight: 500; letter-spacing: .04em; color: var(--text-md); transition: color .2s; }
     .nav__links a:hover { color: var(--text); }
-    .nav__burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-    .nav__burger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
-    @media (max-width: 980px) { .nav__links, .nav__cta { display: none; } .nav__burger { display: flex; } }
+    .nav__burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; margin: -6px -6px -6px 0; }
+    .nav__burger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: transform .25s, opacity .2s; }
+    .nav.is-open .nav__burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav.is-open .nav__burger span:nth-child(2) { opacity: 0; }
+    .nav.is-open .nav__burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 980px) {
+      .nav__links, .nav__cta { display: none; }
+      .nav__burger { display: flex; }
+      .nav.is-open .nav__in { height: auto; flex-wrap: wrap; padding-bottom: 16px; }
+      .nav.is-open .nav__links {
+        display: flex; flex-direction: column; align-items: flex-start; gap: 2px;
+        width: 100%; order: 3; margin-top: 6px; padding-top: 14px;
+        border-top: 1px solid var(--border-lt);
+      }
+      .nav.is-open .nav__links a { display: block; width: 100%; padding: 12px 2px; font-size: 15px; }
+      .nav.is-open .nav__cta { display: inline-flex; order: 4; width: 100%; justify-content: center; margin-top: 8px; }
+    }
 
     /* HERO */
     .hero { min-height: 100vh; padding-top: 72px; display: grid; grid-template-columns: 1fr 1fr; align-items: center; overflow: hidden; background: var(--bg-warm); }
@@ -156,7 +170,8 @@
     .produto--teal  .produto__items li::before { background: var(--teal); }
     .produto--terra .produto__items li::before { background: var(--terra); }
     .produto--amber .produto__items li::before { background: var(--amber-dk); }
-    .produto__cta { display: inline-flex; align-items: center; gap: 7px; font-family: var(--head); font-size: 13px; font-weight: 600; transition: gap .2s; }
+    .produto__cta { display: inline-flex; align-items: center; gap: 7px; font-family: var(--head); font-size: 13px; font-weight: 600; transition: gap .2s; background: none; border: 0; padding: 0; cursor: pointer; }
+    .produto { scroll-margin-top: 92px; }
     .produto__cta:hover { gap: 11px; }
     .produto--teal  .produto__cta { color: var(--teal); }
     .produto--terra .produto__cta { color: var(--terra); }
@@ -274,6 +289,35 @@
     .entry-card__label { font-family:var(--head); font-size:9.5px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--text-lt); }
     .entry-card__arrow { font-size:20px; color:var(--text-lt); flex-shrink:0; transition:transform .22s; line-height:1; }
     .entry-card:hover .entry-card__arrow { transform:translateX(4px); }
+
+    /* ── MODAL — detalhe dos programas ── */
+    .modal { position: fixed; inset: 0; z-index: 300; display: none; align-items: flex-start; justify-content: center; padding: 40px 20px; overflow-y: auto; }
+    .modal.is-open { display: flex; }
+    .modal__overlay { position: fixed; inset: 0; background: rgba(18,14,12,.55); backdrop-filter: blur(3px); }
+    .modal__box { position: relative; background: var(--bg); border-radius: var(--r-lg); max-width: 560px; width: 100%; margin: auto; box-shadow: 0 30px 90px rgba(0,0,0,.3); overflow: hidden; animation: modal-in .28s cubic-bezier(.2,.7,.3,1); }
+    @keyframes modal-in { from { opacity: 0; transform: translateY(16px) scale(.98); } to { opacity: 1; transform: none; } }
+    .modal__head { padding: 30px 34px 24px; color: #fff; }
+    .modal--ciranda     .modal__head { background: var(--teal); }
+    .modal--laboratorio .modal__head { background: var(--terra); }
+    .modal--espiral     .modal__head { background: var(--amber); }
+    .modal__cat { font-family: var(--head); font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.72); margin-bottom: 8px; }
+    .modal__title { font-family: var(--head); font-size: 25px; font-weight: 700; letter-spacing: -.02em; line-height: 1.12; }
+    .modal__tagline { font-family: var(--serif); font-style: italic; font-size: 15px; color: rgba(255,255,255,.92); margin-top: 12px; line-height: 1.5; }
+    .modal__body { padding: 28px 34px 34px; }
+    .modal__body p { font-size: 14.5px; color: var(--text-md); line-height: 1.78; margin-bottom: 18px; }
+    .modal__q { border-left: 3px solid var(--border); padding: 4px 0 4px 16px; margin: 0 0 22px; }
+    .modal--ciranda     .modal__q { border-color: var(--teal); }
+    .modal--laboratorio .modal__q { border-color: var(--terra); }
+    .modal--espiral     .modal__q { border-color: var(--amber); }
+    .modal__q-l { display: block; font-family: var(--head); font-size: 9.5px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--text-lt); margin-bottom: 6px; }
+    .modal__q-t { font-family: var(--serif); font-style: italic; font-size: 16px; color: var(--text); line-height: 1.5; }
+    .modal__meta { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 20px; margin-bottom: 26px; }
+    .modal__meta-h { font-family: var(--head); font-size: 9.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--text-lt); margin-bottom: 4px; }
+    .modal__meta-t { font-size: 13.5px; color: var(--text-md); line-height: 1.5; }
+    .modal__foot { display: flex; gap: 10px; flex-wrap: wrap; }
+    .modal__close { position: absolute; top: 16px; right: 16px; width: 34px; height: 34px; border-radius: 50%; border: 0; background: rgba(255,255,255,.2); color: #fff; font-size: 20px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .2s; }
+    .modal__close:hover { background: rgba(255,255,255,.35); }
+    @media (max-width: 560px) { .modal__meta { grid-template-columns: 1fr; gap: 14px; } .modal__head, .modal__body { padding-left: 24px; padding-right: 24px; } }
   </style>
 </head>
 <body>
@@ -357,7 +401,7 @@
 
     <div class="produtos__grid">
 
-      <div class="produto produto--teal">
+      <div class="produto produto--teal" id="ciranda">
         <div class="produto__top">
           <div class="produto__ico">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -376,11 +420,11 @@
             <li>Liderança consciente e presente</li>
             <li>Decisões mais alinhadas e coerentes</li>
           </ul>
-          <a href="#contato" class="produto__cta">Saiba mais <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <button type="button" class="produto__cta" data-modal="ciranda">Saiba mais <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
       </div>
 
-      <div class="produto produto--terra">
+      <div class="produto produto--terra" id="laboratorio">
         <div class="produto__top">
           <div class="produto__ico">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -399,11 +443,11 @@
             <li>Saída do piloto automático</li>
             <li>Mais presença e clareza nas ações</li>
           </ul>
-          <a href="#contato" class="produto__cta">Saiba mais <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <button type="button" class="produto__cta" data-modal="laboratorio">Saiba mais <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
       </div>
 
-      <div class="produto produto--amber">
+      <div class="produto produto--amber" id="espiral">
         <div class="produto__top">
           <div class="produto__ico">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -421,7 +465,7 @@
             <li>Saída do automatismo e reatividade</li>
             <li>Ação consciente e coerente</li>
           </ul>
-          <a href="#contato" class="produto__cta">Saiba mais <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <button type="button" class="produto__cta" data-modal="espiral">Saiba mais <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
       </div>
 
@@ -595,7 +639,7 @@
     <div class="vids-grid">
 
       <figure class="vidcard vidcard--teal">
-        <video class="vidcard__video" controls preload="metadata" playsinline>
+        <video class="vidcard__video" controls preload="metadata" playsinline poster="videos/robertha-ciranda-de-consciencia-poster.jpg">
           <source src="videos/robertha-ciranda-de-consciencia.mp4" type="video/mp4" />
           Seu navegador não suporta vídeo.
         </video>
@@ -607,7 +651,7 @@
       </figure>
 
       <figure class="vidcard vidcard--amber">
-        <video class="vidcard__video" controls preload="metadata" playsinline>
+        <video class="vidcard__video" controls preload="metadata" playsinline poster="videos/yara-espiral-de-clareza-poster.jpg">
           <source src="videos/yara-espiral-de-clareza.mp4" type="video/mp4" />
           Seu navegador não suporta vídeo.
         </video>
@@ -735,11 +779,11 @@
       <div>
         <div class="footer__col-h">Programas</div>
         <ul class="footer__links">
-          <li><a href="#programas">Ciranda de Consciência</a></li>
-          <li><a href="#programas">Laboratório do Observador</a></li>
-          <li><a href="#programas">Espiral de Clareza</a></li>
-          <li><a href="#empresas">NR-1 para Empresas</a></li>
-          <li><a href="#para-quem">Trilha Individual</a></li>
+          <li><a href="#ciranda" data-modal="ciranda">Ciranda de Consciência</a></li>
+          <li><a href="#laboratorio" data-modal="laboratorio">Laboratório do Observador</a></li>
+          <li><a href="#espiral" data-modal="espiral">Espiral de Clareza</a></li>
+          <li><a href="empresas.html">NR-1 para Empresas</a></li>
+          <li><a href="trilha-individual.html">Trilha Individual</a></li>
         </ul>
       </div>
       <div>
@@ -747,7 +791,7 @@
         <ul class="footer__links">
           <li><a href="#sobre">Quem somos</a></li>
           <li><a href="#sobre">As facilitadoras</a></li>
-          <li><a href="#contato">Contato</a></li>
+          <li><a href="https://wa.me/5516981862829?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Alegre-Ser." target="_blank">Contato</a></li>
           <li><a href="https://alegre-ser.com.br" target="_blank">alegre-ser.com.br</a></li>
         </ul>
       </div>
@@ -766,6 +810,127 @@
   </svg>
 </a>
 
+
+<!-- ═══ MODAL — detalhe dos programas ═══════════════════════ -->
+<div class="modal" id="programa-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal__overlay" data-close></div>
+  <div class="modal__box">
+    <button type="button" class="modal__close" data-close aria-label="Fechar">&times;</button>
+    <div class="modal__head">
+      <div class="modal__cat" id="modal-cat"></div>
+      <div class="modal__title" id="modal-title"></div>
+      <div class="modal__tagline" id="modal-tagline"></div>
+    </div>
+    <div class="modal__body">
+      <div id="modal-desc"></div>
+      <div class="modal__q">
+        <span class="modal__q-l">A pergunta que se aprende a fazer</span>
+        <span class="modal__q-t" id="modal-question"></span>
+      </div>
+      <div class="modal__meta">
+        <div><div class="modal__meta-h">Para quem</div><div class="modal__meta-t" id="modal-para"></div></div>
+        <div><div class="modal__meta-h">O que entrega</div><div class="modal__meta-t" id="modal-entrega"></div></div>
+      </div>
+      <div class="modal__foot">
+        <a href="#" target="_blank" class="btn btn-terra" id="modal-wa">Falar sobre este processo</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  /* ── Menu mobile (burger) ─────────────────────────────── */
+  var nav = document.querySelector('.nav');
+  var burger = document.querySelector('.nav__burger');
+  if (nav && burger) {
+    burger.addEventListener('click', function() { nav.classList.toggle('is-open'); });
+    nav.querySelectorAll('.nav__links a, .nav__cta').forEach(function(a) {
+      a.addEventListener('click', function() { nav.classList.remove('is-open'); });
+    });
+  }
+
+  /* ── Modal dos programas ──────────────────────────────── */
+  var WA = 'https://wa.me/5516981862829?text=';
+  var DATA = {
+    ciranda: {
+      variant: 'ciranda',
+      cat: 'Para equipes e lideranças · o coletivo',
+      title: 'Ciranda de Consciência',
+      tagline: 'Nomear, no coletivo, o que é projeção e o que é real.',
+      desc: '<p>Um encontro em grupo — presencial ou online — onde equipes, lideranças ou famílias praticam <strong>nomear o que sentem sem atribuir ao outro</strong>. É o primeiro contato prático com o conceito de projeção emocional: um espaço seguro para abrir o que costuma ficar represado nas relações.</p><p>Pode ser um encontro único ou um processo que se repete dentro da empresa — a roda onde o grupo aprende a diferenciar o que é meu do que é do outro, antes que o não-dito vire conflito.</p>',
+      question: '“Isso que eu sinto é meu, ou é uma projeção da situação?”',
+      para: 'Equipes, lideranças e famílias — o grupo.',
+      entrega: 'Espaço seguro e menos ruído nas relações de equipe.',
+      wa: 'Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Ciranda%20de%20Consciência.'
+    },
+    laboratorio: {
+      variant: 'laboratorio',
+      cat: 'Autorresponsabilidade energética · o indivíduo',
+      title: 'Laboratório do Observador',
+      tagline: 'Assumir, individualmente, o que nos incomoda como algo nosso.',
+      desc: '<p>Um exercício prático e <strong>individual</strong> — mesmo quando aplicado dentro de uma equipe ou família, o trabalho é pessoal. É o momento de assumir a responsabilidade pela própria energia, sem esperar que o outro mude.</p><p>Um convite a parar de comparar e virar o olhar de fora para dentro: reconhecer que o que incomoda no outro é, quase sempre, um espelho de algo nosso — uma memória, uma crença, uma codificação.</p>',
+      question: '“O que me incomoda no outro é, na verdade, meu?”',
+      para: 'Indivíduos dentro de empresas e famílias.',
+      entrega: 'Ambientes mais saudáveis e menos repetição de conflito.',
+      wa: 'Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Laboratório%20do%20Observador.'
+    },
+    espiral: {
+      variant: 'espiral',
+      cat: 'Tomada de decisão consciente · a essência',
+      title: 'Espiral de Clareza',
+      tagline: 'Decidir e agir a partir da essência — e criar outra realidade.',
+      desc: '<p>O ponto onde o autoconhecimento <strong>vira decisão e ação</strong>. Aqui se aplica o princípio do observador: quem observa modifica o que é observado. É para quem já está pronto para sair da persona e criar a partir da essência.</p><p>Fala em resultado concreto — saúde física e mental, relações, resultados de negócio, vida. Menos “o que eu sinto”, mais “que realidade estou criando com a forma como observo”.</p>',
+      question: '“Estou agindo pela persona ou pela essência? Que realidade estou criando com isso?”',
+      para: 'Lideranças e tomadores de decisão.',
+      entrega: 'Decisões mais alinhadas, resultados e clareza sustentada.',
+      wa: 'Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Espiral%20de%20Clareza.'
+    }
+  };
+
+  var modal = document.getElementById('programa-modal');
+  var box = modal ? modal.querySelector('.modal__box') : null;
+
+  function openModal(key) {
+    var d = DATA[key];
+    if (!d || !modal) return;
+    box.className = 'modal__box modal--' + d.variant;
+    document.getElementById('modal-cat').textContent = d.cat;
+    document.getElementById('modal-title').textContent = d.title;
+    document.getElementById('modal-tagline').textContent = d.tagline;
+    document.getElementById('modal-desc').innerHTML = d.desc;
+    document.getElementById('modal-question').textContent = d.question;
+    document.getElementById('modal-para').textContent = d.para;
+    document.getElementById('modal-entrega').textContent = d.entrega;
+    document.getElementById('modal-wa').setAttribute('href', WA + d.wa);
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    if (!modal) return;
+    modal.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('[data-modal]').forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      e.preventDefault();
+      if (nav) nav.classList.remove('is-open');
+      openModal(el.getAttribute('data-modal'));
+    });
+  });
+  if (modal) {
+    modal.querySelectorAll('[data-close]').forEach(function(el) {
+      el.addEventListener('click', closeModal);
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+  }
+})();
+</script>
 
 <script>
 (function() {

@@ -74,9 +74,23 @@
     .nav__links a { font-family: var(--head); font-size: 13px; font-weight: 500; letter-spacing: .04em; color: var(--text-md); transition: color .2s; white-space: nowrap; }
     .nav__links a:hover, .nav__links a.is-active { color: var(--terra); }
     .nav__links a.is-active { font-weight: 700; }
-    .nav__burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-    .nav__burger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
-    @media (max-width: 980px) { .nav__links, .nav__cta { display: none; } .nav__burger { display: flex; } }
+    .nav__burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; margin: -6px -6px -6px 0; }
+    .nav__burger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: transform .25s, opacity .2s; }
+    .nav.is-open .nav__burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav.is-open .nav__burger span:nth-child(2) { opacity: 0; }
+    .nav.is-open .nav__burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 980px) {
+      .nav__links, .nav__cta { display: none; }
+      .nav__burger { display: flex; }
+      .nav.is-open .nav__in { height: auto; flex-wrap: wrap; padding-bottom: 16px; }
+      .nav.is-open .nav__links {
+        display: flex; flex-direction: column; align-items: flex-start; gap: 2px;
+        width: 100%; order: 3; margin-top: 6px; padding-top: 14px;
+        border-top: 1px solid var(--border-lt);
+      }
+      .nav.is-open .nav__links a { display: block; width: 100%; padding: 12px 2px; font-size: 15px; }
+      .nav.is-open .nav__cta { display: inline-flex; order: 4; width: 100%; justify-content: center; margin-top: 8px; }
+    }
 
     /* SECTION */
     .section { padding: 96px 0; }
@@ -418,9 +432,9 @@
       <div>
         <div class="footer__col-h">Programas</div>
         <ul class="footer__links">
-          <li><a href="index.html#programas">Ciranda de Consciência</a></li>
-          <li><a href="index.html#programas">Laboratório do Observador</a></li>
-          <li><a href="index.html#programas">Espiral de Clareza</a></li>
+          <li><a href="index.html#ciranda">Ciranda de Consciência</a></li>
+          <li><a href="index.html#laboratorio">Laboratório do Observador</a></li>
+          <li><a href="index.html#espiral">Espiral de Clareza</a></li>
           <li><a href="trilha-individual.html">Trilha Individual</a></li>
         </ul>
       </div>
@@ -429,7 +443,7 @@
         <ul class="footer__links">
           <li><a href="index.html#sobre">Quem somos</a></li>
           <li><a href="index.html#sobre">As facilitadoras</a></li>
-          <li><a href="index.html#contato">Contato</a></li>
+          <li><a href="https://wa.me/5516981862829?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Alegre-Ser." target="_blank">Contato</a></li>
           <li><a href="https://alegre-ser.com.br" target="_blank">alegre-ser.com.br</a></li>
         </ul>
       </div>
@@ -448,5 +462,18 @@
   </svg>
 </a>
 
+<script>
+(function() {
+  'use strict';
+  var nav = document.querySelector('.nav');
+  var burger = document.querySelector('.nav__burger');
+  if (nav && burger) {
+    burger.addEventListener('click', function() { nav.classList.toggle('is-open'); });
+    nav.querySelectorAll('.nav__links a, .nav__cta').forEach(function(a) {
+      a.addEventListener('click', function() { nav.classList.remove('is-open'); });
+    });
+  }
+})();
+</script>
 </body>
 </html>
