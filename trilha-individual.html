@@ -144,6 +144,18 @@
     .resultado__note { font-size: 16px; color: rgba(255,255,255,.85); line-height: 1.8; }
     .resultado__note b { color: #ffe6c2; font-weight: 400; font-family: var(--serif); font-style: italic; }
 
+    /* O MÉTODO JDL (cards) */
+    .card { border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--border-lt); background: var(--bg); transition: transform .25s, box-shadow .25s; }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 20px 54px rgba(0,0,0,.09); }
+    .card__top { padding: 30px 28px 24px; color: #fff; }
+    .card--teal   .card__top { background: var(--teal); }
+    .card--terra  .card__top { background: var(--terra); }
+    .card--purple .card__top { background: var(--purple); }
+    .card__cat  { font-family: var(--head); font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.72); margin-bottom: 6px; }
+    .card__name { font-family: var(--head); font-size: 21px; font-weight: 700; line-height: 1.18; letter-spacing: -.02em; }
+    .card__body { padding: 22px 28px 28px; }
+    .card__desc { font-size: 14px; color: var(--text-md); line-height: 1.75; }
+
     /* CTA BAND */
     .cta-band { background: linear-gradient(130deg, var(--terra-dk) 0%, var(--terra) 50%, var(--amber) 100%); padding: 84px 0; text-align: center; position: relative; overflow: hidden; }
     .cta-band::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 72% 45%, rgba(255,255,255,.18) 0%, transparent 62%); pointer-events: none; }
@@ -335,6 +347,48 @@
 </section>
 
 
+<!-- ═══ O MÉTODO JDL ═══ -->
+<section class="section section--warm" id="metodo">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="eyebrow" style="color:var(--purple)">O Método JDL</span>
+      <div class="rule" style="background:var(--purple)"></div>
+      <h2 class="s-title">A metodologia quântica<br>Juan de la Luz.</h2>
+      <p class="s-sub">Existe há mais de duas décadas. Promove vivências terapêuticas onde os participantes vão adentrando o vazio quântico, ampliando a consciência de si mesmos e reprogramando hábitos e crenças — para elevar sua frequência, mudar sua realidade e viver com consciência.</p>
+    </div>
+    <div class="cards3">
+      <div class="card card--purple">
+        <div class="card__top">
+          <div class="card__cat">Prática diária</div>
+          <div class="card__name">Imersões quânticas diárias</div>
+        </div>
+        <div class="card__body">
+          <p class="card__desc">Prática constante que sustenta a mudança de frequência.</p>
+        </div>
+      </div>
+      <div class="card card--teal">
+        <div class="card__top">
+          <div class="card__cat">Individual</div>
+          <div class="card__name">Sessões personalizadas</div>
+        </div>
+        <div class="card__body">
+          <p class="card__desc">Atendimento individual, no ritmo de cada processo.</p>
+        </div>
+      </div>
+      <div class="card card--terra">
+        <div class="card__top">
+          <div class="card__cat">Em grupo · presencial</div>
+          <div class="card__name">Retiros energéticos</div>
+        </div>
+        <div class="card__body">
+          <p class="card__desc">Mergulho profundo em grupo, presencial.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!-- ═══ CTA (slide 6) ═══ -->
 <div class="cta-band">
   <div class="wrap">
@@ -367,7 +421,6 @@
           <li><a href="index.html#programas">Ciranda de Consciência</a></li>
           <li><a href="index.html#programas">Laboratório do Observador</a></li>
           <li><a href="index.html#programas">Espiral de Clareza</a></li>
-          <li><a href="empresas.html">Diálogos de Consciência</a></li>
           <li><a href="trilha-individual.html">Trilha Individual</a></li>
         </ul>
       </div>
