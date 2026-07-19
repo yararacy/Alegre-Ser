@@ -91,9 +91,16 @@
   .quote-block .qphoto img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
   .detail-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 36px; }
-  .detail-card { background: #fff; border: 1px solid #eee; border-radius: 16px; padding: 26px; box-shadow: 0 2px 10px rgba(0,0,0,.03); }
-  .detail-card h3 { font-size: 17px; margin-bottom: 10px; color: var(--teal-dark); }
-  .detail-card p { font-size: 14px; color: var(--gray); }
+  .detail-card { border-radius: 16px; overflow: hidden; border: 1px solid #eee; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,.03); transition: transform .25s, box-shadow .25s; }
+  .detail-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,.08); }
+  .detail-card__top { padding: 28px 26px 22px; color: #fff; }
+  .detail-card--roxo .detail-card__top { background: var(--roxo); }
+  .detail-card--teal .detail-card__top { background: var(--teal); }
+  .detail-card--terracota .detail-card__top { background: var(--terracota); }
+  .detail-card__cat { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.75); margin-bottom: 7px; }
+  .detail-card__name { font-family: 'Roslindale', 'Lora', Georgia, serif; font-size: 20px; font-weight: 700; line-height: 1.18; }
+  .detail-card__body { padding: 22px 26px 26px; }
+  .detail-card__body p { font-size: 14px; color: var(--gray); line-height: 1.7; }
 
   .callout { margin-top: 32px; background: var(--terracota-tint); border-left: 4px solid var(--terracota); padding: 20px 24px; border-radius: 8px; font-size: 15px; color: var(--ink2); }
 
@@ -230,23 +237,45 @@
     <h2 class="section-title">Por que "quântico"?</h2>
     <p class="section-sub">O método é chamado de quântico porque atua no nível celular — inserindo novos códigos vibracionais diretamente no campo energético, sem passar pelo filtro da mente.</p>
     <div class="detail-grid">
-      <div class="detail-card">
-        <h3>Imersões Quânticas</h3>
-        <p>Sessões diárias, grupais ou individuais, em que — através da frequência da voz do Mestre Juan — as pessoas se desconectam do campo mental, adentram o vazio quântico e recebem informações dos Seres de Luz.</p>
+      <div class="detail-card detail-card--roxo">
+        <div class="detail-card__top">
+          <div class="detail-card__cat">No dia a dia</div>
+          <div class="detail-card__name">Imersões Quânticas</div>
+        </div>
+        <div class="detail-card__body">
+          <p>Sessões diárias, grupais ou individuais, em que — através da frequência da voz do Mestre Juan — as pessoas se desconectam do campo mental, adentram o vazio quântico e recebem informações dos Seres de Luz.</p>
+        </div>
       </div>
-      <div class="detail-card">
-        <h3>20% sessão, 80% prática</h3>
-        <p>A informação recebida nas Imersões é só o início. A verdadeira transformação acontece na constância de colocar em prática, todos os dias, o que se recebeu.</p>
+      <div class="detail-card detail-card--teal">
+        <div class="detail-card__top">
+          <div class="detail-card__cat">A proporção</div>
+          <div class="detail-card__name">20% sessão, 80% prática</div>
+        </div>
+        <div class="detail-card__body">
+          <p>A informação recebida nas Imersões é só o início. A verdadeira transformação acontece na constância de colocar em prática, todos os dias, o que se recebeu.</p>
+        </div>
       </div>
-      <div class="detail-card">
-        <h3>4 pilares vivos</h3>
-        <p>Constância, confiança, humildade e gratidão não são conceitos — são ferramentas diárias de sustentação energética, nascidas da própria vivência do Mestre Juan.</p>
+      <div class="detail-card detail-card--terracota">
+        <div class="detail-card__top">
+          <div class="detail-card__cat">O alicerce</div>
+          <div class="detail-card__name">4 pilares vivos</div>
+        </div>
+        <div class="detail-card__body">
+          <p>Constância, confiança, humildade e gratidão não são conceitos — são ferramentas diárias de sustentação energética, nascidas da própria vivência do Mestre Juan.</p>
+        </div>
       </div>
     </div>
-    <p class="section-sub" style="margin-top:34px;margin-bottom:0;">Acompanhe o Mestre Juan de la Luz:
-      <a href="https://www.instagram.com/juandelaluzoficial" target="_blank" rel="noopener" style="color:var(--terracota);font-weight:700;text-decoration:none;">@juandelaluzoficial</a> no Instagram ·
-      <a href="https://www.facebook.com/juan.g.gaviria" target="_blank" rel="noopener" style="color:var(--terracota);font-weight:700;text-decoration:none;">Mestre Juan no Facebook</a>.
-    </p>
+    <div style="margin-top:34px;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:16px;">Acompanhe o Mestre Juan</div>
+      <a href="https://www.instagram.com/juandelaluzoficial" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;color:var(--ink2);text-decoration:none;font-weight:600;font-size:15px;margin-bottom:13px;">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="6" fill="var(--terracota)"/><rect x="6.4" y="6.4" width="11.2" height="11.2" rx="3.2" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.7" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="16.3" cy="7.7" r="1" fill="#fff"/></svg>
+        @juandelaluzoficial
+      </a>
+      <a href="https://www.facebook.com/juan.g.gaviria" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;color:var(--ink2);text-decoration:none;font-weight:600;font-size:15px;">
+        <svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="var(--terracota)"/><path d="M13.2 12h1.65l.3-2.1H13.2V8.55c0-.6.18-1.02 1.05-1.02H15.3V5.6c-.26-.03-1.14-.11-2.16-.11-2.14 0-3.5 1.3-3.5 3.68V9.9H7.7V12h1.94v5.6h2.56V12z" fill="#fff"/></svg>
+        Mestre Juan de la Luz
+      </a>
+    </div>
   </div>
 </section>
 
