@@ -120,11 +120,22 @@
   .btn-primary { background: #fff; color: var(--teal-dark); }
   .btn-ghost { border: 1.5px solid rgba(255,255,255,.6); color: #fff; }
 
-  footer { padding: 40px 0; text-align: center; font-size: 13px; color: #8a7a63; }
-  footer .social { margin-bottom: 16px; }
-  footer .social a { display: inline-flex; align-items: center; gap: 8px; color: var(--teal-dark); text-decoration: none; font-weight: 700; font-size: 14px; border: 1px solid #d9cdb6; border-radius: 999px; padding: 9px 18px; transition: background .2s, color .2s; }
-  footer .social a:hover { background: var(--teal-dark); color: #fff; }
-  footer .social a svg { width: 17px; height: 17px; }
+  footer.footer { background: #120e0c; color: rgba(255,255,255,.6); padding: 64px 0 36px; }
+  .footer__grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 56px; margin-bottom: 44px; }
+  .footer__brand { font-family: 'Garet','Poppins',sans-serif; font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 10px; letter-spacing: -.02em; }
+  .footer__brand em { color: var(--teal); font-style: normal; }
+  .footer__desc { font-size: 14px; line-height: 1.75; margin-bottom: 22px; }
+  .footer__socials { display: flex; gap: 10px; }
+  .footer__soc { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,255,255,.15); display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: 'Garet','Poppins',sans-serif; font-weight: 700; color: rgba(255,255,255,.6); text-decoration: none; transition: border-color .2s, color .2s; }
+  .footer__soc:hover { border-color: var(--teal); color: var(--teal); }
+  .footer__col-h { font-family: 'Garet','Poppins',sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 18px; }
+  .footer__links { display: flex; flex-direction: column; gap: 10px; list-style: none; }
+  .footer__links a { font-size: 14px; color: rgba(255,255,255,.5); text-decoration: none; transition: color .2s; }
+  .footer__links a:hover { color: #fff; }
+  .footer__bottom { border-top: 1px solid rgba(255,255,255,.07); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; }
+  .footer__bottom a { color: rgba(255,255,255,.35); text-decoration: none; }
+  .footer__bottom a:hover { color: rgba(255,255,255,.7); }
+  @media (max-width: 768px) { .footer__grid { grid-template-columns: 1fr; gap: 32px; } .footer__bottom { flex-direction: column; gap: 8px; text-align: center; } }
 
   @media (max-width: 860px) {
     .hero-bio .grid, .bridge .grid, .quote-block .qgrid { grid-template-columns: 1fr; }
@@ -287,15 +298,42 @@
   </div>
 </section>
 
-<footer>
+<footer class="footer">
   <div class="wrap">
-    <div class="social">
-      <a href="https://open.spotify.com/show/4r1DBWuFpJ5bcd5rgyqKBu" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.5 17.3a.75.75 0 0 1-1.03.25c-2.82-1.72-6.37-2.11-10.55-1.16a.75.75 0 1 1-.33-1.46c4.57-1.04 8.5-.59 11.66 1.34.35.22.47.68.25 1.03zm1.47-3.27a.94.94 0 0 1-1.29.31c-3.23-1.98-8.15-2.56-11.97-1.4a.94.94 0 1 1-.54-1.8c4.36-1.31 9.78-.67 13.49 1.6.44.27.58.85.31 1.29zm.13-3.4C15.8 8.4 8.6 8.18 4.94 9.29a1.12 1.12 0 1 1-.65-2.15c4.2-1.27 12.15-1.03 16.42 1.5a1.12 1.12 0 1 1-1.15 1.93z"/></svg>
-        Ouça nosso podcast no Spotify
-      </a>
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand">Alegre-<em>Ser</em></div>
+        <p class="footer__desc">Expansão de consciência para empresas, famílias e pessoas.<br>Extensão da Metodologia Quântica Juan de la Luz no Brasil.</p>
+        <div class="footer__socials">
+          <a href="https://www.instagram.com/alegre_seroficial" target="_blank" class="footer__soc">IG</a>
+          <a href="https://www.youtube.com/@Alegre-Ser" target="_blank" class="footer__soc">YT</a>
+          <a href="https://wa.me/5516981862829" target="_blank" class="footer__soc">WA</a>
+          <a href="https://open.spotify.com/show/4r1DBWuFpJ5bcd5rgyqKBu" target="_blank" class="footer__soc" aria-label="Spotify">SP</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-h">Programas</div>
+        <ul class="footer__links">
+          <li><a href="/index.html#ciranda">Ciranda de Consciência</a></li>
+          <li><a href="/index.html#laboratorio">Laboratório do Observador</a></li>
+          <li><a href="/index.html#espiral">Espiral de Clareza</a></li>
+          <li><a href="/trilha-individual.html">Trilha Individual</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-h">Alegre-Ser</div>
+        <ul class="footer__links">
+          <li><a href="/index.html#sobre">Quem somos</a></li>
+          <li><a href="/index.html#sobre">As facilitadoras</a></li>
+          <li><a href="https://wa.me/5516981862829?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Alegre-Ser." target="_blank">Contato</a></li>
+          <li><a href="https://alegre-ser.com.br" target="_blank">alegre-ser.com.br</a></li>
+        </ul>
+      </div>
     </div>
-    © 2026 Alegre-Ser · São Paulo, Brasil · Metodologia Quântica Juan de la Luz · alegre-ser.com.br
+    <div class="footer__bottom">
+      <span>© 2026 Alegre-Ser · São Paulo, Brasil</span>
+      <span>Metodologia Quântica Juan de la Luz · <a href="https://alegre-ser.com.br">alegre-ser.com.br</a></span>
+    </div>
   </div>
 </footer>
 
