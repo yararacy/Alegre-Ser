@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mestre Juan · Juan de la Luz — Alegre-Ser</title>
+<meta name="description" content="Conheça a história de Juan Guillermo Gaviria Echeverry, o Mestre Juan de la Luz, e como nasceu a Metodologia Quântica que sustenta o trabalho do Alegre-Ser.">
+<style>
+  :root {
+    --teal-dark: #155E6B;
+    --teal: #229CB2;
+    --teal-tint: #E4F3F5;
+    --teal-tint2: #BFE6EC;
+    --terracota: #C84523;
+    --terracota-tint: #FDEDE6;
+    --roxo: #962C72;
+    --roxo-tint: #F0DCEA;
+    --cream: #F5EFE0;
+    --ink: #1B1B1B;
+    --ink2: #2B2B2B;
+    --gray: #5A5A5A;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Garet', 'Poppins', -apple-system, sans-serif;
+    background: #fff;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  h1, h2, h3 {
+    font-family: 'Roslindale', 'Lora', Georgia, serif;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+  nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px 0; border-bottom: 1px solid #eee;
+  }
+  nav .logo { font-family: 'Roslindale', Georgia, serif; font-style: italic; font-size: 22px; color: var(--ink); }
+  nav .links { display: flex; gap: 28px; font-size: 14px; }
+  nav .links a { color: var(--ink); text-decoration: none; opacity: .75; }
+  nav .links a.active { opacity: 1; font-weight: 700; color: var(--teal); }
+  nav .cta { background: var(--teal); color: #fff; padding: 10px 20px; border-radius: 999px; text-decoration: none; font-size: 14px; font-weight: 600; }
+
+  /* HERO — bio split */
+  .hero-bio { background: var(--teal-dark); color: #fff; padding: 70px 0; }
+  .hero-bio .grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 56px; align-items: center; }
+  .hero-bio .eyebrow { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; opacity: .85; margin-bottom: 18px; font-weight: 700; color: #bfe6ec; }
+  .hero-bio h1 { font-size: 42px; margin-bottom: 14px; }
+  .hero-bio h1 em { font-style: italic; color: #bfe6ec; }
+  .hero-bio p.lead { font-size: 17px; opacity: .92; max-width: 480px; }
+  .photo-frame {
+    position: relative; border-radius: 20px; overflow: hidden;
+    aspect-ratio: 4 / 5; background: linear-gradient(160deg, #1f7787, #0e3c46);
+    border: 1px solid rgba(255,255,255,.15);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .photo-frame .placeholder { color: rgba(255,255,255,.55); font-size: 13px; text-align: center; padding: 24px; letter-spacing: .04em; }
+  .photo-caption { margin-top: 12px; font-size: 12.5px; opacity: .65; text-align: center; }
+
+  section { padding: 76px 0; }
+  section.tight { padding: 56px 0; }
+  .kicker { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; margin-bottom: 12px; }
+  .kicker.on-light { color: var(--teal); }
+  .kicker.terracota { color: var(--terracota); }
+  .kicker.roxo { color: var(--roxo); }
+  h2.section-title { font-size: 32px; margin-bottom: 18px; max-width: 700px; }
+  p.section-sub { font-size: 17px; max-width: 660px; color: var(--gray); margin-bottom: 28px; }
+
+  .prose { max-width: 720px; font-size: 16.5px; color: var(--ink2); }
+  .prose p { margin-bottom: 18px; }
+  .prose p:last-child { margin-bottom: 0; }
+
+  /* Timeline-ish two column bio blocks */
+  .bio-block { display: grid; grid-template-columns: 200px 1fr; gap: 32px; padding: 32px 0; border-top: 1px solid #eee; }
+  .bio-block:first-of-type { border-top: none; }
+  .bio-block .tag { font-family: 'Roslindale', Georgia, serif; font-size: 22px; color: var(--teal); }
+  .bio-block .tag small { display: block; font-family: 'Garet', sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--gray); font-weight: 700; margin-top: 4px; }
+  .bio-block .content p { font-size: 15.5px; color: var(--ink2); margin-bottom: 14px; }
+  .bio-block .content p:last-child { margin-bottom: 0; }
+
+  .quote-block { background: var(--roxo); color: #fff; }
+  .quote-block blockquote { font-family: 'Roslindale', Georgia, serif; font-size: 24px; font-style: italic; max-width: 780px; white-space: pre-line; }
+  .quote-block .attribution { margin-top: 20px; font-size: 14px; opacity: .85; font-style: normal; }
+  .quote-block .kicker { color: #ecd1e1; }
+
+  .detail-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 36px; }
+  .detail-card { background: #fff; border: 1px solid #eee; border-radius: 16px; padding: 26px; box-shadow: 0 2px 10px rgba(0,0,0,.03); }
+  .detail-card h3 { font-size: 17px; margin-bottom: 10px; color: var(--teal-dark); }
+  .detail-card p { font-size: 14px; color: var(--gray); }
+
+  .callout { margin-top: 32px; background: var(--terracota-tint); border-left: 4px solid var(--terracota); padding: 20px 24px; border-radius: 8px; font-size: 15px; color: var(--ink2); }
+
+  .legado { background: var(--teal-tint); }
+  .legado-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 36px; text-align: center; }
+  .legado-item { background: #fff; border-radius: 16px; padding: 28px 20px; }
+  .legado-item .num { font-family: 'Roslindale', Georgia, serif; font-size: 26px; color: var(--teal-dark); margin-bottom: 8px; }
+  .legado-item .desc { font-size: 13.5px; color: var(--gray); }
+
+  .bridge { background: var(--cream); }
+  .bridge .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+  .bridge h2.section-title { max-width: none; }
+  .bridge .who { display: flex; gap: 14px; margin-top: 20px; flex-wrap: wrap; }
+  .bridge .who span { background: #fff; border: 1px solid #ece3d3; border-radius: 999px; padding: 8px 16px; font-size: 13.5px; font-weight: 600; }
+
+  .final-cta { background: var(--teal-dark); color: #fff; text-align: center; padding: 90px 0; }
+  .final-cta h2 { font-size: 32px; max-width: 640px; margin: 0 auto 18px; color: #fff; }
+  .final-cta p { max-width: 520px; margin: 0 auto 32px; opacity: .9; }
+  .btn { display: inline-block; padding: 14px 26px; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 15px; }
+  .btn-primary { background: #fff; color: var(--teal-dark); }
+  .btn-ghost { border: 1.5px solid rgba(255,255,255,.6); color: #fff; }
+
+  footer { padding: 40px 0; text-align: center; font-size: 13px; color: #8a7a63; }
+
+  @media (max-width: 860px) {
+    .hero-bio .grid, .bridge .grid { grid-template-columns: 1fr; }
+    .hero-bio .grid { }
+    .detail-grid, .legado-grid { grid-template-columns: 1fr; }
+    .bio-block { grid-template-columns: 1fr; gap: 10px; }
+    .hero-bio h1, .final-cta h2 { font-size: 28px; }
+    nav .links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav>
+    <div class="logo">Alegre-<em>Ser</em></div>
+    <div class="links">
+      <a href="/index.html#programas">Programas</a>
+      <a href="/empresas.html">Empresas</a>
+      <a href="/trilha-individual.html">Trilha Individual</a>
+      <a href="/index.html#para-quem">Para quem</a>
+      <a href="/index.html#sobre">Sobre</a>
+      <a href="/mestre-juan.html" class="active">Mestre Juan</a>
+    </div>
+    <a class="cta" href="/index.html#contato">Falar conosco</a>
+  </nav>
+</div>
+
+<section class="hero-bio">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="photo-frame">
+          <img src="/img/mestre-juan.jpg" alt="Mestre Juan, Juan Guillermo Gaviria Echeverry">
+        </div>
+        <p class="photo-caption">Juan Guillermo Gaviria Echeverry — Mestre Juan de la Luz</p>
+      </div>
+      <div>
+        <div class="eyebrow">A origem da metodologia</div>
+        <h1>Mestre Juan <em>de la Luz</em></h1>
+        <p class="lead">A vida que se tornou método. A história de Juan Guillermo Gaviria Echeverry — e de como sua própria transformação abriu um caminho que hoje sustenta o trabalho do Alegre-Ser.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="quem-e">
+  <div class="wrap">
+    <div class="kicker on-light">Quem é</div>
+    <h2 class="section-title">Uma vida dedicada a despertar a luz em cada ser humano.</h2>
+
+    <div class="bio-block">
+      <div class="tag">1961<small>Nascimento</small></div>
+      <div class="content">
+        <p>Juan Guillermo Gaviria Echeverry nasceu em 5 de agosto de 1961, na cidade de Cali, na Colômbia. Ainda jovem, foi estudar nos Estados Unidos, onde obteve cidadania americana — e onde construiu uma trajetória profissional bem-sucedida, distante de qualquer proposta espiritual ou terapêutica.</p>
+      </div>
+    </div>
+
+    <div class="bio-block">
+      <div class="tag">Infância<small>Um ponto de virada</small></div>
+      <div class="content">
+        <p>Sua história, no entanto, é marcada por uma dor precoce: ainda criança, viveu o assassinato do pai. Já adolescente, viveu o que descreve como uma catarse — o processo de transmutar toda a raiva que guardava do assassino em amor, por si mesmo e pela humanidade.</p>
+        <p>É esse gesto, ainda tão jovem, que atravessa toda a sua missão. Do perdão nasceu um traço que nunca mais o abandonou: uma energia de amor incondicional, mesmo diante do que mais dói.</p>
+      </div>
+    </div>
+
+    <div class="bio-block">
+      <div class="tag">2007<small>O chamado</small></div>
+      <div class="content">
+        <p>Bem-sucedido no trabalho, em 2007 Juan aceitou um chamado interno para um novo caminho: dedicar-se exclusivamente a levar luz para a humanidade. Podendo escolher outros rumos — negócios vantajosos, conforto, permanecer onde estava —, ele preferiu servir, compartilhando sua energia fisicamente com o mundo e as pessoas.</p>
+        <p>Viajou quando ninguém o esperava. Sustentou quando o aparente vazio se impunha. Confiou quando a mente duvidava. Desde então, é conhecido como Mestre Juan — ou Juan de la Luz.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quote-block">
+  <div class="wrap">
+    <div class="kicker">A oração que o guia</div>
+    <blockquote>Desde o pensamento até o coração, neste plano de Deus, Pai, faz-me teu instrumento, para que tudo o que me aconteça o dia de hoje seja a tua vontade. Põe-me onde necessitas que eu esteja e faz-me saber, de algum modo, que és tu que atua através de mim.
+Amém.</blockquote>
+    <div class="attribution">Invocação que abre a jornada do Método Quântico Juan de la Luz.</div>
+  </div>
+</section>
+
+<section id="nascimento-metodo">
+  <div class="wrap">
+    <div class="kicker on-light">Como nasceu o método</div>
+    <h2 class="section-title">Não veio de livros. Veio da prática diária.</h2>
+    <div class="prose">
+      <p>O Método Quântico Juan de la Luz não nasceu de um conhecimento teórico adquirido em salas de aula ou universidades. Nasceu da prática viva, cotidiana e amorosa — constante e coerente — que o próprio Mestre Juan teve ao longo de sua jornada espiritual.</p>
+      <p>Diariamente, ele foi aplicando em sua própria vida os ensinamentos e informações recebidos nas Imersões Quânticas, reconhecendo sua eficácia na própria transformação. A partir daí, diante de pessoas tomadas pelo ego, pela raiva ou por dores emocionais, Mestre Juan passou a convidar, com simplicidade e autoridade: <em>"Deita e canaliza. Entra na luz."</em></p>
+      <p>Foi a repetição consciente, vivida diariamente, que consolidou o método. E do testemunho silencioso dessa ação sustentada emergiram os quatro fundamentos que hoje estruturam o Método JDL — não como teoria, mas como reflexo vivo de sua própria prática: <strong>constância, confiança, gratidão e humildade</strong>.</p>
+    </div>
+
+    <div class="callout">Ele mudou sua própria frequência para mudar sua realidade. Esse movimento — de dentro para fora — tornou-se caminho para milhares de pessoas.</div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="kicker terracota">Alguns detalhes da metodologia</div>
+    <h2 class="section-title">Por que "quântico"?</h2>
+    <p class="section-sub">O método é chamado de quântico porque atua no nível celular — inserindo novos códigos vibracionais diretamente no campo energético, sem passar pelo filtro da mente.</p>
+    <div class="detail-grid">
+      <div class="detail-card">
+        <h3>Imersões Quânticas</h3>
+        <p>Sessões diárias, grupais ou individuais, em que — através da frequência da voz do Mestre Juan — as pessoas se desconectam do campo mental, adentram o vazio quântico e recebem informações dos Seres de Luz.</p>
+      </div>
+      <div class="detail-card">
+        <h3>20% sessão, 80% prática</h3>
+        <p>A informação recebida nas Imersões é só o início. A verdadeira transformação acontece na constância de colocar em prática, todos os dias, o que se recebeu.</p>
+      </div>
+      <div class="detail-card">
+        <h3>4 pilares vivos</h3>
+        <p>Constância, confiança, humildade e gratidão não são conceitos — são ferramentas diárias de sustentação energética, nascidas da própria vivência do Mestre Juan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="legado">
+  <div class="wrap">
+    <div class="kicker on-light">O legado hoje</div>
+    <h2 class="section-title">Mais de 20 anos despertando luz ao redor do mundo.</h2>
+    <p class="section-sub">Há mais de duas décadas dedicado plenamente a despertar em cada ser sua própria luz, Mestre Juan construiu uma comunidade ao redor do mundo dedicada a dissolver o ego e atuar a partir da energia do amor.</p>
+    <div class="legado-grid">
+      <div class="legado-item">
+        <div class="num">+20 anos</div>
+        <div class="desc">de dedicação plena à missão iniciada em 2007.</div>
+      </div>
+      <div class="legado-item">
+        <div class="num">Portais dimensionais</div>
+        <div class="desc">espaços físicos de energia elevada constituídos por ele, onde recebe pessoas de todo o mundo para momentos de cura, liberação e reprogramação energética.</div>
+      </div>
+      <div class="legado-item">
+        <div class="num">Canais de Luz</div>
+        <div class="desc">uma rede global de praticantes certificados que sustentam e multiplicam o método em diferentes países — entre eles, o Brasil.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bridge">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="kicker roxo">A metodologia no Brasil</div>
+        <h2 class="section-title">O Alegre-Ser é uma extensão dessa missão.</h2>
+        <p class="section-sub">Chrys Hellen Machado, Robertha Aranha e Yara Racy são Canais da Metodologia Quântica Juan de la Luz há mais de uma década — e aplicam seus princípios em palestras, workshops, cirandas de consciência e terapias multidimensionais para pessoas, famílias e empresas.</p>
+        <div class="who">
+          <span>Chrys Hellen Machado</span>
+          <span>Robertha Aranha</span>
+          <span>Yara Racy</span>
+        </div>
+      </div>
+      <div class="prose">
+        <p>Assim como Mestre Juan não teorizou — viveu — o Alegre-Ser também não ensina um conceito: propõe uma travessia. Cada sessão, cada palestra, cada workshop é uma oportunidade de experimentar, na prática, o que sustenta o método desde sua origem: mudar a energia para mudar as relações.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="wrap">
+    <h2>Conheça os caminhos que o Alegre-Ser sustenta a partir dessa metodologia.</h2>
+    <p>Sessões individuais, programas para empresas e vivências para famílias e grupos.</p>
+    <div class="btns">
+      <a class="btn btn-primary" href="/index.html#programas">Ver programas</a>
+      <a class="btn btn-ghost" href="/index.html#contato" style="margin-left:16px;">Falar conosco</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    © 2026 Alegre-Ser · São Paulo, Brasil · Metodologia Quântica Juan de la Luz · alegre-ser.com.br
+  </div>
+</footer>
+
+</body>
+</html>
