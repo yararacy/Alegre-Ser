@@ -135,7 +135,12 @@
     .card--terra  .card__top { background: var(--terra); }
     .card--amber  .card__top { background: var(--amber); }
     .card--purple .card__top { background: var(--purple); }
-    .card__avatar { width: 54px; height: 54px; border-radius: 50%; background: rgba(255,255,255,.2); display: flex; align-items: center; justify-content: center; font-family: var(--head); font-weight: 700; font-size: 18px; letter-spacing: .04em; margin-bottom: 16px; }
+    .card__avatar { width: 62px; height: 62px; border-radius: 50%; position: relative; overflow: hidden; border: 2px solid rgba(255,255,255,.55); margin-bottom: 16px; }
+    .card__avatar img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 24%; display: block; }
+    .card__avatar-tint { position: absolute; inset: 0; mix-blend-mode: multiply; }
+    .card--teal  .card__avatar-tint { background: var(--teal);  opacity: .28; }
+    .card--terra .card__avatar-tint { background: var(--terra); opacity: .42; }
+    .card--amber .card__avatar-tint { background: var(--amber); opacity: .28; }
     .card__cat  { font-family: var(--head); font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.72); margin-bottom: 6px; }
     .card__name { font-family: var(--head); font-size: 21px; font-weight: 700; line-height: 1.18; letter-spacing: -.02em; }
     .card__body { padding: 22px 28px 28px; }
@@ -379,7 +384,7 @@
     <div class="cards3">
       <div class="card card--teal">
         <div class="card__top">
-          <div class="card__avatar">CH</div>
+          <div class="card__avatar"><img src="/img/facilit-chrys.jpg" alt="Chrys Hellen Machado"><span class="card__avatar-tint"></span></div>
           <div class="card__cat">Psicóloga</div>
           <div class="card__name">Chrys Hellen Machado</div>
         </div>
@@ -391,7 +396,7 @@
       </div>
       <div class="card card--terra">
         <div class="card__top">
-          <div class="card__avatar">RA</div>
+          <div class="card__avatar"><img src="/img/facilit-robertha.jpg" alt="Robertha Aranha"><span class="card__avatar-tint"></span></div>
           <div class="card__cat">Advogada</div>
           <div class="card__name">Robertha Aranha</div>
         </div>
@@ -403,7 +408,7 @@
       </div>
       <div class="card card--amber">
         <div class="card__top">
-          <div class="card__avatar">YR</div>
+          <div class="card__avatar"><img src="/img/facilit-yara.jpg" alt="Yara Racy"><span class="card__avatar-tint"></span></div>
           <div class="card__cat">Jornalista</div>
           <div class="card__name">Yara Racy</div>
         </div>
