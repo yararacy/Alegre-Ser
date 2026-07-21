@@ -40,7 +40,9 @@
 
   header{position:relative; z-index:20; background:rgba(253,249,244,.88); backdrop-filter:blur(6px);}
   .nav{display:flex; align-items:center; justify-content:space-between; padding:22px 32px;}
-  .logo{display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-size:22px; font-weight:600; color:var(--ink);}
+  .logo{display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-size:22px; font-weight:600; color:var(--ink); text-decoration:none;}
+  .logo-badge{width:36px; height:36px; border-radius:50%; background:var(--blue); display:inline-flex; align-items:center; justify-content:center; flex:0 0 auto;}
+  .logo-badge img{width:23px; height:23px; object-fit:contain; display:block;}
   .logo em{color:var(--terracotta);}
   .navlinks{display:flex; gap:28px; font-family:var(--font-heading); font-size:13.5px; font-weight:500;}
   .navlinks a{opacity:.75; transition:opacity .2s; border-bottom:1.5px solid transparent;}
@@ -331,14 +333,13 @@
 
 <header>
   <div class="nav wrap">
-    <div class="logo">Alegre-<em>Ser</em></div>
-    <div class="navlinks">
-      <a href="/index.html#programas">Programas</a>
+    <a class="logo" href="/index.html" aria-label="Alegre-Ser — Início"><span class="logo-badge"><img src="/espiral-alegre-ser.png" alt=""></span>Alegre-<em>Ser</em></a>
+        <div class="navlinks">
       <a href="/empresas.html">Empresas</a>
       <a href="/trilha-individual.html">Trilha Individual</a>
-      <a href="/index.html#para-quem">Para quem</a>
-      <a href="/index.html#sobre">Sobre</a>
       <a href="/mestre-juan.html" style="opacity:1; border-bottom:1.5px solid var(--terracotta);">Mestre Juan</a>
+      <a href="/sobre.html">Sobre</a>
+      <a href="/podser.html">PodSer</a>
     </div>
     <a href="/index.html#contato" class="btn btn-primary">Falar conosco</a>
   </div>
@@ -477,7 +478,7 @@
     <h2>Conheça os caminhos que o Alegre-Ser sustenta a partir dessa metodologia.</h2>
     <p>Sessões individuais, programas para empresas e vivências para famílias e grupos.</p>
     <div class="hero-ctas">
-      <a href="/index.html#programas" class="btn btn-primary">Ver programas</a>
+      <a href="/empresas.html" class="btn btn-primary">Ver programas</a>
       <a href="/index.html#contato" class="btn btn-outline">Falar conosco</a>
     </div>
   </div>
@@ -492,23 +493,23 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="logo">Alegre-<em>Ser</em></div>
+        <a class="logo" href="/index.html" aria-label="Alegre-Ser — Início"><span class="logo-badge"><img src="/espiral-alegre-ser.png" alt=""></span>Alegre-<em>Ser</em></a>
         <p>Expansão de consciência para empresas, famílias e pessoas. Extensão da Metodologia Quântica Juan de la Luz no Brasil.</p>
       </div>
       <div>
         <h4>Programas</h4>
         <ul>
-          <li><a href="/index.html#ciranda">Ciranda de Consciência</a></li>
-          <li><a href="/index.html#laboratorio">Laboratório do Observador</a></li>
-          <li><a href="/index.html#espiral">Espiral de Clareza</a></li>
+          <li><a href="/empresas.html#programa">Ciranda de Consciência</a></li>
+          <li><a href="/empresas.html#programa">Laboratório do Observador</a></li>
+          <li><a href="/empresas.html#programa">Espiral de Clareza</a></li>
           <li><a href="/trilha-individual.html">Trilha Individual</a></li>
         </ul>
       </div>
       <div>
         <h4>Alegre-Ser</h4>
         <ul>
-          <li><a href="/index.html#sobre">Quem somos</a></li>
-          <li><a href="/index.html#sobre">As facilitadoras</a></li>
+          <li><a href="/sobre.html">Quem somos</a></li>
+          <li><a href="/sobre.html">As facilitadoras</a></li>
           <li><a href="https://wa.me/5516981862829">Contato</a></li>
           <li><a href="https://alegre-ser.com.br">alegre-ser.com.br</a></li>
         </ul>

@@ -40,7 +40,9 @@
 
   header{position:relative; z-index:20; background:rgba(253,249,244,.88); backdrop-filter:blur(6px);}
   .nav{display:flex; align-items:center; justify-content:space-between; padding:22px 32px;}
-  .logo{display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-size:22px; font-weight:600; color:var(--ink);}
+  .logo{display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-size:22px; font-weight:600; color:var(--ink); text-decoration:none;}
+  .logo-badge{width:36px; height:36px; border-radius:50%; background:var(--blue); display:inline-flex; align-items:center; justify-content:center; flex:0 0 auto;}
+  .logo-badge img{width:23px; height:23px; object-fit:contain; display:block;}
   .logo em{color:var(--terracotta);}
   .navlinks{display:flex; gap:28px; font-family:var(--font-heading); font-size:13.5px; font-weight:500;}
   .navlinks a{opacity:.75; transition:opacity .2s; border-bottom:1.5px solid transparent;}
@@ -271,15 +273,13 @@
 
 <header>
   <div class="nav wrap">
-    <div class="logo">Alegre-<em>Ser</em></div>
-    <div class="navlinks">
-      <a href="#paraquem">Para quem</a>
-      <a href="#trilha">Trilha Individual</a>
-      <a href="#programas">Programas</a>
+    <a class="logo" href="/index.html" aria-label="Alegre-Ser — Início"><span class="logo-badge"><img src="/espiral-alegre-ser.png" alt=""></span>Alegre-<em>Ser</em></a>
+        <div class="navlinks">
+      <a href="/empresas.html">Empresas</a>
+      <a href="/trilha-individual.html">Trilha Individual</a>
       <a href="/mestre-juan.html">Mestre Juan</a>
-      <a href="#sobre">Facilitadoras</a>
-      <a href="#podser">PodSer</a>
-      <a href="#contato">Contato</a>
+      <a href="/sobre.html">Sobre</a>
+      <a href="/podser.html">PodSer</a>
     </div>
     <a href="#contato" class="btn btn-primary">Falar conosco</a>
   </div>
@@ -369,7 +369,7 @@
           <span class="pq-tag">Famílias</span>
           <h3>Sua família</h3>
           <p class="blurb">Relações com ruído ou conflito, padrões entre gerações.</p>
-          <a href="#" class="pq-link">Saiba mais →</a>
+          <a href="/index.html#contato" class="pq-link">Saiba mais →</a>
         </div>
       </div>
     </div>
@@ -423,7 +423,7 @@
       </div>
     </div>
     <div class="stepper-format">3 sessões individuais de 35 min + 2 sessões em grupo de 45 min · online ou presencial · semanal ou quinzenal.</div>
-    <div class="trilha-cta"><a href="#" class="btn btn-outline">Ver Trilha Individual completa →</a></div>
+    <div class="trilha-cta"><a href="/trilha-individual.html" class="btn btn-outline">Ver Trilha Individual completa →</a></div>
   </div>
 
   <div class="trail-connector">
@@ -471,7 +471,7 @@
           <div class="node-title">Ciranda de Consciência</div>
           <p>Comunicação que fortalece relações e reduz conflitos, facilitando conversas que chegam onde a informação técnica não chega — no campo energético das equipes.</p>
           <div class="node-tags"><span>Comunicação</span><span>Liderança</span><span>Clima de equipe</span></div>
-          <a href="#" class="node-link">Saiba mais →</a>
+          <a href="/empresas.html" class="node-link">Saiba mais →</a>
         </div>
       </div>
 
@@ -484,7 +484,7 @@
           <div class="node-title">Laboratório do Observador</div>
           <p>Práticas para estimular a percepção da própria energia no ambiente de trabalho. Quando cada pessoa se observa, o campo coletivo se transforma.</p>
           <div class="node-tags"><span>Autopercepção</span><span>Presença</span></div>
-          <a href="#" class="node-link">Saiba mais →</a>
+          <a href="/empresas.html" class="node-link">Saiba mais →</a>
         </div>
       </div>
 
@@ -497,7 +497,7 @@
           <div class="node-title">Espiral de Clareza</div>
           <p>Práticas para tomada de decisão, alinhamento de equipe e ação a partir da consciência — não do automatismo. Clareza que move, não que paralisa.</p>
           <div class="node-tags"><span>Decisão</span><span>Alinhamento</span><span>Ação consciente</span></div>
-          <a href="#" class="node-link">Saiba mais →</a>
+          <a href="/empresas.html" class="node-link">Saiba mais →</a>
         </div>
       </div>
     </div>
@@ -553,7 +553,7 @@
         <div class="fac-name">Chrys Hellen</div>
         <div class="fac-role">Psicóloga · desde 2013</div>
         <div class="fac-quote">"Infinito potencial de criação."</div>
-        <a href="#" class="fac-video-link">Assistir apresentação →</a>
+        <a href="/sobre.html" class="fac-video-link">Assistir apresentação →</a>
       </div>
       <div class="fac-card">
         <div class="fac-photo-wrap">
@@ -565,7 +565,7 @@
         <div class="fac-name">Robertha Aranha</div>
         <div class="fac-role">Advogada · desde 2007</div>
         <div class="fac-quote">"Códigos que ampliam a consciência."</div>
-        <a href="#" class="fac-video-link">Assistir apresentação →</a>
+        <a href="/sobre.html" class="fac-video-link">Assistir apresentação →</a>
       </div>
       <div class="fac-card">
         <div class="fac-photo-wrap">
@@ -577,7 +577,7 @@
         <div class="fac-name">Yara Racy</div>
         <div class="fac-role">Jornalista · desde 2015</div>
         <div class="fac-quote">"Mentes que dormem, corações que sentem."</div>
-        <a href="#" class="fac-video-link">Assistir apresentação →</a>
+        <a href="/sobre.html" class="fac-video-link">Assistir apresentação →</a>
       </div>
     </div>
   </div>
@@ -595,14 +595,14 @@
     </div>
 
     <div class="ep-cloud">
-      <a href="#" class="ep-chip"><span class="n">Ep. 10</span> O chato do ego</a>
-      <a href="#" class="ep-chip"><span class="n">Ep. 06</span> Atravessando os incômodos</a>
-      <a href="#" class="ep-chip"><span class="n">Ep. 04</span> Oscilação energética</a>
+      <a href="/podser.html" class="ep-chip"><span class="n">Ep. 10</span> O chato do ego</a>
+      <a href="/podser.html" class="ep-chip"><span class="n">Ep. 06</span> Atravessando os incômodos</a>
+      <a href="/podser.html" class="ep-chip"><span class="n">Ep. 04</span> Oscilação energética</a>
     </div>
 
     <div class="podser-ctas">
-      <a href="#">Ouvir todos no Spotify →</a>
-      <a href="#">Assistir no YouTube →</a>
+      <a href="/podser.html">Ouvir todos no Spotify →</a>
+      <a href="https://www.youtube.com/@Alegre-Ser" target="_blank" rel="noopener">Assistir no YouTube →</a>
     </div>
   </div>
 </section>
@@ -630,7 +630,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="logo">Alegre-<em>Ser</em></div>
+        <a class="logo" href="/index.html" aria-label="Alegre-Ser — Início"><span class="logo-badge"><img src="/espiral-alegre-ser.png" alt=""></span>Alegre-<em>Ser</em></a>
         <p>Expansão de consciência para empresas, famílias e pessoas. Extensão da Metodologia Quântica Juan de la Luz no Brasil.</p>
       </div>
       <div>

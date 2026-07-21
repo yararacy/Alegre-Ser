@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trilha Individual — Alegre-Ser</title>
+<title>PodSer · Podcast — Alegre-Ser</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -296,6 +296,16 @@
   .ti-method-card .kicker{margin-bottom:6px;}
   .ti-method-card h4{font-family:var(--font-display); font-size:17px; font-weight:600; margin-bottom:8px;}
   .ti-method-card p{font-size:13.5px; color:var(--muted); line-height:1.5;}
+
+  /* ===== PODSER ===== */
+  .podser-hero{padding:64px 0 6px;}
+  .ep-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(258px,1fr)); gap:22px; padding:30px 0 10px;}
+  .ep-card{background:var(--cream-2); border:1px solid var(--cream-border); border-radius:18px; padding:26px 24px; display:flex; flex-direction:column; gap:10px; text-decoration:none; transition:transform .2s, box-shadow .2s;}
+  .ep-card:hover{transform:translateY(-4px); box-shadow:0 16px 36px rgba(26,18,16,.10);}
+  .ep-num{font-family:var(--font-heading); font-size:12px; letter-spacing:.09em; text-transform:uppercase; color:var(--terracotta);}
+  .ep-title{font-family:var(--font-display); font-size:20px; font-weight:600; line-height:1.25; color:var(--ink);}
+  .ep-watch{margin-top:auto; font-family:var(--font-heading); font-size:13px; font-weight:600; color:var(--blue);}
+  .podser-cta{text-align:center; padding:26px 0 90px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap;}
 </style>
 </head>
 <body>
@@ -312,197 +322,89 @@
 <header>
   <div class="nav wrap">
     <a class="logo" href="/index.html" aria-label="Alegre-Ser — Início"><span class="logo-badge"><img src="/espiral-alegre-ser.png" alt=""></span>Alegre-<em>Ser</em></a>
-        <div class="navlinks">
+    <div class="navlinks">
       <a href="/empresas.html">Empresas</a>
-      <a href="/trilha-individual.html" style="opacity:1; border-bottom:1.5px solid var(--terracotta);">Trilha Individual</a>
+      <a href="/trilha-individual.html">Trilha Individual</a>
       <a href="/mestre-juan.html">Mestre Juan</a>
       <a href="/sobre.html">Sobre</a>
-      <a href="/podser.html">PodSer</a>
+      <a href="/podser.html" style="opacity:1; border-bottom:1.5px solid var(--terracotta);">PodSer</a>
     </div>
     <a href="/index.html#contato" class="btn btn-primary">Falar conosco</a>
   </div>
 </header>
 
-<!-- HERO -->
-<section class="ti-hero">
-  <div class="mesh-blob m1"></div>
-  <div class="mesh-blob m3"></div>
-  <div class="wrap">
-    <span class="eyebrow">Trilha Alegre-Ser · Processo Individual</span>
-    <h1 class="hero-title">Alinhe o que você <em>sente</em>,<br>pensa e faz.</h1>
-    <p class="lead">Não é uma sessão avulsa de terapia. Não é curso de autoconhecimento genérico. É um processo estruturado de clareza — em 5 etapas — para reorganizar o que está desalinhado dentro de você.</p>
-    <div class="hero-ctas">
-      <a href="https://wa.me/5516981862829?text=Ol%C3%A1!%20Quero%20come%C3%A7ar%20minha%20Trilha%20Alegre-Ser." class="btn btn-primary">Começar minha Trilha</a>
-      <a href="#como-funciona" class="btn btn-outline">Como funciona</a>
-    </div>
-  </div>
-</section>
-
-<div class="trail-connector">
-  <svg viewBox="0 0 80 96" xmlns="http://www.w3.org/2000/svg">
-    <path d="M40,0 C14,16 62,32 38,48 C16,62 58,76 40,96" fill="none" stroke="#229CB2" stroke-width="2.4" stroke-dasharray="1 9" stroke-linecap="round"/>
-  </svg>
-</div>
-
-<!-- CUSTO DA INCONGRUÊNCIA -->
-<section class="ti-cost">
+<section class="podser-hero">
   <div class="wrap">
     <div class="intro-block">
-      <div class="kicker">O custo da incongruência</div>
-      <h2 class="section-title">A distância entre o que você sente, pensa e faz tem um custo real.</h2>
-      <p class="section-lead">O que a psicologia chama de <em>incongruência interna</em> cobra seu preço no dia a dia — nem sempre de forma óbvia:</p>
-    </div>
-    <div class="ti-cost-row">
-      <div class="ti-cost-card">Decisões que parecem certas na hora, mas não se sustentam depois.</div>
-      <div class="ti-cost-card">Os mesmos padrões se repetindo em relações diferentes.</div>
-      <div class="ti-cost-card">Um cansaço que não é só físico — é emocional, e não passa com descanso.</div>
+      <div class="kicker">PodSer · Podcast Alegre-Ser</div>
+      <h2 class="section-title">Frequência de consciência</h2>
+      <p class="section-lead">Conversas profundas nascidas da vivência na Metodologia Quântica Juan de la Luz. Episódios que expandem o que você já sente, mas ainda não sabe nomear. Todos disponíveis no nosso canal do YouTube.</p>
+      <a href="https://www.youtube.com/@Alegre-Ser" target="_blank" rel="noopener" class="btn btn-primary">Assistir no YouTube →</a>
     </div>
   </div>
 </section>
 
-<div class="trail-connector">
-  <svg viewBox="0 0 80 96" xmlns="http://www.w3.org/2000/svg">
-    <path d="M40,0 C62,18 20,34 42,50 C60,64 22,78 40,96" fill="none" stroke="#962C72" stroke-width="2.4" stroke-dasharray="1 9" stroke-linecap="round"/>
-  </svg>
-</div>
-
-<!-- COMO FUNCIONA — stepper reaproveitado da Home -->
-<section class="trilha-ind ti-stepper-wrap" id="como-funciona">
+<section class="podser-eps">
   <div class="wrap">
-    <div class="intro-block">
-      <div class="kicker">Como funciona</div>
-      <h2 class="section-title">Um processo em 5 etapas — não uma sessão isolada.</h2>
-    </div>
-
-    <div class="stepper">
-      <div class="stepper-line"></div>
-      <div class="step">
-        <div class="step-num s1">1</div>
-        <div class="step-body">
-          <div class="step-title">Os 5 Passos Essenciais</div>
-          <div class="step-sub">Identifica os padrões que se repetem nas suas escolhas.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num s2">2</div>
-        <div class="step-body">
-          <div class="step-title">Consciência Multidimensional</div>
-          <div class="step-sub">Reorganiza o que está desalinhado no presente.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num s3">3</div>
-        <div class="step-body">
-          <div class="step-title">Quântica em Ação</div>
-          <div class="step-sub">Aplica a clareza no seu dia a dia.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num grp">4·5</div>
-        <div class="step-body">
-          <div class="step-title">Ciranda de Consciência — em grupo</div>
-          <div class="step-sub">Consolida o processo, ampliando a percepção junto com as facilitadoras.</div>
-        </div>
-      </div>
-    </div>
-    <div class="ti-note">As <strong>3 primeiras são sessões individuais</strong> (com cada facilitadora) — entregam a informação e a reorganização energética inicial. As <strong>2 Cirandas finais acontecem em grupo</strong> (com as três facilitadoras juntas e você): em um espaço de prática e integração que sustenta a mudança no cotidiano. <em>20% informação, 80% prática.</em></div>
-  </div>
-</section>
-
-<div class="trail-connector">
-  <svg viewBox="0 0 80 96" xmlns="http://www.w3.org/2000/svg">
-    <path d="M40,0 C16,14 60,30 40,46 C22,60 58,74 40,96" fill="none" stroke="#C84523" stroke-width="2.4" stroke-dasharray="1 9" stroke-linecap="round"/>
-  </svg>
-</div>
-
-<!-- PARA QUEM É -->
-<section class="ti-for-you">
-  <svg class="section-texture"><rect width="100%" height="100%" fill="url(#tex-ink)" opacity=".14"/></svg>
-  <div class="wrap" style="position:relative; z-index:1;">
-    <div class="intro-block">
-      <div class="kicker">Para quem é</div>
-      <h2 class="section-title">A Trilha é para você que sente:</h2>
-    </div>
-    <div class="ti-for-you-list">
-      <div class="ti-for-you-item">Desejo de viver com mais clareza, leveza e verdade</div>
-      <div class="ti-for-you-item">Confusão interna ou repetição de padrões</div>
-      <div class="ti-for-you-item">Cansaço emocional ou energético</div>
-      <div class="ti-for-you-item">Dificuldade em sustentar escolhas alinhadas</div>
+    <div class="ep-grid">
+      <a class="ep-card" href="https://www.youtube.com/@Alegre-Ser" target="_blank" rel="noopener">
+        <span class="ep-num">Episódio 10</span>
+        <span class="ep-title">O Chato do Ego</span>
+        <span class="ep-watch">Assistir no YouTube →</span>
+      </a>
+      <a class="ep-card" href="https://www.youtube.com/@Alegre-Ser" target="_blank" rel="noopener">
+        <span class="ep-num">Episódio 09</span>
+        <span class="ep-title">Ataques Energéticos</span>
+        <span class="ep-watch">Assistir no YouTube →</span>
+      </a>
+      <a class="ep-card" href="https://www.youtube.com/@Alegre-Ser" target="_blank" rel="noopener">
+        <span class="ep-num">Episódio 08</span>
+        <span class="ep-title">Episódio em três partes</span>
+        <span class="ep-watch">Assistir no YouTube →</span>
+      </a>
+      <a class="ep-card" href="https://www.youtube.com/@Alegre-Ser" target="_blank" rel="noopener">
+        <span class="ep-num">Episódio 07</span>
+        <span class="ep-title">Escolhas que curam e escolhas que enfermam</span>
+        <span class="ep-watch">Assistir no YouTube →</span>
+      </a>
+      <a class="ep-card" href="https://www.youtube.com/@Alegre-Ser" target="_blank" rel="noopener">
+        <span class="ep-num">Episódio 06</span>
+        <span class="ep-title">Atravessando os Incômodos · Balanço 2025</span>
+        <span class="ep-watch">Assistir no YouTube →</span>
+      </a>
+      <a class="ep-card" href="https://www.youtube.com/@Alegre-Ser" target="_blank" rel="noopener">
+        <span class="ep-num">Episódio 05</span>
+        <span class="ep-title">Ocultações</span>
+        <span class="ep-watch">Assistir no YouTube →</span>
+      </a>
+      <a class="ep-card" href="https://www.youtube.com/@Alegre-Ser" target="_blank" rel="noopener">
+        <span class="ep-num">Episódio 04</span>
+        <span class="ep-title">Oscilação Energética</span>
+        <span class="ep-watch">Assistir no YouTube →</span>
+      </a>
+      <a class="ep-card" href="https://www.youtube.com/@Alegre-Ser" target="_blank" rel="noopener">
+        <span class="ep-num">Episódio 03</span>
+        <span class="ep-title">Energia, Vibração e Frequência</span>
+        <span class="ep-watch">Assistir no YouTube →</span>
+      </a>
+      <a class="ep-card" href="https://www.youtube.com/@Alegre-Ser" target="_blank" rel="noopener">
+        <span class="ep-num">Episódio 02</span>
+        <span class="ep-title">A arte de sorrir quando a vida diz não</span>
+        <span class="ep-watch">Assistir no YouTube →</span>
+      </a>
+      <a class="ep-card" href="https://www.youtube.com/@Alegre-Ser" target="_blank" rel="noopener">
+        <span class="ep-num">Episódio 01</span>
+        <span class="ep-title">O Observador · Observamor</span>
+        <span class="ep-watch">Assistir no YouTube →</span>
+      </a>
     </div>
   </div>
 </section>
 
-<div class="trail-connector">
-  <svg viewBox="0 0 80 96" xmlns="http://www.w3.org/2000/svg">
-    <path d="M40,0 C64,20 18,32 40,50 C58,66 20,80 40,96" fill="none" stroke="#229CB2" stroke-width="2.4" stroke-dasharray="1 9" stroke-linecap="round"/>
-  </svg>
-</div>
-
-<!-- RESULTADO -->
-<section class="ti-result">
-  <div class="wrap">
-    <div class="kicker">Resultado</div>
-    <div class="ti-result-box">
-      <p>Ao final da Trilha, a clareza deixa de ser um estado passageiro e se torna um critério de decisão.</p>
-      <p>Isso não é "se sentir melhor por um tempo". É mudar a forma como você escolhe — de forma sustentável.</p>
-    </div>
-  </div>
-</section>
-
-<div class="trail-connector">
-  <svg viewBox="0 0 80 96" xmlns="http://www.w3.org/2000/svg">
-    <path d="M40,0 C16,18 58,30 40,48 C24,64 60,78 40,96" fill="none" stroke="#DC882C" stroke-width="2.4" stroke-dasharray="1 9" stroke-linecap="round"/>
-  </svg>
-</div>
-
-<!-- MÉTODO JDL -->
-<section class="ti-method">
-  <div class="wrap">
-    <div class="intro-block">
-      <div class="kicker">O Método JDL</div>
-      <h2 class="section-title">A metodologia quântica Juan de la Luz.</h2>
-      <p class="section-lead">Existe há mais de duas décadas. Promove vivências terapêuticas onde os participantes vão adentrando o vazio quântico, ampliando a consciência de si mesmos e reprogramando hábitos e crenças — para elevar sua frequência, mudar sua realidade e viver com consciência.</p>
-    </div>
-    <div class="ti-method-row">
-      <div class="ti-method-card">
-        <div class="ti-method-icon"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="10"/><path d="M20,4 L20,8 M20,32 L20,36 M4,20 L8,20 M32,20 L36,20"/></svg></div>
-        <div class="kicker">Prática diária</div>
-        <h4>Imersões quânticas diárias</h4>
-        <p>Prática constante que sustenta a mudança de frequência.</p>
-      </div>
-      <div class="ti-method-card">
-        <div class="ti-method-icon"><svg viewBox="0 0 40 40"><circle cx="20" cy="12" r="6"/><path d="M20,19 L20,32 M20,22 C14,22 10,26 8,32 M20,22 C26,22 30,26 32,32"/></svg></div>
-        <div class="kicker">Individual</div>
-        <h4>Sessões personalizadas</h4>
-        <p>Atendimento individual, no ritmo de cada processo.</p>
-      </div>
-      <div class="ti-method-card">
-        <div class="ti-method-icon"><svg viewBox="0 0 40 40"><path d="M10,30 C10,18 18,10 20,10 C22,10 30,18 30,30 C30,34 26,36 20,36 C14,36 10,34 10,30 Z"/></svg></div>
-        <div class="kicker">Em grupo · presencial</div>
-        <h4>Retiros energéticos</h4>
-        <p>Mergulho profundo em grupo, presencial.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="trail-connector">
-  <svg viewBox="0 0 80 96" xmlns="http://www.w3.org/2000/svg">
-    <path d="M40,0 C14,16 62,32 38,48 C16,62 58,76 40,96" fill="none" stroke="#229CB2" stroke-width="2.4" stroke-dasharray="1 9" stroke-linecap="round"/>
-  </svg>
-</div>
-
-<!-- CTA FINAL -->
-<section class="cta-b" id="contato">
-  <svg class="section-texture"><rect width="100%" height="100%" fill="url(#tex-ink)" opacity=".14"/></svg>
-  <div class="cta-glow"></div>
-  <div class="wrap inner">
-    <h2>Comece sua <em>Trilha</em> Alegre-Ser.</h2>
-    <p>3 sessões individuais de 35 min + 2 sessões em grupo de 45 min. Online ou presencial · Semanal ou quinzenal.</p>
-    <div class="hero-ctas">
-      <a href="https://wa.me/5516981862829?text=Ol%C3%A1!%20Quero%20come%C3%A7ar%20minha%20Trilha%20Alegre-Ser." class="btn btn-primary">Quero começar</a>
-      <a href="/index.html#contato" class="btn btn-outline">Falar conosco</a>
-    </div>
+<section class="podser-cta">
+  <div class="wrap" style="width:100%;">
+    <a href="https://www.youtube.com/@Alegre-Ser" target="_blank" rel="noopener" class="btn btn-primary">Ver todos os episódios no YouTube</a>
+    <a href="/sobre.html" class="btn btn-outline">Conhecer as facilitadoras</a>
   </div>
 </section>
 
