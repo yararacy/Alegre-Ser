@@ -234,8 +234,6 @@
   .cta-b .hero-ctas{justify-content:center;}
 
   footer{background:var(--ink-strong); color:#fff; padding:60px 0 30px; position:relative;}
-  .foot-divider{position:absolute; top:0; left:0; width:100%; overflow:hidden; line-height:0; transform:translateY(-100%);}
-  .foot-divider svg{width:100%; height:36px; display:block;}
   .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; margin-bottom:40px;}
   footer .logo{color:#fff;}
   footer p{color:#b9afa8; font-size:14px; max-width:280px; margin-top:14px;}
@@ -303,8 +301,12 @@
   .fac-row{display:grid; grid-template-columns:300px 1fr; gap:48px; align-items:center;}
   .fac-row:nth-child(even){grid-template-columns:1fr 300px;}
   .fac-row:nth-child(even) .fac-media{order:2;}
-  .fac-video{border-radius:22px; overflow:hidden; background:#000; box-shadow:0 22px 55px rgba(26,18,16,.16); max-width:300px;}
-  .fac-video video{width:100%; display:block;}
+  .fac-video{border-radius:46% 54% 57% 43% / 54% 46% 54% 46%; overflow:hidden; background:#000; box-shadow:0 22px 55px rgba(26,18,16,.16); max-width:300px; aspect-ratio:1/1;}
+  .fac-row:nth-child(1) .fac-video{border-radius:42% 58% 60% 40% / 55% 45% 55% 45%;}
+  .fac-row:nth-child(2) .fac-video{border-radius:58% 42% 45% 55% / 45% 55% 46% 54%;}
+  .fac-row:nth-child(3) .fac-video{border-radius:55% 45% 52% 48% / 48% 52% 46% 54%;}
+  .fac-more-link{display:inline-block; margin-top:14px; font-family:var(--font-heading); font-weight:600; font-size:12.5px; color:var(--blue); border-bottom:1.5px solid var(--blue); padding-bottom:2px;}
+  .fac-video video{width:100%; height:100%; object-fit:cover; display:block;}
   .fac-avatar{width:62px; height:62px; border-radius:50%; object-fit:cover; margin-bottom:16px; box-shadow:0 6px 16px rgba(26,18,16,.18);}
   .fac-arch2{font-family:var(--font-heading); font-size:12.5px; text-transform:uppercase; letter-spacing:.09em; color:var(--terracotta); margin-bottom:6px;}
   .fac-name2{font-family:var(--font-display); font-size:30px; font-weight:600; line-height:1.1;}
@@ -312,9 +314,210 @@
   .fac-bio p{color:var(--ink); line-height:1.75; margin-bottom:10px; max-width:540px;}
   .fac-quote2{font-family:var(--font-display); font-style:italic; font-size:19px; color:var(--blue); margin-top:14px;}
   @media(max-width:820px){ .fac-row,.fac-row:nth-child(even){grid-template-columns:1fr; justify-items:center; text-align:center;} .fac-row:nth-child(even) .fac-media{order:0;} .fac-video{margin:0 auto;} .fac-bio p{margin-inline:auto;} }
+
+/* ============ SISTEMA DE POPUPS/MODAIS (patch 2026-07-21) ============ */
+/* =========================================================
+   SISTEMA DE POPUPS/MODAIS — Alegre-Ser
+   Reaproveitável em todas as páginas: NR-1, Ciranda, Laboratório,
+   Espiral, vídeos das facilitadoras.
+   Cole este bloco dentro da tag <style> existente de cada página
+   (ou em um <link rel="stylesheet"> compartilhado, se preferirem
+   extrair o CSS para um arquivo único no futuro).
+   Usa as variáveis de cor já definidas em :root no site.
+   ========================================================= */
+
+dialog.as-modal{
+  border:none; padding:0; background:transparent; max-width:640px; width:92%;
+  border-radius:28px 28px 32px 32px / 32px 32px 28px 28px;
+  box-shadow:0 40px 80px rgba(20,14,10,.28);
+  overflow:hidden;
+}
+dialog.as-modal::backdrop{
+  background:rgba(20,14,10,.55);
+  backdrop-filter:blur(2px);
+}
+dialog.as-modal[open]{ animation:as-modal-in .25s ease-out; }
+@keyframes as-modal-in{
+  from{ opacity:0; transform:translateY(16px) scale(.98); }
+  to{ opacity:1; transform:translateY(0) scale(1); }
+}
+
+.as-modal-inner{ background:var(--cream); padding:40px 40px 34px; position:relative; max-height:82vh; overflow-y:auto; }
+.as-modal-accent{ height:8px; width:100%; }
+.as-modal[data-accent="blue"] .as-modal-accent{ background:var(--blue); }
+.as-modal[data-accent="terracotta"] .as-modal-accent{ background:var(--terracotta); }
+.as-modal[data-accent="magenta"] .as-modal-accent{ background:var(--magenta); }
+.as-modal[data-accent="mustard"] .as-modal-accent{ background:var(--mustard); }
+
+.as-modal-close{
+  position:absolute; top:18px; right:18px; width:36px; height:36px; border-radius:50%;
+  background:var(--cream-2); border:1px solid var(--cream-border); display:flex; align-items:center;
+  justify-content:center; cursor:pointer; font-size:18px; line-height:1; color:var(--ink); z-index:2;
+}
+.as-modal-close:hover{ background:var(--cream-border); }
+
+.as-modal-kicker{ font-family:var(--font-heading); font-size:12px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; margin-bottom:10px; }
+.as-modal[data-accent="blue"] .as-modal-kicker{ color:var(--blue); }
+.as-modal[data-accent="terracotta"] .as-modal-kicker{ color:var(--terracotta); }
+.as-modal[data-accent="magenta"] .as-modal-kicker{ color:var(--magenta); }
+.as-modal[data-accent="mustard"] .as-modal-kicker{ color:var(--mustard); }
+
+.as-modal h3{ font-family:var(--font-display); font-size:26px; font-weight:600; margin-bottom:14px; color:var(--ink); line-height:1.25; }
+.as-modal p{ font-size:15px; color:var(--muted); line-height:1.65; margin-bottom:14px; }
+.as-modal ul{ margin:0 0 20px; padding:0; list-style:none; }
+.as-modal ul li{ position:relative; padding-left:22px; font-size:14.5px; color:var(--ink); line-height:1.55; margin-bottom:9px; }
+.as-modal ul li::before{ content:"●"; position:absolute; left:0; top:1px; font-size:9px; }
+.as-modal[data-accent="blue"] ul li::before{ color:var(--blue); }
+.as-modal[data-accent="terracotta"] ul li::before{ color:var(--terracotta); }
+.as-modal[data-accent="magenta"] ul li::before{ color:var(--magenta); }
+.as-modal[data-accent="mustard"] ul li::before{ color:var(--mustard); }
+
+.as-modal-ctas{ display:flex; gap:12px; flex-wrap:wrap; margin-top:8px; }
+
+/* variante para vídeo (facilitadoras) */
+.as-modal.as-modal-video .as-modal-inner{ padding:0; max-height:none; }
+.as-modal.as-modal-video video{ width:100%; display:block; }
+.as-modal.as-modal-video .as-modal-close{ background:rgba(20,14,10,.55); color:#fff; border:none; }
+
+@media(max-width:640px){
+  .as-modal-inner{ padding:30px 22px 26px; }
+  .as-modal h3{ font-size:21px; }
+}
+
+/* ===== Correcao logo "-Ser" + redes sociais rodape (patch 2026-07-21) ===== */
+.logo-text{ display:inline-block; }
+.foot-social{ display:flex; gap:10px; margin-top:16px; }
+.foot-social a{ width:34px; height:34px; border-radius:50%; background:rgba(255,255,255,.08); display:flex; align-items:center; justify-content:center; font-family:var(--font-heading); font-size:11px; font-weight:700; color:#fff; }
+.foot-social a:hover{ background:var(--terracotta); }
+
 </style>
 </head>
 <body>
+<!-- ===== POPUPS/MODAIS (patch 2026-07-21) ===== -->
+<!-- =========================================================
+     CONTEÚDO DOS 4 POPUPS — NR-1, Ciranda, Laboratório, Espiral
+     Colar cada <dialog> em qualquer página que tenha os botões
+     "Saiba mais"/"NR-1 para Empresas" correspondentes (Home e
+     Empresas, no mínimo). Textos recuperados da versão anterior
+     do site (antes da reforma) e das seções já existentes hoje.
+     ========================================================= -->
+
+<!-- POPUP: NR-1 para Empresas -->
+<dialog class="as-modal" id="modal-nr1" data-accent="terracotta">
+  <div class="as-modal-accent"></div>
+  <div class="as-modal-inner">
+    <button type="button" class="as-modal-close" data-modal-close aria-label="Fechar">×</button>
+    <div class="as-modal-kicker">Foco atual · Empresas</div>
+    <h3>Sua empresa vai além do compliance da NR-1?</h3>
+    <p>A NR-1 exige atenção à saúde mental. Nós entregamos algo mais profundo: a transformação do campo energético relacional da sua organização.</p>
+    <ul>
+      <li>Diagnóstico de riscos psicossociais com consciência</li>
+      <li>Programas de saúde mental que realmente transformam</li>
+      <li>Cultura organizacional sustentável e viva</li>
+      <li>Atendimento às diretrizes legais + transformação real</li>
+    </ul>
+    <p style="font-size:13px;">+400 mil trabalhadores afastados por transtorno mental no Brasil em 2024 · NR-1 exige, desde 26/05/2025, avaliação e gerenciamento de riscos psicossociais em todas as empresas. <em>Fonte: Ministério da Previdência Social · MTE · Revide, ed. 1.254.</em></p>
+    <div class="as-modal-ctas">
+      <a href="https://wa.me/5516981862829?text=Ol%C3%A1!%20Quero%20solicitar%20um%20diagn%C3%B3stico%20NR-1%20para%20minha%20empresa." class="btn btn-primary">Solicitar diagnóstico NR-1</a>
+      <a href="/empresas.html#nr1" class="btn btn-outline">Ver diagnóstico completo →</a>
+    </div>
+  </div>
+</dialog>
+
+<!-- POPUP: Ciranda de Consciência -->
+<dialog class="as-modal" id="modal-ciranda" data-accent="blue">
+  <div class="as-modal-accent"></div>
+  <div class="as-modal-inner">
+    <button type="button" class="as-modal-close" data-modal-close aria-label="Fechar">×</button>
+    <div class="as-modal-kicker">Para equipes e lideranças</div>
+    <h3>Ciranda de Consciência</h3>
+    <p>Comunicação que fortalece relações e reduz conflitos. Facilitamos conversas que chegam onde a informação técnica não chega — no campo energético das equipes.</p>
+    <ul>
+      <li>Redução de conflitos e desgaste emocional</li>
+      <li>Comunicação interna mais fluida</li>
+      <li>Liderança consciente e presente</li>
+      <li>Decisões mais alinhadas e coerentes</li>
+    </ul>
+    <div class="as-modal-ctas">
+      <a href="https://wa.me/5516981862829?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20Ciranda%20de%20Consci%C3%AAncia." class="btn btn-primary">Solicitar proposta</a>
+      <a href="/empresas.html" class="btn btn-outline">Ver programa completo →</a>
+    </div>
+  </div>
+</dialog>
+
+<!-- POPUP: Laboratório do Observador -->
+<dialog class="as-modal" id="modal-laboratorio" data-accent="terracotta">
+  <div class="as-modal-accent"></div>
+  <div class="as-modal-inner">
+    <button type="button" class="as-modal-close" data-modal-close aria-label="Fechar">×</button>
+    <div class="as-modal-kicker">Autoresponsabilidade energética</div>
+    <h3>Laboratório do Observador</h3>
+    <p>Práticas para estimular a percepção da própria energia dentro do ambiente de trabalho. Quando cada pessoa aprende a se observar, o campo coletivo se transforma.</p>
+    <ul>
+      <li>Autoresponsabilidade nas relações</li>
+      <li>Percepção do próprio padrão energético</li>
+      <li>Saída do piloto automático</li>
+      <li>Mais presença e clareza nas ações</li>
+    </ul>
+    <div class="as-modal-ctas">
+      <a href="https://wa.me/5516981862829?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Laborat%C3%B3rio%20do%20Observador." class="btn btn-primary">Solicitar proposta</a>
+      <a href="/empresas.html" class="btn btn-outline">Ver programa completo →</a>
+    </div>
+  </div>
+</dialog>
+
+<!-- POPUP: Espiral de Clareza -->
+<dialog class="as-modal" id="modal-espiral" data-accent="magenta">
+  <div class="as-modal-accent"></div>
+  <div class="as-modal-inner">
+    <button type="button" class="as-modal-close" data-modal-close aria-label="Fechar">×</button>
+    <div class="as-modal-kicker">Tomada de decisão consciente</div>
+    <h3>Espiral de Clareza</h3>
+    <p>Práticas para tomada de decisão, alinhamento de equipe e ação a partir da consciência — não do automatismo. Clareza que move, não que paralisa.</p>
+    <ul>
+      <li>Decisões mais alinhadas com o todo</li>
+      <li>Alinhamento de equipe e propósito</li>
+      <li>Saída do automatismo e reatividade</li>
+      <li>Ação consciente e coerente</li>
+    </ul>
+    <div class="as-modal-ctas">
+      <a href="https://wa.me/5516981862829?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20Espiral%20de%20Clareza." class="btn btn-primary">Solicitar proposta</a>
+      <a href="/empresas.html" class="btn btn-outline">Ver programa completo →</a>
+    </div>
+  </div>
+</dialog>
+
+<!-- POPUPS DE VÍDEO — Home, seção "As facilitadoras"
+     Reaproveitam os mesmos vídeos já publicados em sobre.html -->
+<dialog class="as-modal as-modal-video" id="modal-video-chrys" data-accent="terracotta">
+  <div class="as-modal-inner">
+    <button type="button" class="as-modal-close" data-modal-close aria-label="Fechar">×</button>
+    <video controls playsinline>
+      <source src="/videos/chrys-laboratorio-do-observador.mp4" type="video/mp4">
+      Seu navegador não suporta vídeo.
+    </video>
+  </div>
+</dialog>
+<dialog class="as-modal as-modal-video" id="modal-video-robertha" data-accent="blue">
+  <div class="as-modal-inner">
+    <button type="button" class="as-modal-close" data-modal-close aria-label="Fechar">×</button>
+    <video controls playsinline>
+      <source src="/videos/robertha-ciranda-de-consciencia.mp4" type="video/mp4">
+      Seu navegador não suporta vídeo.
+    </video>
+  </div>
+</dialog>
+<dialog class="as-modal as-modal-video" id="modal-video-yara" data-accent="magenta">
+  <div class="as-modal-inner">
+    <button type="button" class="as-modal-close" data-modal-close aria-label="Fechar">×</button>
+    <video controls playsinline>
+      <source src="/videos/yara-espiral-de-clareza.mp4" type="video/mp4">
+      Seu navegador não suporta vídeo.
+    </video>
+  </div>
+</dialog>
+
+
 
 
 <svg width="0" height="0" style="position:absolute">
@@ -327,12 +530,15 @@
 
 <header>
   <div class="nav wrap">
-    <a class="logo" href="/index.html" aria-label="Alegre-Ser — Início"><span class="logo-badge"><img src="/espiral-alegre-ser.png" alt=""></span>Alegre-<em>Ser</em></a>
+    <a class="logo" href="/index.html" aria-label="Alegre-Ser — Início">
+      <span class="logo-badge"><img src="/espiral-alegre-ser.png" alt=""></span>
+      <span class="logo-text">Alegre-<em>Ser</em></span>
+    </a>
     <div class="navlinks">
       <a href="/empresas.html">Empresas</a>
       <a href="/trilha-individual.html">Trilha Individual</a>
       <a href="/mestre-juan.html">Mestre Juan</a>
-      <a href="/sobre.html" style="opacity:1; border-bottom:1.5px solid var(--terracotta);">Sobre</a>
+      <a href="/sobre.html">Sobre</a>
       <a href="/podser.html">PodSer</a>
     </div>
     <a href="/index.html#contato" class="btn btn-primary">Falar conosco</a>
@@ -355,6 +561,22 @@
       <div class="fac-row">
         <div class="fac-media">
           <div class="fac-video">
+            <video controls preload="metadata" poster="/videos/robertha-ciranda-de-consciencia-poster.jpg"><source src="/videos/robertha-ciranda-de-consciencia.mp4" type="video/mp4">Seu navegador não suporta vídeo.</video>
+          </div>
+        </div>
+        <div class="fac-info">
+          <img class="fac-avatar" src="/img/facilit-robertha.jpg" alt="Robertha Aranha">
+          <div class="fac-arch2">A Transmissora Estelar</div>
+          <h2 class="fac-name2">Robertha Aranha</h2>
+          <div class="fac-role2">Advogada · Canal de Luz desde 2007</div>
+          <div class="fac-bio"><p>Advogada de formação, transmissora por vocação. Traduz o invisível em códigos que ampliam a consciência — trazendo estrutura e clareza ao que antes parecia abstrato, sem perder a profundidade.</p></div>
+          <div class="fac-quote2">&ldquo;Códigos que ampliam a consciência.&rdquo;</div>
+          <a href="https://www.roberthaaranha.com.br" target="_blank" rel="noopener" class="fac-more-link">Saiba mais sobre a Robertha →</a>
+        </div>
+      </div>
+      <div class="fac-row">
+        <div class="fac-media">
+          <div class="fac-video">
             <video controls preload="metadata" poster="/videos/chrys-laboratorio-do-observador-poster.jpg"><source src="/videos/chrys-laboratorio-do-observador.mp4" type="video/mp4">Seu navegador não suporta vídeo.</video>
           </div>
         </div>
@@ -370,21 +592,6 @@
       <div class="fac-row">
         <div class="fac-media">
           <div class="fac-video">
-            <video controls preload="metadata" poster="/videos/robertha-ciranda-de-consciencia-poster.jpg"><source src="/videos/robertha-ciranda-de-consciencia.mp4" type="video/mp4">Seu navegador não suporta vídeo.</video>
-          </div>
-        </div>
-        <div class="fac-info">
-          <img class="fac-avatar" src="/img/facilit-robertha.jpg" alt="Robertha Aranha">
-          <div class="fac-arch2">A Transmissora Estelar</div>
-          <h2 class="fac-name2">Robertha Aranha</h2>
-          <div class="fac-role2">Advogada · Canal de Luz desde 2007</div>
-          <div class="fac-bio"><p>Advogada de formação, transmissora por vocação. Traduz o invisível em códigos que ampliam a consciência — trazendo estrutura e clareza ao que antes parecia abstrato, sem perder a profundidade.</p></div>
-          <div class="fac-quote2">&ldquo;Códigos que ampliam a consciência.&rdquo;</div>
-        </div>
-      </div>
-      <div class="fac-row">
-        <div class="fac-media">
-          <div class="fac-video">
             <video controls preload="metadata" poster="/videos/yara-espiral-de-clareza-poster.jpg"><source src="/videos/yara-espiral-de-clareza.mp4" type="video/mp4">Seu navegador não suporta vídeo.</video>
           </div>
         </div>
@@ -395,6 +602,7 @@
           <div class="fac-role2">Jornalista · Canal de Luz desde 2015</div>
           <div class="fac-bio"><p>Jornalista e Canal de Luz. Sua voz harmoniza a rigidez mental; sua escrita clarifica o disperso e organiza o essencial. Um farol que irradia sem se preocupar se a luz está alcançando — porque confia no movimento.</p></div>
           <div class="fac-quote2">&ldquo;Mentes que dormem, corações que sentem.&rdquo;</div>
+          <a href="https://www.yararacy.com.br" target="_blank" rel="noopener" class="fac-more-link">Saiba mais sobre a Yara →</a>
         </div>
       </div>
     </div>
@@ -415,23 +623,28 @@
 </section>
 
 <footer>
-  <div class="foot-divider">
-    <svg viewBox="0 0 1440 36" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,36 C240,10 420,30 660,14 C900,-2 1080,26 1320,12 C1380,8 1410,10 1440,12 L1440,36 Z" fill="#120E0C"/>
-    </svg>
-  </div>
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a class="logo" href="/index.html" aria-label="Alegre-Ser — Início"><span class="logo-badge"><img src="/espiral-alegre-ser.png" alt=""></span>Alegre-<em>Ser</em></a>
+        <a class="logo" href="/index.html" aria-label="Alegre-Ser — Início">
+          <span class="logo-badge"><img src="/espiral-alegre-ser.png" alt=""></span>
+          <span class="logo-text">Alegre-<em>Ser</em></span>
+        </a>
         <p>Expansão de consciência para empresas, famílias e pessoas. Extensão da Metodologia Quântica Juan de la Luz no Brasil.</p>
+        <div class="foot-social">
+          <a href="https://www.instagram.com/alegre_seroficial" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+          <a href="https://www.youtube.com/@Alegre-Ser" target="_blank" rel="noopener" aria-label="YouTube">YT</a>
+          <a href="https://wa.me/5516981862829" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a>
+          <a href="https://open.spotify.com/show/4r1DBWuFpJ5bcd5rgyqKBu" target="_blank" rel="noopener" aria-label="Spotify">SP</a>
+        </div>
       </div>
       <div>
         <h4>Programas</h4>
         <ul>
-          <li><a href="/empresas.html#programa">Ciranda de Consciência</a></li>
-          <li><a href="/empresas.html#programa">Laboratório do Observador</a></li>
-          <li><a href="/empresas.html#programa">Espiral de Clareza</a></li>
+          <li><a href="/empresas.html#ciranda" data-modal-open="modal-ciranda">Ciranda de Consciência</a></li>
+          <li><a href="/empresas.html#laboratorio" data-modal-open="modal-laboratorio">Laboratório do Observador</a></li>
+          <li><a href="/empresas.html#espiral" data-modal-open="modal-espiral">Espiral de Clareza</a></li>
+          <li><a href="/empresas.html#nr1" data-modal-open="modal-nr1">NR-1 para Empresas</a></li>
           <li><a href="/trilha-individual.html">Trilha Individual</a></li>
         </ul>
       </div>
@@ -439,15 +652,70 @@
         <h4>Alegre-Ser</h4>
         <ul>
           <li><a href="/sobre.html">Quem somos</a></li>
-          <li><a href="/sobre.html">As facilitadoras</a></li>
-          <li><a href="https://wa.me/5516981862829">Contato</a></li>
-          <li><a href="https://alegre-ser.com.br">alegre-ser.com.br</a></li>
+          <li><a href="/mestre-juan.html">Mestre Juan</a></li>
+          <li><a href="/podser.html">PodSer</a></li>
+          <li><a href="https://wa.me/5516981862829?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Alegre-Ser.">Contato</a></li>
         </ul>
       </div>
     </div>
-    <div class="foot-bottom">© 2026 Alegre-Ser · São Paulo, Brasil · Metodologia Quântica Juan de la Luz</div>
+    <p style="font-size:12px; color:#8a7e75; text-align:center; padding-top:24px; border-top:1px solid rgba(255,255,255,.08);">© 2026 Alegre-Ser · São Paulo, Brasil · Metodologia Quântica Juan de la Luz</p>
   </div>
 </footer>
 
+
+<!-- Sistema de popups/modais (patch 2026-07-21) -->
+<script>
+/* =========================================================
+   SISTEMA DE POPUPS/MODAIS — Alegre-Ser
+   Cole antes do </body> de cada página (dentro de uma tag <script>),
+   ou em um arquivo modal-system.js compartilhado.
+   Funciona com <dialog class="as-modal"> nativo do navegador —
+   sem dependências externas.
+
+   Como usar em qualquer botão/link que deve abrir um popup:
+     <button type="button" data-modal-open="modal-nr1">Saiba mais</button>
+   E o popup correspondente em algum lugar da página:
+     <dialog class="as-modal" id="modal-nr1" data-accent="terracotta">
+       <div class="as-modal-accent"></div>
+       <div class="as-modal-inner">
+         <button type="button" class="as-modal-close" data-modal-close aria-label="Fechar">×</button>
+         ...conteúdo...
+       </div>
+     </dialog>
+   ========================================================= */
+(function(){
+  document.addEventListener('click', function(e){
+    var openTrigger = e.target.closest('[data-modal-open]');
+    if(openTrigger){
+      e.preventDefault();
+      var id = openTrigger.getAttribute('data-modal-open');
+      var dialog = document.getElementById(id);
+      if(dialog && typeof dialog.showModal === 'function'){
+        dialog.showModal();
+        var video = dialog.querySelector('video');
+        if(video){ video.currentTime = 0; video.play().catch(function(){}); }
+      }
+      return;
+    }
+    var closeTrigger = e.target.closest('[data-modal-close]');
+    if(closeTrigger){
+      var dlg = closeTrigger.closest('dialog.as-modal');
+      if(dlg) dlg.close();
+    }
+  });
+
+  // Fecha ao clicar no fundo (backdrop) e pausa vídeo ao fechar
+  document.querySelectorAll('dialog.as-modal').forEach(function(dlg){
+    dlg.addEventListener('click', function(e){
+      if(e.target === dlg) dlg.close();
+    });
+    dlg.addEventListener('close', function(){
+      var video = dlg.querySelector('video');
+      if(video){ video.pause(); }
+    });
+  });
+})();
+
+</script>
 </body>
 </html>
