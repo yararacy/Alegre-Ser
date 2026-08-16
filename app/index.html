@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>App Alegre-Ser · em construção</title>
+<style>
+  :root{
+    --teal:#229cb2; --teal-dark:#155E6B;
+    --terracota:#c84523; --roxo:#962c72; --ambar:#E08030;
+    --cream:#F5EFE0; --surface:#FCFCFB;
+    --ink:#1B1B1B; --ink-muted:#5A5A5A;
+    --good:#1E8F5F; --warn:#B8860B; --crit:#B23B3B;
+    --line:#E5DFCE;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    min-height:100vh;
+    display:flex; justify-content:center;
+  }
+  h1,h2,h3,.serif{ font-family:Georgia,'Iowan Old Style','Palatino Linotype',serif; }
+  #app{ width:100%; max-width:720px; padding:28px 20px 60px; }
+  .topbar{ display:flex; align-items:center; justify-content:space-between; margin-bottom:22px; }
+  .brand{ display:flex; align-items:center; gap:10px; }
+  .logo-dot{ width:30px; height:30px; border-radius:50%; background:var(--teal-dark);
+    display:flex; align-items:center; justify-content:center; color:#fff; font-size:14px; font-weight:600; }
+  .brand-name{ font-family:Georgia,serif; font-size:17px; color:var(--teal-dark); }
+  .tag{ font-size:11px; color:var(--ink-muted); letter-spacing:.04em; text-transform:uppercase; }
+
+  .card{ background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:26px 24px; margin-bottom:16px; }
+  .muted{ color:var(--ink-muted); }
+  .small{ font-size:13px; }
+  p{ line-height:1.55; }
+
+  .progress-wrap{ margin-bottom:18px; }
+  .progress-track{ height:6px; background:var(--line); border-radius:6px; overflow:hidden; }
+  .progress-fill{ height:100%; background:var(--teal); transition:width .3s ease; }
+  .progress-label{ font-size:12px; color:var(--ink-muted); margin-top:6px; display:flex; justify-content:space-between; }
+
+  .btn{ display:inline-flex; align-items:center; gap:6px; border:none; border-radius:999px;
+    padding:12px 22px; font-size:14.5px; font-weight:600; cursor:pointer; transition:opacity .15s ease; }
+  .btn:hover{ opacity:.88; }
+  .btn-primary{ background:var(--teal-dark); color:#fff; }
+  .btn-ghost{ background:transparent; color:var(--teal-dark); border:1px solid var(--teal-dark); }
+  .btn-text{ background:none; border:none; color:var(--ink-muted); text-decoration:underline; cursor:pointer; font-size:13px; padding:6px; }
+  .btn[disabled]{ opacity:.4; cursor:not-allowed; }
+  .btn-row{ display:flex; gap:10px; margin-top:22px; align-items:center; flex-wrap:wrap; }
+
+  .module-eyebrow{ font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-muted); margin-bottom:6px; }
+  .module-title{ font-size:22px; margin:0 0 4px; }
+  .layer-tag{ display:inline-block; font-size:11px; padding:3px 10px; border-radius:999px; background:var(--cream); color:var(--teal-dark); font-weight:600; margin-bottom:14px; letter-spacing:.03em; }
+
+  .scale{ display:flex; gap:8px; margin:18px 0 6px; flex-wrap:wrap; }
+  .scale-opt{ flex:1; min-width:52px; text-align:center; padding:12px 4px; border-radius:10px; border:1.5px solid var(--line);
+    cursor:pointer; font-size:13px; background:#fff; }
+  .scale-opt.selected{ border-color:var(--teal-dark); background:var(--teal-dark); color:#fff; }
+  .scale-labels{ display:flex; justify-content:space-between; font-size:11.5px; color:var(--ink-muted); margin-bottom:8px; }
+
+  .freq-opt{ display:block; width:100%; text-align:left; padding:12px 14px; border-radius:10px; border:1.5px solid var(--line);
+    background:#fff; margin-bottom:8px; cursor:pointer; font-size:14px; }
+  .freq-opt.selected{ border-color:var(--terracota); background:#FBEFE9; font-weight:600; }
+
+  .choice-opt{ display:block; width:100%; text-align:left; padding:14px 16px; border-radius:12px; border:1.5px solid var(--line);
+    background:#fff; margin-bottom:10px; cursor:pointer; font-size:14px; line-height:1.4; }
+  .choice-opt.selected{ border-color:var(--roxo); background:#F8EEF4; }
+
+  textarea{ width:100%; min-height:90px; border-radius:10px; border:1.5px solid var(--line); padding:12px 14px;
+    font-family:inherit; font-size:14px; resize:vertical; }
+  textarea:focus, .freq-opt:focus, .choice-opt:focus{ outline:2px solid var(--teal); }
+
+  .note{ background:var(--cream); border-left:3px solid var(--teal-dark); padding:12px 14px; border-radius:6px; font-size:13px; margin:14px 0; }
+  .note.safety{ border-left-color:var(--crit); background:#FBEDED; }
+
+  .status-chip{ display:inline-flex; align-items:center; gap:6px; font-size:12.5px; font-weight:600; padding:4px 10px; border-radius:999px; }
+  .legend{ display:flex; gap:16px; margin-bottom:14px; flex-wrap:wrap; }
+  .legend-item{ display:flex; align-items:center; gap:6px; font-size:12px; color:var(--ink-muted); }
+  .legend-dot{ width:10px; height:10px; border-radius:3px; }
+
+  .bar-row{ display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+  .bar-label{ width:190px; font-size:13px; flex-shrink:0; }
+  .bar-track{ flex:1; height:14px; background:var(--line); border-radius:4px; overflow:hidden; }
+  .bar-fill{ height:100%; border-radius:4px; }
+  .bar-status{ width:78px; font-size:11.5px; text-align:right; font-weight:600; flex-shrink:0; }
+
+  .service-chip{ display:inline-flex; flex-direction:column; gap:4px; padding:14px 16px; border-radius:12px; color:#fff; min-width:150px; }
+  .service-row{ display:flex; gap:12px; flex-wrap:wrap; margin:14px 0; }
+
+  .rh-toggle{ display:flex; gap:8px; margin-bottom:18px; }
+  .rh-toggle button{ flex:1; }
+
+  .qa-block{ margin-bottom:18px; padding-bottom:16px; border-bottom:1px solid var(--line); }
+  .qa-block:last-child{ border-bottom:none; }
+
+  ul.plain{ padding-left:18px; margin:8px 0; }
+  ul.plain li{ margin-bottom:4px; font-size:14px; }
+
+  .gate-wrap{ min-height:80vh; display:flex; align-items:center; justify-content:center; width:100%; }
+  .gate-card{ max-width:360px; width:100%; }
+  .gate-input{ width:100%; padding:12px 14px; border-radius:10px; border:1.5px solid var(--line); font-size:14px; margin:14px 0 6px; font-family:inherit; }
+  .gate-input:focus{ outline:2px solid var(--teal); }
+  .gate-error{ font-size:12.5px; color:var(--crit); min-height:18px; margin-bottom:8px; }
+
+  .module-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(200px,1fr)); gap:14px; margin:18px 0 4px; }
+  .app-card{ border:1.5px solid var(--line); border-radius:14px; padding:18px; background:#fff; cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease; }
+  .app-card:hover{ transform:translateY(-2px); box-shadow:0 4px 14px rgba(0,0,0,.07); }
+  .app-card.disabled{ cursor:default; }
+  .app-card.disabled:hover{ transform:none; box-shadow:none; }
+  .app-card .icon{ font-size:24px; display:block; margin-bottom:8px; }
+  .badge{ display:inline-block; font-size:10.5px; padding:3px 9px; border-radius:999px; margin-top:10px; font-weight:600; letter-spacing:.02em; }
+  .badge-ready{ background:#E6F4EC; color:#1E8F5F; }
+  .badge-soon{ background:var(--cream); color:var(--ink-muted); }
+  .toast{ background:var(--cream); border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin-bottom:14px; font-size:13px; }
+</style>
+</head>
+<body>
+<div id="app">
+  <div style="max-width:480px;margin:80px auto;padding:24px;text-align:center;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#5A5A5A;">
+    Carregando o App Alegre-Ser…
+    <br><br>
+    Se esta mensagem não sumir sozinha em alguns segundos, esta prévia (WhatsApp, Mail, etc.) não consegue abrir o app direito. Toque no ícone de compartilhar/exportar e escolha <strong>"Abrir no Safari"</strong> (ou "Abrir no Chrome").
+  </div>
+</div>
+
+<script>
+/* ============================= DADOS ============================= */
+
+const PASSWORD = 'alegreser2026'; // senha simples compartilhada — trocar quando quiserem
+
+const APP_MODULES = [
+  {key:'nr1', title:'Diagnóstico NR-1', icon:'🧭', ready:true, action:'open-diagnostico',
+    desc:'Levantamento de riscos psicossociais em 13 módulos, alinhado ao Guia oficial do MTE.'},
+  {key:'bussola', title:'Bússola das Frequências', icon:'🧿', ready:false,
+    desc:'Check-in de frequência e jornada pelos 5 elementos — a prática central do dia a dia no app.'},
+  {key:'trilhas', title:'Trilhas de Consciência', icon:'🌿', ready:false,
+    desc:'Módulos curtos em áudio/vídeo, com camadas de profundidade que crescem a cada visita.'},
+  {key:'comunidade', title:'Comunidade', icon:'💬', ready:false,
+    desc:'Feed por empresa ou turma, canal de dúvidas com as facilitadoras.'},
+  {key:'agenda', title:'Agenda de Vivências', icon:'📅', ready:false,
+    desc:'Palestras, workshops e cirandas de consciência agendadas com a empresa.'}
+];
+
+const STATUS = {
+  tranquilo: { color:'#1E8F5F', label:'Tranquilo', icon:'●' },
+  atencao:   { color:'#B8860B', label:'Atenção',   icon:'▲' },
+  critico:   { color:'#B23B3B', label:'Crítico',   icon:'■' }
+};
+
+const SERVICES = {
+  ciranda:     { name:'Ciranda de Consciência', color:'#229cb2', verbo:'nomear (coletivo)' },
+  laboratorio: { name:'Laboratório do Observador', color:'#c84523', verbo:'responsabilizar-se (individual)' },
+  espiral:     { name:'Espiral de Clareza', color:'#962c72', verbo:'decidir / liderar' }
+};
+
+const FREQ = ['Nunca','Raramente','Às vezes','Frequentemente','Sempre'];
+
+const MODULES = [
+  {
+    id:'demandas', num:1, title:'Demandas de trabalho e ritmo', mte:'Demandas e Carga de Trabalho',
+    sentirQ:'Como você sente o ritmo do seu trabalho nesta empresa?',
+    sentirLow:'Exausto(a), sobrecarregado(a)', sentirHigh:'Leve, no meu tempo',
+    contexto:[
+      {q:'Com que frequência você não consegue concluir suas tarefas dentro do prazo previsto?', invert:false},
+      {q:'Seu trabalho exige que você preste atenção a muitas coisas ao mesmo tempo, no limite da sua capacidade?', invert:false},
+      {q:'Você termina o dia sentindo que ainda carrega tarefas ou preocupações, no corpo ou na mente?', invert:false}
+    ],
+    forced:{
+      q:'Quando a correria aperta, o que aparece primeiro?',
+      options:[
+        {label:'Uma exigência real de prazo/volume que está ali, fora de mim.', leaning:'externo'},
+        {label:'Uma voz interna que me cobra além do que foi pedido.', leaning:'interno'},
+        {label:'As duas coisas se misturam e não sei separar.', leaning:'misto'}
+      ]
+    },
+    open:'Essa sensação de correr contra o tempo te lembra alguma outra fase da sua vida? Descreva com suas palavras o que vem à mente.',
+    jdl:'Olhando para o ritmo do seu setor ou equipe como um todo — não só o seu — ele parece se equilibrar, ou parece que a pressa de alguns contamina o ambiente?'
+  },
+  {
+    id:'controle', num:2, title:'Controle e autonomia', mte:'Controle e Autonomia',
+    sentirQ:'Quanto você sente que pode decidir como fazer o seu trabalho?',
+    sentirLow:'Nenhum controle', sentirHigh:'Controle total',
+    contexto:[
+      {q:'Você sente que pode influenciar decisões importantes sobre o seu próprio trabalho?', invert:true},
+      {q:'Você tem liberdade para decidir a ordem ou o método das suas tarefas?', invert:true}
+    ],
+    forced:{
+      q:'Quando algo não sai como você gostaria, o que predomina?',
+      options:[
+        {label:'Não tenho a autonomia que deveria ter — isso vem de fora.', leaning:'externo'},
+        {label:'Tenho autonomia, mas tenho dificuldade de me posicionar e pedir o que preciso.', leaning:'interno'},
+        {label:'Um pouco dos dois.', leaning:'misto'}
+      ]
+    },
+    open:'Existe alguma decisão no seu trabalho que você evita tomar, mesmo tendo espaço para tomá-la? O que te segura?',
+    jdl:'Pensando em essência x persona: nas decisões do dia a dia, você age mais a partir do que realmente pensa, ou do que "espera-se" que você decida?'
+  },
+  {
+    id:'suporte', num:3, title:'Suporte social e liderança', mte:'Relacionamentos e Suporte',
+    sentirQ:'Como você sente o suporte da sua liderança e colegas hoje?',
+    sentirLow:'Sozinho(a)', sentirHigh:'Bem apoiado(a)',
+    contexto:[
+      {q:'Quando você precisa de ajuda, encontra apoio de colegas?', invert:true},
+      {q:'Sua liderança direta está disponível quando você precisa?', invert:true}
+    ],
+    forced:{
+      q:'Quando sente falta de apoio, o que predomina?',
+      options:[
+        {label:'A liderança/equipe realmente não oferece esse suporte.', leaning:'externo'},
+        {label:'Eu tenho dificuldade em pedir ajuda ou mostrar que preciso.', leaning:'interno'},
+        {label:'Um pouco dos dois.', leaning:'misto'}
+      ]
+    },
+    open:'Descreva uma situação recente em que sentiu falta (ou presença) de apoio. O que aconteceu, de fato?',
+    jdl:'Pensando no espelho: existe algo em como você lida com pedir ajuda que também se repete fora do trabalho?'
+  },
+  {
+    id:'clareza', num:4, title:'Clareza e conflito de papel', mte:'Gestão e Organização do Trabalho',
+    sentirQ:'Você sabe claramente o que se espera de você no seu papel?',
+    sentirLow:'Muita confusão', sentirHigh:'Muito claro',
+    contexto:[
+      {q:'Você recebe instruções contraditórias sobre o que deve fazer?', invert:false},
+      {q:'Você sabe exatamente quais são as suas responsabilidades no cargo?', invert:true}
+    ],
+    forced:{
+      q:'Quando o papel parece confuso, o que pesa mais?',
+      options:[
+        {label:'As instruções realmente mudam ou se contradizem.', leaning:'externo'},
+        {label:'Eu interpreto/absorvo de formas diferentes dependendo de quem fala.', leaning:'interno'},
+        {label:'Um pouco dos dois.', leaning:'misto'}
+      ]
+    },
+    open:'Se seu papel fosse descrito em uma frase, escrita por você mesmo(a), qual seria? Ela bate com o que a empresa espera?',
+    jdl:'Clareza também é frequência interna. A confusão vem mais da falta de definição de fora, ou da falta de clareza sobre quem você é dentro dessa função?'
+  },
+  {
+    id:'justica', num:5, title:'Justiça organizacional', mte:'Gestão e Organização do Trabalho',
+    sentirQ:'Você sente que as decisões e regras da empresa são aplicadas de forma justa com você?',
+    sentirLow:'Nada justo', sentirHigh:'Totalmente justo',
+    contexto:[
+      {q:'Os critérios de promoção, distribuição de tarefas ou benefícios são claros e iguais para todos?', invert:true},
+      {q:'Você já presenciou ou viveu decisões que pareceram favorecer algumas pessoas em detrimento de outras, sem critério claro?', invert:false}
+    ],
+    forced:{
+      q:'Quando algo parece injusto, o que predomina?',
+      options:[
+        {label:'Os critérios realmente não são claros ou iguais para todos — isso vem de fora.', leaning:'externo'},
+        {label:'Eu tendo a comparar minha situação com a dos outros e sentir desvantagem, mesmo sem ter certeza.', leaning:'interno'},
+        {label:'Um pouco dos dois.', leaning:'misto'}
+      ]
+    },
+    open:'Descreva uma situação concreta em que sentiu (in)justiça no seu ambiente de trabalho. O que exatamente aconteceu?',
+    jdl:'Justiça também é uma frequência que sustentamos por dentro antes de esperar de fora. Existe alguma área da sua vida em que você já pratica ser justo(a) consigo mesmo(a), independente do que vem de fora?'
+  },
+  {
+    id:'reconhecimento', num:6, title:'Reconhecimento e recompensas', mte:'Recompensas',
+    sentirQ:'Você se sente reconhecido(a) pelo que entrega?',
+    sentirLow:'Nada reconhecido(a)', sentirHigh:'Totalmente reconhecido(a)',
+    contexto:[
+      {q:'Seu esforço é reconhecido por quem está acima de você?', invert:true},
+      {q:'Seu salário e benefícios são compatíveis com o esforço que você entrega?', invert:true}
+    ],
+    forced:{
+      q:'Quando falta reconhecimento, o que predomina?',
+      options:[
+        {label:'O reconhecimento realmente não acontece nesta empresa, independente do esforço de cada um.', leaning:'externo'},
+        {label:'Eu tenho dificuldade em reconhecer meu próprio valor, independente do que vem de fora.', leaning:'interno'},
+        {label:'Um pouco dos dois.', leaning:'misto'}
+      ]
+    },
+    open:'Da última vez que sentiu falta de reconhecimento, o que você fez com esse sentimento? Guardou, falou, deixou passar?',
+    jdl:'Existe espaço, no seu dia, para reconhecer o que você mesmo(a) fez bem — mesmo antes de esperar isso de fora?'
+  },
+  {
+    id:'clima', num:7, title:'Relações interpessoais e clima', mte:'Relacionamentos e Suporte',
+    sentirQ:'Como está o clima nas suas relações de trabalho?',
+    sentirLow:'Pesado', sentirHigh:'Leve',
+    contexto:[
+      {q:'Há conflitos frequentes na sua equipe ou setor?', invert:false},
+      {q:'Você sente confiança nas pessoas com quem trabalha diretamente?', invert:true}
+    ],
+    forced:{
+      q:'Sobre o clima pesado, o que predomina?',
+      options:[
+        {label:'O clima do ambiente realmente está pesado — não é só percepção minha.', leaning:'externo'},
+        {label:'Eu entro em algumas relações já na defensiva, mesmo sem um motivo concreto.', leaning:'interno'},
+        {label:'Um pouco dos dois.', leaning:'misto'}
+      ]
+    },
+    open:'Existe alguma relação de trabalho que te consome energia? O que exatamente pesa nela?',
+    jdl:'Pensando em nós energéticos: existe algum "nó" — uma relação difícil — que se repete com pessoas diferentes, em contextos diferentes, ao longo da sua vida? Percebe isso mais dentro ou fora do ambiente de trabalho?'
+  },
+  {
+    id:'gestao_mudancas', num:8, title:'Gestão de mudanças organizacionais', mte:'Gestão e Organização do Trabalho',
+    sentirQ:'Como você sente as mudanças (de processo, estrutura, liderança, tecnologia) que acontecem na empresa?',
+    sentirLow:'Mudanças bruscas, sem aviso', sentirHigh:'Mudanças bem conduzidas',
+    contexto:[
+      {q:'Mudanças importantes são comunicadas antes de acontecerem, com tempo para você se preparar?', invert:true},
+      {q:'Você é ouvido(a) ou pode opinar quando uma mudança que afeta seu trabalho está sendo planejada?', invert:true}
+    ],
+    forced:{
+      q:'Quando uma mudança pega vocês de surpresa, o que predomina?',
+      options:[
+        {label:'A empresa realmente não planeja nem comunica bem as mudanças.', leaning:'externo'},
+        {label:'Eu tenho dificuldade em me adaptar a mudanças, mesmo quando são bem conduzidas.', leaning:'interno'},
+        {label:'Um pouco dos dois.', leaning:'misto'}
+      ]
+    },
+    open:'Pense na última mudança importante na empresa. O que fez ela ser mais fácil ou mais difícil pra você?',
+    jdl:'Mudança também é uma frequência — de resistência ou de fluidez. O que dentro de você costuma resistir primeiro: o medo do novo, ou a falta de confiança em quem está conduzindo?'
+  },
+  {
+    id:'inseguranca', num:9, title:'Insegurança no emprego', mte:'Demandas e Carga de Trabalho (contexto externo)',
+    sentirQ:'Como você sente a segurança em relação à continuidade do seu emprego ou função?',
+    sentirLow:'Muito inseguro(a)', sentirHigh:'Muito seguro(a)',
+    contexto:[
+      {q:'Você se preocupa em perder o emprego, ser realocado(a) ou substituído(a)?', invert:false},
+      {q:'Você sente que sua posição pode deixar de existir (automação, corte, terceirização) nos próximos meses?', invert:false}
+    ],
+    forced:{
+      q:'Sobre essa insegurança, o que predomina?',
+      options:[
+        {label:'Há sinais reais e concretos de instabilidade na empresa.', leaning:'externo'},
+        {label:'Eu tendo a antecipar o pior mesmo sem sinais concretos.', leaning:'interno'},
+        {label:'Um pouco dos dois.', leaning:'misto'}
+      ]
+    },
+    open:'Quando o medo de instabilidade aparece, ele fala sobre o trabalho ou sobre outra coisa mais antiga, mais de fundo?',
+    jdl:'Na nossa leitura energética, o medo é a emoção-raiz da qual as outras se ramificam. Faz sentido pra você que essa insegurança esteja conectada a um medo mais profundo, não só a este contexto?'
+  },
+  {
+    id:'remoto', num:10, title:'Trabalho remoto e isolado', mte:'Modalidade de Trabalho',
+    sentirQ:'Como você sente a sua modalidade de trabalho (presencial, remoto ou híbrido) hoje?',
+    sentirLow:'Isolado(a), desconectado(a) da equipe', sentirHigh:'Conectado(a), bem integrado(a)',
+    contexto:[
+      {q:'Você sente falta de contato humano ou apoio por trabalhar remoto ou isolado (sozinho em campo, em outro turno, em outra unidade)?', invert:false},
+      {q:'Você tem os mesmos canais de informação e as mesmas oportunidades que colegas mais presentes fisicamente?', invert:true}
+    ],
+    forced:{
+      q:'Quando a distância ou o isolamento pesam, o que predomina?',
+      options:[
+        {label:'A empresa realmente não estrutura bem a comunicação/inclusão de quem está remoto ou isolado.', leaning:'externo'},
+        {label:'Eu tenho dificuldade em buscar conexão e me manter por perto, mesmo tendo canais disponíveis.', leaning:'interno'},
+        {label:'Um pouco dos dois.', leaning:'misto'}
+      ]
+    },
+    open:'O que faria você se sentir mais parte do time, mesmo à distância ou isolado(a)?',
+    jdl:'Isolamento físico nem sempre é isolamento de campo energético. Existe alguém, mesmo à distância, com quem você sente uma conexão real de presença?'
+  },
+  {
+    id:'equilibrio', num:11, title:'Equilíbrio trabalho-vida', mte:'Demandas e Carga de Trabalho',
+    sentirQ:'Como está o equilíbrio entre trabalho e vida pessoal?',
+    sentirLow:'Desequilibrado', sentirHigh:'Equilibrado',
+    contexto:[
+      {q:'O trabalho invade seu tempo de descanso ou de família?', invert:false},
+      {q:'Você consegue se desconectar do trabalho fora do expediente?', invert:true}
+    ],
+    forced:{
+      q:'Sobre essa invasão do trabalho no seu tempo, o que predomina?',
+      options:[
+        {label:'A empresa exige disponibilidade real além do horário.', leaning:'externo'},
+        {label:'Eu mesmo(a) tenho dificuldade em me desconectar, mesmo quando poderia.', leaning:'interno'},
+        {label:'Um pouco dos dois.', leaning:'misto'}
+      ]
+    },
+    open:'O que te impede, hoje, de estabelecer um limite mais claro entre trabalho e vida pessoal?',
+    jdl:'Constância não é rigidez, é sustentar um ritmo. Existe algum pequeno ritual seu de transição entre "modo trabalho" e "modo vida"?'
+  },
+  {
+    id:'violencia', num:12, title:'Segurança, violência e assédio', mte:'Assédio e Violência', sensitive:true,
+    sentirQ:'Você se sente seguro(a) e respeitado(a), livre de qualquer forma de violência ou assédio no seu ambiente de trabalho?',
+    sentirLow:'Nada seguro(a)', sentirHigh:'Totalmente seguro(a)',
+    contexto:[
+      {q:'Você já presenciou ou viveu situações de humilhação, intimidação ou constrangimento no trabalho?', invert:false},
+      {q:'Você sabe a quem recorrer, com segurança, se isso acontecer?', invert:true}
+    ]
+  },
+  {
+    id:'comunicacao', num:13, title:'Comunicação organizacional', mte:'Gestão e Organização do Trabalho',
+    sentirQ:'Como você avalia a comunicação do dia a dia dentro da empresa?',
+    sentirLow:'Confusa, falha', sentirHigh:'Clara, fluida',
+    contexto:[
+      {q:'Você recebe as informações que precisa, no tempo certo, para fazer seu trabalho?', invert:true},
+      {q:'É fácil obter uma resposta clara quando você tem uma dúvida sobre o seu trabalho?', invert:true}
+    ],
+    forced:{
+      q:'Sobre essa falha de comunicação, o que predomina?',
+      options:[
+        {label:'A empresa realmente não comunica bem — falta canal ou prática.', leaning:'externo'},
+        {label:'Eu tenho dificuldade em pedir informação ou buscar esclarecimento quando falta algo.', leaning:'interno'},
+        {label:'Um pouco dos dois.', leaning:'misto'}
+      ]
+    },
+    open:'Se você pudesse mudar uma coisa na forma como a empresa se comunica no dia a dia, o que seria?',
+    jdl:'Comunicação também é energia em movimento. Você sente que fala o que precisa ser dito, ou guarda coisas "pra não criar problema"?'
+  }
+];
+
+/* ============================= ESTADO ============================= */
+
+let state = { screen:'home', moduleIndex:0, step:'sentir', answers:{}, unlocked:false, gateError:false, toastMsg:'' };
+
+function initAnswers(){
+  MODULES.forEach(m=>{ state.answers[m.id] = { sentir:null, contexto:[], forced:null, open:'', jdl:'', safeOpen:'', skipped:false, status:null, severity:null }; });
+}
+initAnswers();
+
+/* ============================= LÓGICA ============================= */
+
+function sentirSeverity(v){ return 5 - v; } // v:1..5 → severity 0..4 (5=leve→0 severidade)
+
+function contextoSeverity(idx, invert){ return invert ? idx : (4-idx); } // idx 0..4 nas opções de FREQ
+
+function computeStatus(avgSeverity){
+  if(avgSeverity <= 1.2) return 'tranquilo';
+  if(avgSeverity <= 2.5) return 'atencao';
+  return 'critico';
+}
+
+function finalizeModule(mod){
+  const a = state.answers[mod.id];
+  if(mod.sensitive){
+    // segurança: nunca "tranquilo automático" se sentir <=3, e nunca pontua "padrão pessoal"
+    const sev = sentirSeverity(a.sentir);
+    a.severity = sev;
+    a.status = a.sentir <= 3 ? 'critico' : 'tranquilo';
+    return;
+  }
+  if(a.skipped){ a.status='tranquilo'; a.severity=0; return; }
+  const sevs = [sentirSeverity(a.sentir)];
+  mod.contexto.forEach((c,i)=> sevs.push(contextoSeverity(a.contexto[i], c.invert)));
+  const avg = sevs.reduce((x,y)=>x+y,0)/sevs.length;
+  a.severity = avg;
+  a.status = computeStatus(avg);
+}
+
+function tallyLeaning(){
+  const t = { interno:0, externo:0, misto:0 };
+  MODULES.forEach(m=>{
+    if(m.sensitive) return;
+    const a = state.answers[m.id];
+    if(a.skipped || !a.forced) return;
+    if(a.status === 'tranquilo') return;
+    t[a.forced] = (t[a.forced]||0) + 1;
+  });
+  return t;
+}
+
+function leadershipFlag(){
+  // módulos ligados a decisão/liderança/estrutura, quando "externo" e não tranquilos
+  const ids = ['controle','inseguranca','comunicacao','gestao_mudancas','justica'];
+  return ids.some(id=>{
+    const a = state.answers[id];
+    return a && !a.skipped && a.status!=='tranquilo' && a.forced==='externo';
+  });
+}
+
+function recommendation(){
+  const t = tallyLeaning();
+  const recs = [];
+  if(t.interno >= t.externo && t.interno > 0) recs.push('laboratorio');
+  if(t.externo >= t.interno && t.externo > 0) recs.push(leadershipFlag() ? 'espiral' : 'ciranda');
+  if(t.misto > 0 && recs.length < 2) recs.push('ciranda');
+  if(recs.length===0) recs.push('laboratorio');
+  return [...new Set(recs)];
+}
+
+/* ============================= DEMO RÁPIDO ============================= */
+
+function fillDemoAnswers(){
+  MODULES.forEach(m=>{
+    const a = state.answers[m.id];
+    if(m.sensitive){
+      a.sentir = 5; a.contexto = [0,4]; a.status='tranquilo'; a.severity=0;
+      return;
+    }
+    const lowSentir = Math.random() < 0.55;
+    a.sentir = lowSentir ? (1+Math.floor(Math.random()*2)) : (4+Math.floor(Math.random()*2));
+    if(a.sentir >= 4){ a.skipped = true; }
+    else{
+      a.contexto = m.contexto.map(()=> Math.floor(Math.random()*5));
+      const opts = m.forced.options;
+      a.forced = opts[Math.floor(Math.random()*opts.length)].leaning;
+      a.open = '(resposta de exemplo preenchida para demonstração)';
+      a.jdl = '(resposta de exemplo preenchida para demonstração)';
+    }
+    finalizeModule(m);
+  });
+  state.screen = 'results';
+}
+
+/* ============================= RENDER ============================= */
+
+const app = document.getElementById('app');
+
+function topbar(){
+  return `<div class="topbar">
+    <div class="brand" data-action="go-home" style="cursor:pointer;">
+      <div class="logo-dot">AS</div>
+      <div><div class="brand-name">Alegre-Ser</div><div class="tag">${state.screen==='home' ? 'App em construção' : 'Diagnóstico NR-1'}</div></div>
+    </div>
+    ${state.screen!=='home' ? `<button class="btn-text" data-action="go-home">◂ voltar ao app</button>` : ''}
+  </div>`;
+}
+
+function renderGate(){
+  return `<div class="gate-wrap"><div class="card gate-card">
+    <div class="brand" style="justify-content:center; margin-bottom:12px;">
+      <div class="logo-dot">AS</div>
+      <div><div class="brand-name">Alegre-Ser</div><div class="tag">Área reservada · em construção</div></div>
+    </div>
+    <p class="small muted" style="text-align:center;">Espaço de trabalho conjunto — Yara, Chrys e Robertha construindo o app juntas. Peça a senha a uma delas.</p>
+    <input type="password" id="gate-pass" class="gate-input" placeholder="Senha">
+    <div class="gate-error">${state.gateError ? 'Senha incorreta — tente de novo.' : ''}</div>
+    <button class="btn btn-primary" data-action="unlock" style="width:100%; justify-content:center;">Entrar</button>
+  </div></div>`;
+}
+
+function renderHome(){
+  const toast = state.toastMsg ? `<div class="toast">${state.toastMsg}</div>` : '';
+  const cards = APP_MODULES.map(m=>{
+    const cls = m.ready ? 'app-card' : 'app-card disabled';
+    const badge = m.ready ? '<span class="badge badge-ready">Disponível</span>' : '<span class="badge badge-soon">Em construção</span>';
+    const action = m.ready ? m.action : 'placeholder';
+    return `<div class="${cls}" data-action="${action}" data-name="${m.title}">
+      <span class="icon">${m.icon}</span>
+      <strong>${m.title}</strong>
+      <p class="small muted" style="margin:6px 0 0;">${m.desc}</p>
+      ${badge}
+    </div>`;
+  }).join('');
+
+  return `<div class="card">
+    <div class="module-eyebrow">Espaço de trabalho · Yara · Chrys · Robertha</div>
+    <h1 class="serif" style="margin-top:0;">App Alegre-Ser</h1>
+    <p class="muted small" style="margin-top:-8px;">Construindo juntas, módulo por módulo. Comecem pelo que já está pronto — o resto vai sendo ativado aqui mesmo, sem precisar de outro link.</p>
+    ${toast}
+    <div class="module-grid">${cards}</div>
+  </div>`;
+}
+
+function render(){
+  if(!state.unlocked){ app.innerHTML = renderGate(); bindEvents(); return; }
+  let html = topbar();
+  if(state.screen==='home') html += renderHome();
+  else if(state.screen==='intro') html += renderIntro();
+  else if(state.screen==='module') html += renderModule();
+  else if(state.screen==='results') html += renderResults();
+  else if(state.screen==='rh') html += renderRH();
+  app.innerHTML = html;
+  bindEvents();
+  window.scrollTo(0,0);
+}
+
+function renderIntro(){
+  return `
+  <div class="card">
+    <button class="btn-text" data-action="go-home" style="padding-left:0; margin-bottom:8px;">◂ Voltar ao app</button>
+    <h1 class="serif" style="margin-top:0;">Diagnóstico de Riscos Psicossociais</h1>
+    <p class="muted small" style="margin-top:-8px;">Base legal NR-1 · alinhado ao Guia oficial do MTE (04/2025) · apoio científico COPSOQ/Karasek/Siegrist</p>
+    <p>Este é um <strong>protótipo navegável</strong> para discussão interna: cobre os <strong>13 fatores de risco psicossocial</strong> organizados a partir das 7 categorias do Guia oficial do MTE (Assédio e Violência · Gestão e Organização do Trabalho · Demandas e Carga de Trabalho · Controle e Autonomia · Relacionamentos e Suporte · Recompensas · Modalidade de Trabalho), indo além do questionário padrão com perguntas abertas e perguntas conectadas à leitura energética do Alegre-Ser — treinando, em cada módulo, o "olhar de observador" de quem responde.</p>
+    <p>Cada risco é trabalhado em 4 camadas: <strong>Sentir</strong> (escala rápida) → <strong>Contexto concreto</strong> (fatos e frequência, com base científica) → <strong>Exercício do Observador</strong> (padrão pessoal x fator do ambiente, com pergunta aberta) → <strong>Devolutiva</strong> (mapa pessoal privado + contribuição anônima ao relatório da empresa).</p>
+    <div class="note">O MTE não exige nem indica um instrumento único de avaliação — a lista de fatores do guia oficial é "exemplificativa, não exaustiva". Este questionário usa a linguagem oficial do MTE como espinha dorsal e perguntas validadas cientificamente para medir cada fator.</div>
+    <div class="note">Dado individual é privado (mapa de consciência pessoal). Só dados agregados e anônimos alimentam o relatório do RH — nunca respostas individuais identificáveis.</div>
+    <div class="btn-row">
+      <button class="btn btn-primary" data-action="start">Começar o diagnóstico</button>
+      <button class="btn btn-ghost" data-action="demo">Ver exemplo rápido (respostas simuladas)</button>
+    </div>
+  </div>`;
+}
+
+function renderModule(){
+  const m = MODULES[state.moduleIndex];
+  const a = state.answers[m.id];
+  const pct = Math.round(((state.moduleIndex)/MODULES.length)*100);
+
+  let body = '';
+  if(state.step==='sentir'){
+    body = renderSentir(m,a);
+  } else if(m.sensitive){
+    body = renderSensitiveFlow(m,a,state.step);
+  } else if(state.step==='contexto'){
+    body = renderContexto(m,a);
+  } else if(state.step==='forced'){
+    body = renderForced(m,a);
+  } else if(state.step==='open'){
+    body = renderOpen(m,a);
+  } else if(state.step==='jdl'){
+    body = renderJdl(m,a);
+  }
+
+  return `
+  <div class="progress-wrap">
+    <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
+    <div class="progress-label"><span>Risco ${m.num} de ${MODULES.length}</span><span>${m.title}</span></div>
+  </div>
+  <div class="card">${body}</div>`;
+}
+
+function renderSentir(m,a){
+  const opts = [1,2,3,4,5];
+  return `
+  <div class="module-eyebrow">Camada 1 · Sentir</div>
+  <h2 class="module-title serif">${m.title}</h2>
+  <p class="muted small" style="margin-top:-8px;">Guia MTE: ${m.mte}</p>
+  <p>${m.sentirQ}</p>
+  <div class="scale-labels"><span>${m.sentirLow}</span><span>${m.sentirHigh}</span></div>
+  <div class="scale">
+    ${opts.map(v=>`<div class="scale-opt ${a.sentir===v?'selected':''}" data-action="sentir" data-value="${v}">${v}</div>`).join('')}
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-primary" data-action="next-sentir" ${a.sentir?'':'disabled'}>Continuar</button>
+    ${state.moduleIndex>0 ? `<button class="btn-text" data-action="back">voltar</button>` : ''}
+  </div>`;
+}
+
+function renderContexto(m,a){
+  if(a.contexto.length < m.contexto.length){
+    const i = a.contexto.length;
+    const c = m.contexto[i];
+    return `
+    <div class="module-eyebrow">Camada 2 · Contexto concreto (${i+1}/${m.contexto.length})</div>
+    <h2 class="module-title serif">${m.title}</h2>
+    <p>${c.q}</p>
+    ${FREQ.map((f,idx)=>`<button class="freq-opt" data-action="contexto" data-value="${idx}">${f}</button>`).join('')}
+    <div class="btn-row"><button class="btn-text" data-action="back">voltar</button></div>`;
+  }
+  // todas respondidas — avança automaticamente (não deveria chegar aqui)
+  return `<p>Carregando...</p>`;
+}
+
+function renderForced(m,a){
+  return `
+  <div class="module-eyebrow">Camada 3 · Exercício do Observador</div>
+  <h2 class="module-title serif">${m.title}</h2>
+  <p>${m.forced.q}</p>
+  ${m.forced.options.map((o,idx)=>`<button class="choice-opt ${a.forced===o.leaning?'selected':''}" data-action="forced" data-value="${o.leaning}">${o.label}</button>`).join('')}
+  <div class="btn-row">
+    <button class="btn btn-primary" data-action="next-forced" ${a.forced?'':'disabled'}>Continuar</button>
+    <button class="btn-text" data-action="back">voltar</button>
+  </div>`;
+}
+
+function renderOpen(m,a){
+  return `
+  <div class="module-eyebrow">Camada 3 · Exercício do Observador (pergunta aberta)</div>
+  <h2 class="module-title serif">${m.title}</h2>
+  <p>${m.open}</p>
+  <textarea data-field="open" placeholder="Escreva com suas palavras (opcional, mas ajuda no seu próprio mapa)">${a.open||''}</textarea>
+  <div class="btn-row">
+    <button class="btn btn-primary" data-action="next-open">Continuar</button>
+    <button class="btn-text" data-action="back">voltar</button>
+  </div>`;
+}
+
+function renderJdl(m,a){
+  return `
+  <div class="layer-tag">Camada extra · leitura de campo (metodologia Alegre-Ser)</div>
+  <h2 class="module-title serif">${m.title}</h2>
+  <p>${m.jdl}</p>
+  <textarea data-field="jdl" placeholder="Opcional — o que vier à mente">${a.jdl||''}</textarea>
+  <div class="btn-row">
+    <button class="btn btn-primary" data-action="next-jdl">${state.moduleIndex===MODULES.length-1?'Ver meu mapa':'Próximo risco'}</button>
+    <button class="btn-text" data-action="back">voltar</button>
+  </div>`;
+}
+
+function renderSensitiveFlow(m,a,step){
+  if(step==='contexto'){
+    if(a.contexto.length < m.contexto.length){
+      const i = a.contexto.length;
+      const c = m.contexto[i];
+      return `
+      <div class="module-eyebrow">Camada 2 · Contexto (com cuidado)</div>
+      <h2 class="module-title serif">${m.title}</h2>
+      <div class="note safety">Suas respostas aqui são tratadas com prioridade e sigilo — nunca lidas como "padrão pessoal". Você pode pular qualquer pergunta.</div>
+      <p>${c.q}</p>
+      ${FREQ.map((f,idx)=>`<button class="freq-opt" data-action="contexto" data-value="${idx}">${f}</button>`).join('')}
+      <div class="btn-row"><button class="btn-text" data-action="skip-contexto">prefiro não responder</button> <button class="btn-text" data-action="back">voltar</button></div>`;
+    }
+    return `<p>Carregando...</p>`;
+  }
+  if(step==='safe'){
+    return `
+    <div class="module-eyebrow">Camada 3 · Encaminhamento seguro</div>
+    <h2 class="module-title serif">${m.title}</h2>
+    <div class="note safety">Este é o único risco do diagnóstico que <strong>nunca</strong> passa pelo filtro "padrão pessoal x fator externo". Violência e assédio são sempre responsabilidade da organização — nunca da pessoa que relata.</div>
+    <p>Se quiser registrar algo específico para a equipe responsável (RH / canal de ética / facilitadoras Alegre-Ser), escreva abaixo. Isso não entra no relatório agregado comum — segue direto e confidencialmente para encaminhamento.</p>
+    <textarea data-field="safeOpen" placeholder="Opcional — você pode deixar em branco e ainda assim o alerta de atenção é registrado">${a.safeOpen||''}</textarea>
+    <div class="btn-row">
+      <button class="btn btn-primary" data-action="next-safe">${state.moduleIndex===MODULES.length-1?'Ver meu mapa':'Próximo risco'}</button>
+      <button class="btn-text" data-action="back">voltar</button>
+    </div>`;
+  }
+  return `<p>Carregando...</p>`;
+}
+
+function statusChip(status){
+  const s = STATUS[status];
+  return `<span class="status-chip" style="background:${s.color}22; color:${s.color};">${s.icon} ${s.label}</span>`;
+}
+
+function renderResults(){
+  const anyViolencia = state.answers['violencia'].status==='critico';
+  const recs = recommendation();
+
+  const bars = MODULES.map(m=>{
+    const a = state.answers[m.id];
+    const status = a.status || 'tranquilo';
+    const s = STATUS[status];
+    const pct = Math.max(8, Math.round(((a.severity||0)/4)*100));
+    return `<div class="bar-row">
+      <div class="bar-label small">${m.num}. ${m.title}</div>
+      <div class="bar-track"><div class="bar-fill" style="width:${pct}%; background:${s.color};"></div></div>
+      <div class="bar-status" style="color:${s.color};">${s.icon} ${s.label}</div>
+    </div>`;
+  }).join('');
+
+  const recChips = recs.map(k=>{
+    const s = SERVICES[k];
+    return `<div class="service-chip" style="background:${s.color};">
+      <strong>${s.name}</strong><span class="small" style="opacity:.9;">${s.verbo}</span>
+    </div>`;
+  }).join('');
+
+  return `
+  <div class="card">
+    <div class="module-eyebrow">Resultado privado</div>
+    <h1 class="serif" style="margin-top:0;">Seu Mapa de Consciência Pessoal</h1>
+    <p class="muted small">Visível só para você. O que vai para o relatório da empresa é agregado e anônimo.</p>
+
+    ${anyViolencia ? `<div class="note safety"><strong>Atenção prioritária.</strong> Sua resposta sobre segurança/assédio indica algo que merece encaminhamento imediato — isso é sinalizado à equipe responsável de forma confidencial, fora do ciclo normal de relatório.</div>` : ''}
+
+    <div class="legend">
+      ${Object.entries(STATUS).map(([k,s])=>`<div class="legend-item"><span class="legend-dot" style="background:${s.color};"></span>${s.icon} ${s.label}</div>`).join('')}
+    </div>
+    ${bars}
+
+    <h3 class="serif">O que isso sugere para você agora</h3>
+    <p class="small">Com base nos padrões que predominaram nas suas respostas (mais "isso vem de mim" ou mais "isso vem do ambiente"), este é o território do Alegre-Ser que mais conversa com o seu momento:</p>
+    <div class="service-row">${recChips}</div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" data-action="goto-rh">Ver exemplo: painel do RH (dados agregados)</button>
+      <button class="btn btn-ghost" data-action="restart">Recomeçar</button>
+      <button class="btn-text" data-action="go-home">◂ voltar ao app</button>
+    </div>
+  </div>`;
+}
+
+function renderRH(){
+  // dataset ilustrativo — não são as respostas reais desta sessão isolada,
+  // e sim um exemplo de como o agregado apareceria com uma base de respondentes.
+  const demo = [
+    {t:'1. Demandas de trabalho e ritmo', status:'critico', pct:78},
+    {t:'2. Controle e autonomia', status:'atencao', pct:55},
+    {t:'3. Suporte social e liderança', status:'tranquilo', pct:22},
+    {t:'4. Clareza e conflito de papel', status:'atencao', pct:48},
+    {t:'5. Justiça organizacional', status:'critico', pct:66},
+    {t:'6. Reconhecimento e recompensas', status:'critico', pct:70},
+    {t:'7. Relações interpessoais e clima', status:'tranquilo', pct:30},
+    {t:'8. Gestão de mudanças organizacionais', status:'atencao', pct:50},
+    {t:'9. Insegurança no emprego', status:'atencao', pct:52},
+    {t:'10. Trabalho remoto e isolado', status:'tranquilo', pct:20},
+    {t:'11. Equilíbrio trabalho-vida', status:'critico', pct:74},
+    {t:'12. Segurança, violência e assédio', status:'tranquilo', pct:12},
+    {t:'13. Comunicação organizacional', status:'atencao', pct:46}
+  ];
+  const bars = demo.map(d=>{
+    const s = STATUS[d.status];
+    return `<div class="bar-row">
+      <div class="bar-label small">${d.t}</div>
+      <div class="bar-track"><div class="bar-fill" style="width:${d.pct}%; background:${s.color};"></div></div>
+      <div class="bar-status" style="color:${s.color};">${s.icon} ${s.label}</div>
+    </div>`;
+  }).join('');
+
+  return `
+  <div class="card">
+    <div class="module-eyebrow">Exemplo ilustrativo · não são dados reais</div>
+    <h1 class="serif" style="margin-top:0;">Painel da Empresa — visão agregada</h1>
+    <p class="muted small">Este painel só é liberado a partir de um número mínimo de respostas (ex.: 5+) para preservar o anonimato individual, conforme LGPD — especialmente importante em times pequenos, onde poucas respostas podem identificar alguém.</p>
+    <div class="legend">
+      ${Object.entries(STATUS).map(([k,s])=>`<div class="legend-item"><span class="legend-dot" style="background:${s.color};"></span>${s.icon} ${s.label}</div>`).join('')}
+    </div>
+    ${bars}
+    <div class="note">Este é o material que sustenta o Passo 1 (Diagnóstico) e alimenta o Plano de Ação exigido pela NR-1 — e aponta, com dados, quais das frentes de Sustentação (Diálogos de Consciência / Laboratório do Observador / Espiral de Clareza) fazem mais sentido priorizar com esta empresa.</div>
+    <div class="btn-row">
+      <button class="btn btn-ghost" data-action="back-results">Voltar ao meu mapa</button>
+      <button class="btn-text" data-action="restart">Recomeçar diagnóstico</button>
+    </div>
+  </div>`;
+}
+
+/* ============================= EVENTOS ============================= */
+
+function bindEvents(){
+  app.querySelectorAll('[data-action]').forEach(el=>{
+    el.addEventListener('click', onAction);
+  });
+  app.querySelectorAll('textarea[data-field]').forEach(el=>{
+    el.addEventListener('input', e=>{
+      const m = MODULES[state.moduleIndex];
+      state.answers[m.id][e.target.dataset.field] = e.target.value;
+    });
+  });
+  const gateInput = document.getElementById('gate-pass');
+  if(gateInput){
+    gateInput.focus();
+    gateInput.addEventListener('keydown', e=>{ if(e.key==='Enter'){ doUnlock(); } });
+  }
+}
+
+function doUnlock(){
+  const el = document.getElementById('gate-pass');
+  const val = el ? el.value : '';
+  if(val === PASSWORD){ state.unlocked = true; state.gateError = false; render(); }
+  else { state.gateError = true; render(); }
+}
+
+function goToModuleStep(step){ state.step = step; render(); }
+
+function advanceAfterContexto(m,a){
+  if(a.contexto.length < m.contexto.length){ render(); return; }
+  finalizeModule(m);
+  if(m.sensitive){ goToModuleStep('safe'); }
+  else { goToModuleStep('forced'); }
+}
+
+function nextModuleOrResults(){
+  if(state.moduleIndex < MODULES.length-1){
+    state.moduleIndex++;
+    state.step = 'sentir';
+    render();
+  } else {
+    state.screen = 'results';
+    render();
+  }
+}
+
+function onAction(e){
+  const action = e.currentTarget.dataset.action;
+  const m = MODULES[state.moduleIndex];
+  const a = state.answers ? state.answers[m ? m.id : null] : null;
+
+  if(action==='unlock'){ doUnlock(); return; }
+  if(action==='go-home'){ state.screen='home'; state.toastMsg=''; render(); return; }
+  if(action==='open-diagnostico'){ state.screen='intro'; render(); return; }
+  if(action==='placeholder'){
+    state.toastMsg = `🛠️ "${e.currentTarget.dataset.name}" entra na próxima etapa do desenvolvimento — ainda não está pronto pra usar.`;
+    render();
+    return;
+  }
+
+  if(action==='start'){ state.screen='module'; state.moduleIndex=0; state.step='sentir'; render(); return; }
+  if(action==='demo'){ fillDemoAnswers(); render(); return; }
+
+  if(action==='sentir'){ a.sentir = parseInt(e.currentTarget.dataset.value,10); render(); return; }
+  if(action==='next-sentir'){
+    if(!m.sensitive && a.sentir >= 4){ a.skipped = true; finalizeModule(m); nextModuleOrResults(); return; }
+    a.skipped = false;
+    goToModuleStep('contexto');
+    return;
+  }
+
+  if(action==='contexto'){
+    a.contexto.push(parseInt(e.currentTarget.dataset.value,10));
+    advanceAfterContexto(m,a);
+    return;
+  }
+  if(action==='skip-contexto'){
+    a.contexto.push(2); // valor neutro quando a pessoa prefere não responder
+    advanceAfterContexto(m,a);
+    return;
+  }
+
+  if(action==='forced'){ a.forced = e.currentTarget.dataset.value; render(); return; }
+  if(action==='next-forced'){ goToModuleStep('open'); return; }
+  if(action==='next-open'){ goToModuleStep('jdl'); return; }
+  if(action==='next-jdl'){ nextModuleOrResults(); return; }
+  if(action==='next-safe'){ nextModuleOrResults(); return; }
+
+  if(action==='back'){
+    if(state.step==='contexto' && a.contexto.length>0){ a.contexto.pop(); render(); return; }
+    if(state.step==='contexto'){ goToModuleStep('sentir'); return; }
+    if(state.step==='forced'){ goToModuleStep('sentir'); a.contexto=[]; return; }
+    if(state.step==='open'){ goToModuleStep('forced'); return; }
+    if(state.step==='jdl'){ goToModuleStep('open'); return; }
+    if(state.step==='safe'){ goToModuleStep('sentir'); a.contexto=[]; return; }
+    if(state.step==='sentir'){
+      if(state.moduleIndex>0){ state.moduleIndex--; state.step='jdl'; const pm=MODULES[state.moduleIndex]; if(pm.sensitive) state.step='safe'; goToModuleStep(state.step); }
+      return;
+    }
+  }
+
+  if(action==='goto-rh'){ state.screen='rh'; render(); return; }
+  if(action==='back-results'){ state.screen='results'; render(); return; }
+  if(action==='restart'){
+    state = { screen:'intro', moduleIndex:0, step:'sentir', answers:{}, unlocked:true, gateError:false, toastMsg:'' };
+    initAnswers();
+    render();
+    return;
+  }
+}
+
+render();
+</script>
+</body>
+</html>
