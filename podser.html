@@ -305,6 +305,22 @@
   .ep-watch{margin-top:auto; font-family:var(--font-heading); font-size:13px; font-weight:600; color:var(--blue);}
   .podser-cta{text-align:center; padding:26px 0 90px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap;}
 
+  /* ---------- PODSER — grid de episódios com capas (identidade Alegre-Ser) ---------- */
+  .podser-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:26px; padding:24px 0 10px;}
+  .pod-card{display:flex; flex-direction:column; background:var(--cream-2); border:1px solid var(--cream-border); border-radius:18px; overflow:hidden; text-decoration:none; transition:transform .2s, box-shadow .2s;}
+  .pod-card:hover{transform:translateY(-4px); box-shadow:0 18px 38px rgba(26,18,16,.12);}
+  .pod-cover{position:relative; aspect-ratio:16/9; background:var(--cream-border); overflow:hidden;}
+  .pod-cover img{width:100%; height:100%; object-fit:cover; display:block;}
+  .pod-badge{position:absolute; top:12px; left:12px; background:var(--ink-strong); color:#fff; font-family:var(--font-heading); font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:5px 12px; border-radius:100px;}
+  .pod-play{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .2s; background:rgba(18,14,12,.26);}
+  .pod-card:hover .pod-play{opacity:1;}
+  .pod-play span.disc{width:54px; height:54px; border-radius:50%; background:rgba(255,255,255,.94); display:flex; align-items:center; justify-content:center; box-shadow:0 8px 20px rgba(20,14,10,.25);}
+  .pod-play svg{width:18px; height:18px; margin-left:3px;}
+  .pod-body{padding:20px 22px 22px; display:flex; flex-direction:column; gap:12px; flex:1;}
+  .pod-title{font-family:var(--font-display); font-size:18.5px; font-weight:600; line-height:1.28; color:var(--ink);}
+  .pod-watch{margin-top:auto; font-family:var(--font-heading); font-size:12.5px; font-weight:600; color:var(--terracotta); display:inline-flex; align-items:center; gap:5px;}
+  .podser-empty{text-align:center; color:var(--muted); font-size:14px; padding:30px 0;}
+
 /* ============ SISTEMA DE POPUPS/MODAIS (patch 2026-07-21) ============ */
 /* =========================================================
    SISTEMA DE POPUPS/MODAIS — Alegre-Ser
@@ -576,26 +592,10 @@ dialog.as-modal{ margin:auto; inset:0; }
 
 <section class="podser-eps">
   <div class="wrap">
-    <div class="ep-cloud">
-      <a class="ep-chip" href="https://www.youtube.com/@Alegre-Ser" target="_blank" rel="noopener">
-        <span class="n">Ep. 01</span> ObservaDOR &amp; ObserAMOR
-      </a>
-      <a class="ep-chip" href="https://www.youtube.com/@Alegre-Ser" target="_blank" rel="noopener">
-        <span class="n">Ep. 02</span> A Arte de Sorrir cada vez que a vida diz não
-      </a>
-      <a class="ep-chip" href="https://www.youtube.com/@Alegre-Ser" target="_blank" rel="noopener">
-        <span class="n">Ep. 03</span> Energia-Frequência-Vibração
-      </a>
-      <a class="ep-chip" href="https://www.youtube.com/@Alegre-Ser" target="_blank" rel="noopener">
-        <span class="n">Ep. 04</span> Oscilação Energética · montanha-russa das emoções
-      </a>
-      <a class="ep-chip" href="https://www.youtube.com/@Alegre-Ser" target="_blank" rel="noopener">
-        <span class="n">Ep. 05</span> Ocultações · medos, mentiras, desculpas e vergonhas
-      </a>
-      <a class="ep-chip" href="https://www.youtube.com/@Alegre-Ser" target="_blank" rel="noopener">
-        <span class="n">Ep. 06</span> Incômodos · permanecer neles para os atravessar
-      </a>
-    </div>
+    <div id="podser-grid" class="podser-grid"></div>
+    <noscript>
+      <p class="podser-empty">Veja todos os episódios no <a href="https://www.youtube.com/@Alegre-Ser" target="_blank" rel="noopener" style="color:var(--terracotta); font-weight:600;">canal do YouTube do Alegre-Ser ↗</a></p>
+    </noscript>
   </div>
 </section>
 
@@ -699,7 +699,57 @@ dialog.as-modal{ margin:auto; inset:0; }
     });
   });
 })();
+</script>
 
+<!-- ===== PodSer — grid de episódios (auto-atualizado pelo GitHub Actions) ===== -->
+<script>
+(function(){
+  // Lista base (fallback). O robô do GitHub Actions mantém /podser-data.json
+  // sempre atualizado a partir do canal @Alegre-Ser no YouTube.
+  var SEED = [
+    {ep:13, id:'iPy-SujR7T8', titulo:'Ciranda de Consciência'},
+    {ep:12, id:'6GasdexzrMw', titulo:'Estou sentindo mais? O despertar da percepção'},
+    {ep:11, id:'oQOWGHrWSFE', titulo:'Excesso de Buscas Espirituais — quando a busca vira peso'},
+    {ep:10, id:'g3ToQaHpH6g', titulo:'O Chato do Ego'},
+    {ep:9,  id:'Yhg_QNWBRgA', titulo:'Ataques Energéticos — como nos proteger'},
+    {ep:7,  id:'tjmzNs6jk3I', titulo:'Escolhas que curam e escolhas que enfermam'},
+    {ep:6,  id:'2OAQhdrPyOc', titulo:'Incômodos — permanecer neles para os atravessar'},
+    {ep:5,  id:'LX6rKJbvOF4', titulo:'Ocultações — medos, mentiras, desculpas e vergonhas'},
+    {ep:4,  id:'EXya4E72pVs', titulo:'Oscilação Energética — a montanha-russa das emoções'},
+    {ep:3,  id:'o3YBACjQ5wk', titulo:'Energia, vibração e frequência — invisíveis porém presentes'},
+    {ep:2,  id:'Bp_vlfK-38s', titulo:'A arte de sorrir cada vez que a vida diz não'},
+    {ep:1,  id:'B389lm4FM98', titulo:'ObservaDOR & ObservAMOR'}
+  ];
+  var grid = document.getElementById('podser-grid');
+  if(!grid) return;
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function pad(n){return (n<10?'0':'')+n;}
+  function render(list){
+    list = list.slice().filter(function(e){return e && e.id;}).sort(function(a,b){return b.ep-a.ep;});
+    grid.innerHTML = list.map(function(e){
+      var url='https://www.youtube.com/watch?v='+encodeURIComponent(e.id);
+      var thumb='https://img.youtube.com/vi/'+e.id+'/maxresdefault.jpg';
+      var hq='https://img.youtube.com/vi/'+e.id+'/hqdefault.jpg';
+      return '<a class="pod-card" href="'+url+'" target="_blank" rel="noopener">'
+        + '<div class="pod-cover">'
+        +   '<img loading="lazy" src="'+thumb+'" alt="Capa do episódio '+pad(e.ep)+'" '
+        +        'onerror="this.onerror=null;this.src=\''+hq+'\'">'
+        +   '<span class="pod-badge">EP — '+pad(e.ep)+'</span>'
+        +   '<span class="pod-play"><span class="disc"><svg viewBox="0 0 24 24" fill="#C84523"><path d="M8 5v14l11-7z"/></svg></span></span>'
+        + '</div>'
+        + '<div class="pod-body">'
+        +   '<h3 class="pod-title">'+esc(e.titulo)+'</h3>'
+        +   '<span class="pod-watch">Assistir no YouTube ↗</span>'
+        + '</div></a>';
+    }).join('');
+  }
+  render(SEED);
+  // Upgrade automático: se o JSON mantido pelo robô tiver episódios, usa ele.
+  fetch('/podser-data.json', {cache:'no-cache'})
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(d){ if(d && Array.isArray(d) && d.length){ render(d); } })
+    .catch(function(){});
+})();
 </script>
 </body>
 </html>
