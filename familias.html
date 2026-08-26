@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Empresas · Diálogos de Consciência — Alegre-Ser</title>
+<title>Famílias — Alegre-Ser</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -257,111 +257,43 @@
     .stepper-format{padding-left:0;}
   }
 
-  /* ---------- EMPRESAS — página dedicada ---------- */
-  .emp-hero{padding:150px 0 30px;}
-  .emp-badges{display:flex; gap:18px; flex-wrap:wrap; margin-top:30px;}
-  .emp-badge{font-family:var(--font-heading); font-size:12.5px; color:var(--muted); background:#fff; padding:8px 16px; border-radius:100px; box-shadow:0 6px 16px rgba(20,14,10,.06);}
+  /* ---------- TRILHA INDIVIDUAL — página dedicada ---------- */
+  .ti-hero{padding:150px 0 30px;}
+  .ti-cost{padding:30px 0;}
+  .ti-cost-row{display:flex; gap:26px; flex-wrap:wrap; margin-top:36px;}
+  .ti-cost-card{flex:1 1 260px; color:#fff; padding:28px 26px; box-shadow:0 16px 32px rgba(20,14,10,.14); font-size:14.5px; line-height:1.55;}
+  .ti-cost-card:nth-child(1){background:var(--blue); border-radius:20px 56px 20px 56px / 56px 20px 56px 20px;}
+  .ti-cost-card:nth-child(2){background:var(--terracotta); border-radius:56px 20px 56px 20px / 20px 56px 20px 56px;}
+  .ti-cost-card:nth-child(3){background:var(--magenta); border-radius:20px 56px 20px 56px / 56px 20px 56px 20px;}
 
-  .emp-stats{padding:30px 0; position:relative; overflow:hidden;}
-  .emp-stats-row{display:flex; gap:26px; flex-wrap:wrap; margin-top:34px;}
-  .emp-stat{flex:1 1 240px; text-align:center; color:#fff; border-radius:45% 55% 60% 40% / 40% 60% 45% 55%; padding:36px 26px; box-shadow:0 16px 32px rgba(20,14,10,.14);}
-  .emp-stat:nth-child(1){background:var(--blue);}
-  .emp-stat:nth-child(2){background:var(--terracotta); border-radius:55% 45% 40% 60% / 45% 55% 60% 40%;}
-  .emp-stat:nth-child(3){background:var(--magenta); border-radius:40% 60% 55% 45% / 60% 40% 45% 55%;}
-  .emp-stat .num{font-family:var(--font-display); font-size:24px; font-weight:700; color:#fff; display:block; margin-bottom:8px;}
-  .emp-stat p{font-size:13px; color:rgba(255,255,255,.92); line-height:1.5;}
-  .emp-nr1-box{max-width:760px; margin:34px auto 0; padding:22px 26px; background:var(--terracotta-soft); border-radius:12px 32px 12px 32px; font-size:14.5px; line-height:1.6;}
-  .emp-source{text-align:center; font-size:12px; color:var(--muted); margin-top:16px; font-family:var(--font-heading);}
+  .ti-stepper-wrap{padding:30px 0 20px;}
+  .ti-note{max-width:620px; margin:26px auto 0; padding:20px 22px; background:var(--blue-soft); border-radius:12px 28px 12px 28px; font-size:13.5px; color:var(--ink); line-height:1.6;}
 
-  .emp-energy{padding:30px 0; max-width:780px; margin:0 auto;}
-  .emp-energy p{font-size:15.5px; line-height:1.75; margin-bottom:16px;}
+  .ti-for-you{padding:30px 0; background:var(--cream-2); position:relative; overflow:hidden;}
+  .ti-for-you-list{display:flex; gap:22px; flex-wrap:wrap; max-width:820px; margin:36px auto 0; justify-content:center;}
+  .ti-for-you-item{flex:1 1 240px; max-width:260px; text-align:center; padding:28px 22px; color:#fff; box-shadow:0 14px 28px rgba(20,14,10,.12); font-size:13.5px; line-height:1.5;}
+  .ti-for-you-item:nth-child(1){background:var(--blue); border-radius:55% 45% 40% 60% / 45% 55% 60% 40%;}
+  .ti-for-you-item:nth-child(2){background:var(--terracotta); border-radius:45% 55% 60% 40% / 55% 45% 40% 60%;}
+  .ti-for-you-item:nth-child(3){background:var(--magenta); border-radius:60% 40% 45% 55% / 40% 60% 55% 45%;}
+  .ti-for-you-item:nth-child(4){background:var(--mustard); border-radius:40% 60% 55% 45% / 60% 40% 45% 55%;}
 
-  /* jornada 10 movimentos — 4 grupos */
-  .emp-movements{padding:30px 0;}
-  .mv-group{max-width:820px; margin:0 auto 28px; color:#fff; box-shadow:0 20px 40px rgba(20,14,10,.14); padding:32px 34px; position:relative; overflow:hidden;}
-  .mv-group.mv-1{background:var(--blue); border-radius:8% 18% 8% 32% / 30% 10% 24% 10%;}
-  .mv-group.mv-2{background:var(--terracotta); border-radius:18% 8% 32% 8% / 10% 30% 10% 24%;}
-  .mv-group.mv-3{background:var(--magenta); border-radius:8% 18% 8% 32% / 30% 10% 24% 10%;}
-  .mv-group.mv-4{background:var(--mustard); border-radius:18% 8% 32% 8% / 10% 30% 10% 24%;}
-  .mv-group-head{display:flex; align-items:baseline; gap:14px; margin-bottom:18px; position:relative; z-index:1;}
-  .mv-num{font-family:var(--font-display); font-size:13px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:rgba(255,255,255,.75);}
-  .mv-group-head h3{font-family:var(--font-display); font-size:21px; font-weight:600; color:#fff;}
-  .mv-item{display:flex; gap:16px; padding:12px 0; border-top:1px dashed rgba(255,255,255,.28); position:relative; z-index:1;}
-  .mv-item:first-of-type{border-top:none;}
-  .mv-item-num{flex:0 0 auto; width:28px; height:28px; border-radius:50%; background:rgba(255,255,255,.24); color:#fff; font-family:var(--font-heading); font-weight:700; font-size:12.5px; display:flex; align-items:center; justify-content:center;}
-  .mv-item-body b{display:block; font-size:14.5px; margin-bottom:3px; color:#fff;}
-  .mv-item-body span{font-size:13.5px; color:rgba(255,255,255,.85); line-height:1.5;}
+  .ti-result{padding:30px 0; text-align:center;}
+  .ti-result-box{ max-width:640px; margin:0 auto; padding:36px 8px 0; border-top:2px solid var(--terracotta); text-align:center; }
+  .ti-result-box p:first-child{ font-family:var(--font-display); font-size:22px; font-weight:500; color:var(--ink); line-height:1.4; margin-bottom:14px; }
+  .ti-result-box p:last-child{ font-size:14.5px; color:var(--muted); }
 
-  /* 4 pilares */
-  .emp-pilares{padding:30px 0; background:var(--cream-2); position:relative; overflow:hidden;}
-  .pilar-row{display:flex; gap:24px; flex-wrap:wrap; margin-top:36px; justify-content:center;}
-  .pilar-card{flex:1 1 200px; max-width:220px; text-align:center;}
-  .pilar-icon{width:64px; height:64px; margin:0 auto 14px; border-radius:58% 42% 63% 37% / 41% 57% 43% 59%; display:flex; align-items:center; justify-content:center;}
-  .pilar-card:nth-child(1) .pilar-icon{background:var(--blue);}
-  .pilar-card:nth-child(2) .pilar-icon{background:var(--terracotta);}
-  .pilar-card:nth-child(3) .pilar-icon{background:var(--magenta);}
-  .pilar-card:nth-child(4) .pilar-icon{background:var(--mustard);}
-  .pilar-icon svg{width:28px; height:28px;}
-  .pilar-icon svg path,.pilar-icon svg circle{fill:none; stroke:#fff; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;}
-  .pilar-card h4{font-family:var(--font-display); font-size:17px; font-weight:600; margin-bottom:6px;}
-  .pilar-card p{font-size:13px; color:var(--muted); line-height:1.5;}
-
-  /* como funciona */
-  .emp-how{padding:30px 0;}
-  .emp-programas{padding:30px 0;}
-  .how-row{display:flex; gap:26px; flex-wrap:wrap; margin-top:36px; align-items:flex-start; justify-content:center;}
-  /* --- cards Ciranda/Lab/Espiral coloridos + link popup (patch 2026-07-21) --- */
-  .pilar-card--blue, .pilar-card--terracotta, .pilar-card--magenta{ border-radius:38% 62% 57% 43% / 46% 40% 60% 54%; padding:32px 26px; }
-  .pilar-card--blue{ background:var(--blue-soft); }
-  .pilar-card--terracotta{ background:var(--terracotta-soft); }
-  .pilar-card--magenta{ background:var(--magenta-soft); }
-  .pilar-link{ margin-top:14px; font-family:var(--font-heading); font-size:12.5px; font-weight:600; background:none; border:none; cursor:pointer; text-decoration:underline; }
-  .pilar-card--blue .pilar-link{ color:var(--blue); }
-  .pilar-card--terracotta .pilar-link{ color:var(--terracotta); }
-  .pilar-card--magenta .pilar-link{ color:var(--magenta); }
-  .how-card{flex:1 1 220px; max-width:260px; display:flex; flex-direction:column; align-items:center; text-align:center; padding:10px;}
-  .how-num{width:56px; height:56px; margin:0 auto 16px; border-radius:58% 42% 63% 37% / 41% 57% 43% 59%; display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-size:20px; font-weight:700; color:#fff;}
-  .how-card:nth-child(1) .how-num{background:var(--blue);}
-  .how-card:nth-child(2) .how-num{background:var(--terracotta);}
-  .how-card:nth-child(3) .how-num{background:var(--magenta);}
-  .how-card h4{font-family:var(--font-display); font-size:17px; font-weight:600; margin-bottom:8px;}
-  .how-card p{font-size:13.5px; color:var(--muted); line-height:1.5;}
-
-  /* o que geramos */
-  .emp-results{padding:30px 0;}
-  .results-grid{display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;}
-  .results-list{list-style:none;}
-  .results-list li{padding:12px 0 12px 30px; position:relative; font-size:14.5px; border-top:1px dashed var(--cream-border);}
-  .results-list li:first-child{border-top:none;}
-  .results-list li::before{content:""; position:absolute; left:0; top:18px; width:9px; height:9px; border-radius:50%; background:var(--terracotta);}
-  .results-video{position:relative; border-radius:20px; overflow:hidden; box-shadow:0 24px 50px rgba(20,14,10,.14); background:#000; max-width:330px; width:100%; margin:0 auto;}
-  .results-video video{width:100%; display:block;}
-  .results-video-cap{position:absolute; bottom:0; left:0; right:0; background:linear-gradient(0deg,rgba(20,14,10,.75),transparent); color:#fff; font-size:12.5px; padding:20px 20px 12px; font-family:var(--font-heading);}
-
-  /* depoimentos */
-  .emp-testi{padding:30px 0; background:var(--cream-2); position:relative; overflow:hidden;}
-  .testi-row{display:flex; gap:26px; flex-wrap:wrap; margin-top:36px;}
-  .testi-card{flex:1 1 280px; max-width:340px; padding:30px 26px; color:#fff; box-shadow:0 18px 36px rgba(20,14,10,.12);}
-  .testi-card.testi-1{background:var(--blue); border-radius:20px 56px 20px 56px / 56px 20px 56px 20px;}
-  .testi-card.testi-2{background:var(--terracotta); border-radius:56px 20px 56px 20px / 20px 56px 20px 56px;}
-  .testi-card.testi-3{background:var(--magenta); border-radius:20px 56px 20px 56px / 56px 20px 56px 20px;}
-  .testi-card p{font-size:14px; line-height:1.6; margin-bottom:14px; font-style:italic; color:#fff;}
-  .testi-card b{font-size:13.5px; display:block; color:#fff;}
-  .testi-card span{font-size:12px; color:rgba(255,255,255,.8);}
-
-  /* caminho completo diagnostico->ativacao->sustentacao */
-  .emp-path{padding:30px 0 50px;}
-  .path-row{display:flex; align-items:stretch; gap:14px; margin-top:36px; flex-wrap:wrap;}
-  .path-card{flex:1 1 220px; color:#fff; padding:30px 26px; box-shadow:0 16px 32px rgba(20,14,10,.12); position:relative; border-radius:24px 64px 24px 64px / 64px 24px 64px 24px;}
-  .path-card.path-1{background:var(--blue);}
-  .path-card.path-3{background:var(--magenta);}
-  .path-card.active{background:var(--terracotta); border-radius:64px 24px 64px 24px / 24px 64px 24px 64px;}
-  .path-card .you-are-here{position:absolute; top:-12px; right:16px; background:var(--ink-strong); color:#fff; font-size:10.5px; font-family:var(--font-heading); padding:4px 10px; border-radius:100px; letter-spacing:.04em;}
-  .path-arrow{display:flex; align-items:center; justify-content:center; font-size:22px; color:var(--terracotta); flex:0 0 auto;}
-  .path-card .mv-num{color:inherit; opacity:.7;}
-  .path-card h4{font-family:var(--font-display); font-size:17px; font-weight:600; margin:6px 0 8px;}
-  .path-card p{font-size:13.5px; line-height:1.5; opacity:.9;}
-  @media(max-width:900px){ .path-arrow{transform:rotate(90deg);} .results-grid{grid-template-columns:1fr;} }
+  .ti-method{padding:30px 0 50px;}
+  .ti-method-row{display:flex; gap:26px; flex-wrap:wrap; margin-top:36px; justify-content:center;}
+  .ti-method-card{flex:1 1 240px; max-width:280px; text-align:center; padding:30px 22px;}
+  .ti-method-icon{width:64px; height:64px; margin:0 auto 16px; border-radius:58% 42% 63% 37% / 41% 57% 43% 59%; display:flex; align-items:center; justify-content:center;}
+  .ti-method-card:nth-child(1) .ti-method-icon{background:var(--blue);}
+  .ti-method-card:nth-child(2) .ti-method-icon{background:var(--terracotta);}
+  .ti-method-card:nth-child(3) .ti-method-icon{background:var(--magenta);}
+  .ti-method-icon svg{width:30px; height:30px;}
+  .ti-method-icon svg path,.ti-method-icon svg circle{fill:none; stroke:#fff; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;}
+  .ti-method-card .kicker{margin-bottom:6px;}
+  .ti-method-card h4{font-family:var(--font-display); font-size:17px; font-weight:600; margin-bottom:8px;}
+  .ti-method-card p{font-size:13.5px; color:var(--muted); line-height:1.5;}
 
 /* ============ SISTEMA DE POPUPS/MODAIS (patch 2026-07-21) ============ */
 /* =========================================================
@@ -443,20 +375,6 @@ dialog.as-modal{ margin:auto; inset:0; }
 .as-modal.as-modal-video{ max-width:420px; }
 .as-modal.as-modal-video video{ width:auto; max-width:100%; max-height:82vh; margin:0 auto; }
 
-/* RESPIRO VISUAL — "O caminho completo" deixa de repetir o layout dos
-   depoimentos: vira uma sequencia de ETAPAS claras (cartoes claros,
-   numero colorido) sobre uma faixa levemente tonalizada. */
-.emp-path{ background:linear-gradient(180deg,var(--cream) 0%, #F2EEE6 100%); }
-.emp-path .path-card{ background:var(--cream); color:var(--ink); border:1.5px solid var(--cream-border); box-shadow:0 10px 26px rgba(20,14,10,.06); }
-.emp-path .path-card h4{ color:var(--ink); }
-.emp-path .path-card p{ color:var(--muted); opacity:1; }
-.emp-path .path-card .mv-num{ font-family:var(--font-display); font-size:26px; font-weight:700; opacity:1; }
-.emp-path .path-card.path-1 .mv-num{ color:var(--blue); }
-.emp-path .path-card.active{ background:var(--cream); border-color:var(--terracotta); box-shadow:0 14px 30px rgba(200,69,35,.16); }
-.emp-path .path-card.active .mv-num{ color:var(--terracotta); }
-.emp-path .path-card.path-3 .mv-num{ color:var(--magenta); }
-.emp-path .path-arrow{ color:var(--muted); }
-
 @media(max-width:760px){
   html,body{ overflow-x:hidden; }
   .wrap{ padding:0 20px; }
@@ -472,13 +390,40 @@ dialog.as-modal{ margin:auto; inset:0; }
   .eyebrow::before,.eyebrow::after{ display:none; }
 
   /* menos espaco vazio entre blocos */
-  .emp-hero{ padding:66px 0 24px; }
+  .ti-hero{ padding:66px 0 24px; }
   .hero-b{ padding:60px 0 46px; }
   .cta-b{ padding:64px 0 74px; }
+  .podser{ padding:60px 0 66px; }
   .facil-b{ padding:56px 0 60px; }
   .trail-connector{ padding:2px 0; }
   .trail-connector svg{ height:44px; }
 }
+
+  /* ---------- FAMÍLIAS — trilha pontilhada de experiências ---------- */
+  .fam-trail{max-width:560px; margin:20px auto 0;}
+  .fam-node{max-width:400px; margin:0 auto; text-align:center; position:relative; z-index:1;}
+  .fam-icon{width:66px; height:66px; margin:0 auto 16px; border-radius:58% 42% 63% 37% / 41% 57% 43% 59%; display:flex; align-items:center; justify-content:center; box-shadow:0 12px 26px rgba(20,14,10,.12);}
+  .fam-node.a-terracotta .fam-icon{background:var(--terracotta);}
+  .fam-node.a-magenta .fam-icon{background:var(--magenta);}
+  .fam-node.a-blue .fam-icon{background:var(--blue);}
+  .fam-node.a-mustard .fam-icon{background:var(--mustard);}
+  .fam-icon svg{width:32px; height:32px;}
+  .fam-icon svg path,.fam-icon svg circle,.fam-icon svg line,.fam-icon svg rect{fill:none; stroke:#fff; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;}
+  .fam-tag{font-family:var(--font-heading); font-size:11px; letter-spacing:.06em; text-transform:uppercase; margin-bottom:8px;}
+  .fam-node.a-terracotta .fam-tag{color:var(--terracotta);}
+  .fam-node.a-magenta .fam-tag{color:var(--magenta);}
+  .fam-node.a-blue .fam-tag{color:var(--blue);}
+  .fam-node.a-mustard .fam-tag{color:#a4620f;}
+  .fam-node h4{font-family:var(--font-display); font-size:21px; font-weight:600; margin-bottom:8px; color:var(--ink);}
+  .fam-node p{font-size:14px; color:var(--muted); line-height:1.6; max-width:360px; margin:0 auto;}
+  /* conector pontilhado serpenteando entre os nos */
+  .fam-hop{display:flex; justify-content:center; padding:6px 0;}
+  .fam-hop svg{width:92px; height:104px; opacity:.55; overflow:visible;}
+  .fam-sec{padding:30px 0 50px;}
+  @media(max-width:760px){
+    .fam-node h4{font-size:19px;}
+    .fam-hop svg{width:78px; height:92px;}
+  }
 
 </style>
 </head>
@@ -637,178 +582,39 @@ dialog.as-modal{ margin:auto; inset:0; }
 </header>
 
 <!-- HERO -->
-<section class="emp-hero">
+<section class="ti-hero">
   <div class="mesh-blob m1"></div>
-  <div class="mesh-blob m2"></div>
+  <div class="mesh-blob m3"></div>
   <div class="wrap hero-inner">
-    <span class="eyebrow">Palestras · Programa In Company · Vivências em Consciência</span>
-    <h1 class="hero-title">Mudar nossa <em>energia</em><br>muda nossas relações.</h1>
-    <p class="lead">Nosso programa in company é uma jornada de 10 movimentos para elevar a consciência nas relações pessoais e profissionais — Método Quântico Juan de la Luz aplicado à cultura das organizações.</p>
+    <span class="eyebrow">Trilha Alegre-Ser · Para famílias</span>
+    <h1 class="hero-title">Reaproxime a sua <em>família</em>.</h1>
+    <p class="lead">Toda família atravessa ciclos — de distância, de rotina, de silêncios que se acumulam. Não é terapia convencional: é um convite para reunir quem você ama em torno de algo que transforma de verdade.</p>
     <div class="hero-ctas">
-      <a href="/index.html#contato" class="btn btn-primary">Solicitar proposta</a>
-      <a href="#programa" class="btn btn-outline">Ver como funciona</a>
+      <a href="https://wa.me/5516981862829?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20as%20experi%C3%AAncias%20do%20Alegre-Ser%20para%20a%20minha%20fam%C3%ADlia." class="btn btn-primary">Falar com a equipe</a>
+      <a href="#experiencias" class="btn btn-outline">Ver as experiências</a>
     </div>
   </div>
 </section>
 
 <div class="trail-connector">
   <svg viewBox="0 0 80 96" xmlns="http://www.w3.org/2000/svg">
-    <path d="M40,0 C14,16 62,32 38,48 C16,62 58,76 40,96" fill="none" stroke="#C84523" stroke-width="2.4" stroke-dasharray="1 9" stroke-linecap="round"/>
+    <path d="M40,0 C14,16 62,32 38,48 C16,62 58,76 40,96" fill="none" stroke="#229CB2" stroke-width="2.4" stroke-dasharray="1 9" stroke-linecap="round"/>
   </svg>
 </div>
 
-<!-- POR QUE ISSO IMPORTA AGORA -->
-<section class="emp-stats" id="nr1">
+<!-- QUANDO FAZ SENTIDO -->
+<section class="ti-for-you">
   <svg class="section-texture"><rect width="100%" height="100%" fill="url(#tex-ink)" opacity=".14"/></svg>
   <div class="wrap" style="position:relative; z-index:1;">
     <div class="intro-block">
-      <div class="kicker">Por que isso importa agora</div>
-      <h2 class="section-title">Saúde mental virou pauta obrigatória nas empresas brasileiras.</h2>
+      <div class="kicker">Quando faz sentido</div>
+      <h2 class="section-title">Famílias nos procuram em momentos assim:</h2>
     </div>
-    <div class="emp-stats-row">
-      <div class="emp-stat"><span class="num">+400 mil</span><p>trabalhadores afastados por transtorno mental no Brasil em 2024.</p></div>
-      <div class="emp-stat"><span class="num">80.276 → 141.414</span><p>casos de transtornos ansiosos entre 2023 e 2024.</p></div>
-      <div class="emp-stat"><span class="num">67.399 → 113.604</span><p>episódios depressivos entre 2023 e 2024.</p></div>
-    </div>
-    <div class="emp-nr1-box">A <strong>NR-1</strong> (Norma Regulamentadora 1) exige, desde 26 de maio de 2025, avaliação e gerenciamento de riscos psicossociais — estresse, assédio, carga mental excessiva — em todas as empresas.</div>
-    <p class="emp-source">Fonte: Ministério da Previdência Social · MTE · Revide, ed. 1.254 (14/03/25)</p>
-  </div>
-</section>
-
-<div class="trail-connector">
-  <svg viewBox="0 0 80 96" xmlns="http://www.w3.org/2000/svg">
-    <path d="M40,0 C62,18 20,34 42,50 C60,64 22,78 40,96" fill="none" stroke="#229CB2" stroke-width="2.4" stroke-dasharray="1 9" stroke-linecap="round"/>
-  </svg>
-</div>
-
-<!-- EMPRESAS SÃO ENERGIA -->
-<section class="emp-energy">
-  <div class="kicker" style="text-align:center;">Empresas são energia</div>
-  <p style="text-align:center;">Empresas são núcleos energéticos, que materializam vibrações e se correspondem — interna e externamente — em uma mesma frequência: como uma ciranda, um movimento espiral, que pode ser expansivo ou limitante.</p>
-  <p style="text-align:center;">Para ser expansivo, as energias em correspondência precisam se alinhar — movimento que o Alegre-Ser faz através de diálogos em consciência, sustentados pelos 4 pilares do Método Quântico Juan de la Luz. <strong>Deste alinhamento — em alegria, em energia de Amor — nasce a expansão.</strong></p>
-</section>
-
-<div class="trail-connector">
-  <svg viewBox="0 0 80 96" xmlns="http://www.w3.org/2000/svg">
-    <path d="M40,0 C16,14 60,30 40,46 C22,60 58,74 40,96" fill="none" stroke="#962C72" stroke-width="2.4" stroke-dasharray="1 9" stroke-linecap="round"/>
-  </svg>
-</div>
-
-<!-- A JORNADA — 10 MOVIMENTOS -->
-<section class="emp-movements" id="programa">
-  <div class="wrap">
-    <div class="intro-block">
-      <div class="kicker">A jornada</div>
-      <h2 class="section-title">Uma jornada de 10 movimentos.</h2>
-      <p class="section-lead">Do coletivo ao individual, da comunicação à integração — cada movimento é sustentado pelos pilares de humildade, gratidão, confiança e constância.</p>
-    </div>
-
-    <div class="mv-group mv-1">
-      <div class="mv-group-head"><span class="mv-num">Movimento 1</span><h3>Presença e Colaboração</h3></div>
-      <div class="mv-item"><div class="mv-item-num">1</div><div class="mv-item-body"><b>Humildade e colaboração</b><span>Como a arrogância limita relações, mina a colaboração e cria um campo energético denso.</span></div></div>
-      <div class="mv-item"><div class="mv-item-num">2</div><div class="mv-item-body"><b>Incômodos</b><span>Impaciência e mau humor polarizam o clima e estimulam a reatividade nas equipes.</span></div></div>
-      <div class="mv-item"><div class="mv-item-num">3</div><div class="mv-item-body"><b>Reclamações</b><span>Broncas e resmungos constantes são energia limitante — o contraponto é a atitude de solução.</span></div></div>
-    </div>
-
-    <div class="mv-group mv-2">
-      <div class="mv-group-head"><span class="mv-num">Movimento 2</span><h3>Amor Próprio e Equilíbrio</h3></div>
-      <div class="mv-item"><div class="mv-item-num">4</div><div class="mv-item-body"><b>Amor próprio × Egocentrismo</b><span>A falta de amor próprio dificulta valorizar o outro e cria ambientes tóxicos e competitivos.</span></div></div>
-      <div class="mv-item"><div class="mv-item-num">5</div><div class="mv-item-body"><b>Busca excessiva por validação</b><span>A necessidade de reconhecimento revela a fragilidade do ego e alimenta o esgotamento.</span></div></div>
-      <div class="mv-item"><div class="mv-item-num">6</div><div class="mv-item-body"><b>Equilíbrio emocional</b><span>Base para inspirar confiança e liderança — o oposto do comportamento narcisista que bloqueia vínculos genuínos.</span></div></div>
-    </div>
-
-    <div class="mv-group mv-3">
-      <div class="mv-group-head"><span class="mv-num">Movimento 3</span><h3>Escuta e Coerência</h3></div>
-      <div class="mv-item"><div class="mv-item-num">7</div><div class="mv-item-body"><b>A importância de ouvir</b><span>A escuta ativa cria interação; o monólogo — palavra sem propósito — afasta e divide.</span></div></div>
-      <div class="mv-item"><div class="mv-item-num">8</div><div class="mv-item-body"><b>Coerência entre expressar e manifestar</b><span>Culpar os outros prejudica a autocrítica e o crescimento — não é energia limpa.</span></div></div>
-      <div class="mv-item"><div class="mv-item-num">9</div><div class="mv-item-body"><b>Vitimização como barreira</b><span>Romper ciclos de negação da autorresponsabilidade é o que permite a expansão real do Ser.</span></div></div>
-    </div>
-
-    <div class="mv-group mv-4">
-      <div class="mv-group-head"><span class="mv-num">Movimento 4</span><h3>Integração</h3></div>
-      <div class="mv-item"><div class="mv-item-num">10</div><div class="mv-item-body"><b>Alinhamento entre discurso e ação</b><span>Somos 100% responsáveis pelo que criamos, em consciência ou inconsciência. Alinhar o que falamos ao que fazemos gera uma energia limpa de expansão — para a pessoa, a equipe e a empresa.</span></div></div>
-    </div>
-  </div>
-</section>
-
-<div class="trail-connector">
-  <svg viewBox="0 0 80 96" xmlns="http://www.w3.org/2000/svg">
-    <path d="M40,0 C64,20 18,32 40,50 C58,66 20,80 40,96" fill="none" stroke="#DC882C" stroke-width="2.4" stroke-dasharray="1 9" stroke-linecap="round"/>
-  </svg>
-</div>
-
-<!-- 4 PILARES -->
-<section class="emp-pilares">
-  <svg class="section-texture"><rect width="100%" height="100%" fill="url(#tex-ink)" opacity=".12"/></svg>
-  <div class="wrap" style="position:relative; z-index:1;">
-    <div class="intro-block">
-      <div class="kicker">Como sustentamos a jornada</div>
-      <h2 class="section-title">Os 4 pilares do Método JDL.</h2>
-    </div>
-    <div class="pilar-row">
-      <div class="pilar-card"><div class="pilar-icon"><svg viewBox="0 0 40 40"><path d="M8,32 L32,32 M14,32 L14,18 M20,32 L20,14 M26,32 L26,20"/></svg></div><h4>Constância</h4><p>A prática sustentada é o que transforma — não o evento isolado.</p></div>
-      <div class="pilar-card"><div class="pilar-icon"><svg viewBox="0 0 40 40"><circle cx="20" cy="18" r="10"/><path d="M12,36 C12,28 15,24 20,24 C25,24 28,28 28,36"/></svg></div><h4>Confiança</h4><p>No processo, em si mesmo e na energia que se está construindo.</p></div>
-      <div class="pilar-card"><div class="pilar-icon"><svg viewBox="0 0 40 40"><path d="M20,8 C24,8 24,13 20,14 C16,15 10,18 10,24 C10,29 15,33 20,32 C24,31 24,27 21,26"/></svg></div><h4>Humildade</h4><p>Abertura para se ver com honestidade, sem defesa nem julgamento.</p></div>
-      <div class="pilar-card"><div class="pilar-icon"><svg viewBox="0 0 40 40"><path d="M20,6 C24,14 30,16 34,16 C30,20 28,26 28,32 C24,26 22,24 20,24 C18,24 16,26 12,32 C12,26 10,20 6,16 C10,16 16,14 20,6 Z"/></svg></div><h4>Gratidão</h4><p>O estado que reconhece o que já se move, mesmo em meio ao processo.</p></div>
-    </div>
-  </div>
-</section>
-
-<div class="trail-connector">
-  <svg viewBox="0 0 80 96" xmlns="http://www.w3.org/2000/svg">
-    <path d="M40,0 C14,16 62,32 38,48 C16,62 58,76 40,96" fill="none" stroke="#C84523" stroke-width="2.4" stroke-dasharray="1 9" stroke-linecap="round"/>
-  </svg>
-</div>
-
-<!-- COMO FUNCIONA -->
-<section class="emp-how">
-  <div class="wrap">
-    <div class="intro-block">
-      <div class="kicker">Programa in company</div>
-      <h2 class="section-title">Semeie consciência na sua empresa.</h2>
-      <p class="section-lead">Formato aplicado com sucesso em empresas parceiras — ajustável em número de sessões e periodicidade conforme a necessidade de cada empresa.</p>
-    </div>
-    <div class="how-row">
-      <div class="how-card"><div class="how-num">01</div><h4>Reunião inicial</h4><p>Alinhamento de logística, participantes e objetivos com a liderança.</p></div>
-      <div class="how-card"><div class="how-num">02</div><h4>10 sessões quinzenais</h4><p>2h cada: 60min de tema + 60min de diálogos de consciência em grupo.</p></div>
-      <div class="how-card"><div class="how-num">03</div><h4>Reunião final</h4><p>Feedback e relatório com recomendações de manutenção do alinhamento energético.</p></div>
-    </div>
-  </div>
-</section>
-
-<div class="trail-connector">
-  <svg viewBox="0 0 80 96" xmlns="http://www.w3.org/2000/svg">
-    <path d="M40,0 C62,18 20,34 42,50 C60,64 22,78 40,96" fill="none" stroke="#229CB2" stroke-width="2.4" stroke-dasharray="1 9" stroke-linecap="round"/>
-  </svg>
-</div>
-
-<!-- OS 3 PROGRAMAS -->
-<section class="emp-programas">
-  <div class="wrap">
-    <div class="intro-block">
-      <div class="kicker">NOSSAS FERRAMENTAS</div>
-      <h2 class="section-title">Três frentes. Uma frequência.</h2>
-      <p class="section-lead">Cada vivência nasce da nossa própria vivência dentro da Metodologia JDL — agora aplicada ao campo energético de equipes e organizações.</p>
-    </div>
-    <div class="pilar-row">
-      <div class="pilar-card pilar-card--blue">
-        <div class="pilar-icon"><svg viewBox="0 0 40 40"><path d="M6,20 C6,11 13,6 20,7 C28,8 33,14 32,21 C31,28 24,32 18,30 C13,28.5 11,23 14,20 C16.5,17.5 20,18.5 20,22"/></svg></div>
-        <h4>Ciranda de Consciência</h4>
-        <p>Comunicação que fortalece relações e reduz conflitos — conversas que chegam onde a informação técnica não chega, no campo energético das equipes.</p>
-        <button type="button" class="pilar-link" data-modal-open="modal-ciranda">Saiba mais</button>
-      </div>
-      <div class="pilar-card pilar-card--terracotta">
-        <div class="pilar-icon"><svg viewBox="0 0 40 40"><path d="M20,8 C24,8 24,13 20,14 C16,15 10,18 10,24 C10,29 15,33 20,32 C24,31 24,27 21,26"/><circle cx="20" cy="20" r="3.2" stroke-width="2"/></svg></div>
-        <h4>Laboratório do Observador</h4>
-        <p>Práticas para estimular a percepção da própria energia no trabalho. Quando cada pessoa se observa, o campo coletivo se transforma.</p>
-        <button type="button" class="pilar-link" data-modal-open="modal-laboratorio">Saiba mais</button>
-      </div>
-      <div class="pilar-card pilar-card--magenta">
-        <div class="pilar-icon"><svg viewBox="0 0 40 40"><path d="M20,6 L23,17 L34,17 L25,24 L28,35 L20,28 L12,35 L15,24 L6,17 L17,17 Z"/></svg></div>
-        <h4>Espiral de Clareza</h4>
-        <p>Práticas para tomada de decisão, alinhamento de equipe e ação a partir da consciência — não do automatismo. Clareza que move, não que paralisa.</p>
-        <button type="button" class="pilar-link" data-modal-open="modal-espiral">Saiba mais</button>
-      </div>
+    <div class="ti-for-you-list">
+      <div class="ti-for-you-item">Uma distância que foi se instalando sem ninguém perceber</div>
+      <div class="ti-for-you-item">Conflitos que se repetem — e ninguém sabe mais como nomear</div>
+      <div class="ti-for-you-item">Uma data importante que merece mais do que o de sempre</div>
+      <div class="ti-for-you-item">O desejo de cuidar de quem envelhece com presença</div>
     </div>
   </div>
 </section>
@@ -819,48 +625,131 @@ dialog.as-modal{ margin:auto; inset:0; }
   </svg>
 </div>
 
-<!-- O QUE GERAMOS -->
-<section class="emp-results">
+<!-- EXPERIÊNCIAS -->
+<section class="fam-sec" id="experiencias">
   <div class="wrap">
     <div class="intro-block">
-      <div class="kicker">O que geramos?</div>
-      <h2 class="section-title">Mudamos a <em>energia</em> da sua empresa.</h2>
-      <p class="section-lead">Todo líder se pergunta: que resultado isso entrega? Nossa jornada gera, na prática, dentro da cultura da organização:</p>
+      <div class="kicker">As experiências</div>
+      <h2 class="section-title">O que a sua família pode viver.</h2>
+      <p class="section-lead">Levamos consciência, corpo e presença para dentro da convivência — em casa, em roda, à mesa ou em viagem. Cada experiência se ajusta ao momento da sua família.</p>
     </div>
-    <div class="results-grid">
-      <ul class="results-list">
-        <li>Melhoria da comunicação interna</li>
-        <li>Redução de conflitos e desgaste emocional</li>
-        <li>Fortalecimento da liderança consciente</li>
-        <li>Ambientes mais colaborativos e saudáveis</li>
-        <li>Atendimento às diretrizes da NR-1</li>
-      </ul>
-      <div class="results-video">
-        <video controls poster="https://www.alegre-ser.com.br/videos/laroche-case-poster.jpg" preload="metadata"><source src="https://www.alegre-ser.com.br/videos/laroche-case.mp4" type="video/mp4">Seu navegador não suporta vídeo.</video>
-        <div class="results-video-cap"><strong>Case Laroche</strong> · Programa in company Alegre-Ser</div>
+    <div class="fam-trail">
+
+      <div class="fam-node a-terracotta">
+        <div class="fam-icon"><svg viewBox="0 0 40 40"><path d="M8,18 L20,7 L32,18"/><path d="M11,17 L11,32 L29,32 L29,17"/><path d="M17,32 L17,24 L23,24 L23,32"/></svg></div>
+        <div class="fam-tag">Presencial · na sua casa</div>
+        <h4>Visita Energética Alegre-Ser</h4>
+        <p>Levamos o Alegre-Ser até a sua casa. Uma visita guiada para sentir, nomear e reequilibrar a energia que circula entre as pessoas e os ambientes do lar.</p>
       </div>
+
+      <div class="fam-hop">
+        <svg viewBox="0 0 80 104" xmlns="http://www.w3.org/2000/svg">
+          <path d="M40,2 C10,20 70,40 38,58 C14,72 60,88 40,102" fill="none" stroke="#962C72" stroke-width="2.4" stroke-dasharray="1 9" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="fam-node a-magenta">
+        <div class="fam-icon"><svg viewBox="0 0 40 40"><path d="M7,9 L33,9 L33,26 L16,26 L9,32 L9,26 L7,26 Z"/><path d="M15,15 C15,12 24,12 24,16 C24,19 20,19 20,21"/><circle cx="20" cy="24.5" r="0.7"/></svg></div>
+        <div class="fam-tag">Online ou presencial</div>
+        <h4>Terapia Multidimensional Familiar</h4>
+        <p>Uma sessão conduzida por cinco perguntas essenciais. Elas abrem espaço para o que costuma ficar sem ser dito entre pais, filhos e irmãos.</p>
+      </div>
+
+      <div class="fam-hop">
+        <svg viewBox="0 0 80 104" xmlns="http://www.w3.org/2000/svg">
+          <path d="M40,2 C70,20 10,40 42,58 C66,72 20,88 40,102" fill="none" stroke="#229CB2" stroke-width="2.4" stroke-dasharray="1 9" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="fam-node a-blue">
+        <div class="fam-icon"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="11"/><circle cx="20" cy="9" r="1.6"/><circle cx="31" cy="20" r="1.6"/><circle cx="20" cy="31" r="1.6"/><circle cx="9" cy="20" r="1.6"/></svg></div>
+        <div class="fam-tag">Online ou presencial · em grupo</div>
+        <h4>Roda de Consciência Familiar</h4>
+        <p>Um círculo de escuta e presença. A família pratica nomear o que sente sem atribuir ao outro — e se reencontra em profundidade.</p>
+      </div>
+
+      <div class="fam-hop">
+        <svg viewBox="0 0 80 104" xmlns="http://www.w3.org/2000/svg">
+          <path d="M40,2 C10,20 70,40 38,58 C14,72 60,88 40,102" fill="none" stroke="#DC882C" stroke-width="2.4" stroke-dasharray="1 9" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="fam-node a-mustard">
+        <div class="fam-icon"><svg viewBox="0 0 40 40"><rect x="15" y="6" width="10" height="17" rx="5"/><path d="M11,19 C11,25 15,28 20,28 C25,28 29,25 29,19"/><path d="M20,28 L20,34 M15,34 L25,34"/></svg></div>
+        <div class="fam-tag">Presencial · sob medida</div>
+        <h4>Palestra para Encontros Familiares</h4>
+        <p>Uma fala desenhada para reuniões, aniversários e datas que importam — trazendo consciência e sentido para o centro do encontro.</p>
+      </div>
+
+      <div class="fam-hop">
+        <svg viewBox="0 0 80 104" xmlns="http://www.w3.org/2000/svg">
+          <path d="M40,2 C70,20 10,40 42,58 C66,72 20,88 40,102" fill="none" stroke="#C84523" stroke-width="2.4" stroke-dasharray="1 9" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="fam-node a-terracotta">
+        <div class="fam-icon"><svg viewBox="0 0 40 40"><path d="M20,20 a4,4 0 1,1 4,4 a8,8 0 1,1 -8,-8 a12,12 0 1,1 12,12"/></svg></div>
+        <div class="fam-tag">Com o criador da metodologia</div>
+        <h4>Coaching Quântico com o Mestre Juan de la Luz</h4>
+        <p>Uma condução do próprio Mestre Juan de la Luz — o olhar de quem, há mais de quatro décadas, acompanha famílias em processos de expansão de consciência.</p>
+      </div>
+
+      <div class="fam-hop">
+        <svg viewBox="0 0 80 104" xmlns="http://www.w3.org/2000/svg">
+          <path d="M40,2 C10,20 70,40 38,58 C14,72 60,88 40,102" fill="none" stroke="#962C72" stroke-width="2.4" stroke-dasharray="1 9" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="fam-node a-magenta">
+        <div class="fam-icon"><svg viewBox="0 0 40 40"><path d="M13,6 C9,6 8,10 11,12 L22,18 C25,20 24,24 20,24 L14,24 C10,24 9,28 12,30"/><circle cx="13" cy="6" r="2.2"/><circle cx="19" cy="30.5" r="2.2"/></svg></div>
+        <div class="fam-tag">Presencial · em jornada</div>
+        <h4>Viagem Acompanhada Alegre-Ser</h4>
+        <p>Uma viagem em família com o acompanhamento da nossa equipe. Turismo com propósito, onde o deslocamento por fora também vira movimento por dentro.</p>
+      </div>
+
+      <div class="fam-hop">
+        <svg viewBox="0 0 80 104" xmlns="http://www.w3.org/2000/svg">
+          <path d="M40,2 C70,20 10,40 42,58 C66,72 20,88 40,102" fill="none" stroke="#229CB2" stroke-width="2.4" stroke-dasharray="1 9" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="fam-node a-blue">
+        <div class="fam-icon"><svg viewBox="0 0 40 40"><circle cx="20" cy="21" r="9"/><circle cx="20" cy="21" r="4"/><path d="M7,7 L7,16 M5,7 L9,7 M33,7 C31,7 31,13 33,13 L33,7"/></svg></div>
+        <div class="fam-tag">Presencial · com ritual</div>
+        <h4>Jantar Temático Alegre-Ser</h4>
+        <p>Um jantar conduzido pela equipe, com tema e ritual desenhados para aproximar e celebrar os vínculos que sustentam a família.</p>
+      </div>
+
+      <div class="fam-hop">
+        <svg viewBox="0 0 80 104" xmlns="http://www.w3.org/2000/svg">
+          <path d="M40,2 C10,20 70,40 38,58 C14,72 60,88 40,102" fill="none" stroke="#DC882C" stroke-width="2.4" stroke-dasharray="1 9" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="fam-node a-mustard">
+        <div class="fam-icon"><svg viewBox="0 0 40 40"><path d="M9,14 L28,14 L27,26 C27,30 24,32 18.5,32 C13,32 10,30 10,26 Z"/><path d="M28,17 C33,17 33,24 28,24"/><path d="M15,7 C13,9 17,10 15,12 M20,7 C18,9 22,10 20,12"/></svg></div>
+        <div class="fam-tag">Presencial · para os mais velhos</div>
+        <h4>Chá da Tarde Alegre-Ser</h4>
+        <p>Um encontro delicado, pensado para os mais velhos da família. Acolhimento e presença em um ritmo mais suave, no tempo de quem já viveu muito.</p>
+      </div>
+
     </div>
   </div>
 </section>
 
 <div class="trail-connector">
   <svg viewBox="0 0 80 96" xmlns="http://www.w3.org/2000/svg">
-    <path d="M40,0 C16,14 60,30 40,46 C22,60 58,74 40,96" fill="none" stroke="#962C72" stroke-width="2.4" stroke-dasharray="1 9" stroke-linecap="round"/>
+    <path d="M40,0 C16,14 60,30 40,46 C22,60 58,74 40,96" fill="none" stroke="#C84523" stroke-width="2.4" stroke-dasharray="1 9" stroke-linecap="round"/>
   </svg>
 </div>
 
-<!-- IMPACTO REAL -->
-<section class="emp-testi">
-  <div class="mesh-blob m3"></div>
-  <div class="wrap" style="position:relative; z-index:1;">
-    <div class="intro-block">
-      <div class="kicker">Impacto real</div>
-      <h2 class="section-title">O que dizem os participantes.</h2>
-    </div>
-    <div class="testi-row">
-      <div class="testi-card testi-1"><p>"Aprendi que memórias inconscientes podem nos levar à reatividade. Agora busco me equilibrar e não deixar as emoções dominarem."</p><b>Dogival Mendonça</b><span>Industrial · praticante JDL há 16 anos</span></div>
-      <div class="testi-card testi-2"><p>"Foi um divisor de águas: me ajudou a superar dificuldades emocionais e a parar de tomar medicamentos controlados."</p><b>João Lucas Galone</b><span>Multiplicador de treinamentos</span></div>
-      <div class="testi-card testi-3"><p>"Sinto um profundo bem-estar, equilíbrio e motivação após uma sessão. Isso faz toda diferença na minha área."</p><b>Marcelo Adriano de Paula</b><span>Modelista e designer de criação</span></div>
+<!-- O QUE FICA -->
+<section class="ti-result">
+  <div class="wrap">
+    <div class="kicker">O que fica</div>
+    <div class="ti-result-box">
+      <p>Reencontrar-se em família não é apagar as diferenças. É poder nomeá-las sem que elas separem.</p>
+      <p>Uma presença que não termina quando o encontro acaba — e continua sustentando as relações no dia a dia.</p>
     </div>
   </div>
 </section>
@@ -871,39 +760,15 @@ dialog.as-modal{ margin:auto; inset:0; }
   </svg>
 </div>
 
-<!-- CAMINHO COMPLETO -->
-<section class="emp-path">
-  <div class="wrap">
-    <div class="intro-block">
-      <div class="kicker">O caminho completo</div>
-      <h2 class="section-title">Do diagnóstico à sustentação.</h2>
-      <p class="section-lead">Nossa palestra é a porta de entrada. O trabalho de consciência se sustenta com constância — como qualquer mudança real.</p>
-    </div>
-    <div class="path-row">
-      <div class="path-card path-1"><span class="mv-num">01</span><h4>Diagnóstico</h4><p>Levantamento de riscos psicossociais (NR-1) + leitura da energia do ambiente.</p></div>
-      <div class="path-arrow">→</div>
-      <div class="path-card path-2 active"><span class="you-are-here">Você está aqui</span><span class="mv-num">02</span><h4>Ativação</h4><p>Palestras, workshops e cirandas de consciência.</p></div>
-      <div class="path-arrow">→</div>
-      <div class="path-card path-3"><span class="mv-num">03</span><h4>Sustentação</h4><p>Programas in company contínuos: Diálogos de Consciência, Laboratório do Observador e Espiral de Clareza.</p></div>
-    </div>
-  </div>
-</section>
-
-<div class="trail-connector">
-  <svg viewBox="0 0 80 96" xmlns="http://www.w3.org/2000/svg">
-    <path d="M40,0 C14,16 62,32 38,48 C16,62 58,76 40,96" fill="none" stroke="#C84523" stroke-width="2.4" stroke-dasharray="1 9" stroke-linecap="round"/>
-  </svg>
-</div>
-
 <!-- CTA FINAL -->
 <section class="cta-b" id="contato">
   <svg class="section-texture"><rect width="100%" height="100%" fill="url(#tex-ink)" opacity=".14"/></svg>
   <div class="cta-glow"></div>
   <div class="wrap inner">
-    <h2>Mude sua <em>energia</em>.<br>Mude seus resultados.</h2>
-    <p>Leve a frequência do Alegre-Ser para sua empresa — presencial ou online — pontual ou contínuo.</p>
+    <h2>Traga o Alegre-Ser para a sua <em>família</em>.</h2>
+    <p>Fale com a nossa equipe e descubra qual experiência combina com o momento que a sua família vive agora.</p>
     <div class="hero-ctas">
-      <a href="https://wa.me/5516981862829?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20programa%20para%20empresas%20do%20Alegre-Ser." class="btn btn-primary">Solicitar proposta</a>
+      <a href="https://wa.me/5516981862829?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20as%20experi%C3%AAncias%20do%20Alegre-Ser%20para%20a%20minha%20fam%C3%ADlia." class="btn btn-primary">Falar com a equipe</a>
     </div>
   </div>
 </section>
