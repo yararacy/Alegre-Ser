@@ -305,7 +305,10 @@ const CHAVE   = 'alegreser_sala_cto_v1';
    de enviar avisa que ainda não foi configurado e a pessoa usa
    a cópia em arquivo.
    ----------------------------------------------------------- */
-const ENVIO = { url:'', segredo:'' };
+const ENVIO = {
+  url: 'https://script.google.com/macros/s/AKfycbz7qa7VJAfmL_PI3oLfKFGlL9RMDgGNaJ9rBXhAw8vGdauNMwX7yjJQTUapQU54Q3_Zfg/exec',
+  segredo: 'alegre-cto-4pxea63fr7'
+};
 
 const state = { unlocked:false, erro:false, aba:'inicio' };
 const app = document.getElementById('app');
@@ -791,6 +794,31 @@ function marcarEnviado(){
     {day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}) + '.';
 }
 
+/* envia por formulário + iframe escondido — atravessa onde o fetch não passa */
+function enviarPorFormulario(corpo){
+  return new Promise(resolve=>{
+    let pronto = false;
+    const nome = 'envio_' + Date.now();
+    const ifr = document.createElement('iframe');
+    ifr.name = nome; ifr.style.display = 'none';
+    const f = document.createElement('form');
+    f.method = 'POST'; f.action = ENVIO.url; f.target = nome; f.style.display = 'none';
+    const c = document.createElement('input');
+    c.type = 'hidden'; c.name = 'payload'; c.value = corpo;
+    f.appendChild(c);
+    const limpar = ok => {
+      if(pronto) return; pronto = true;
+      setTimeout(()=>{ try{ f.remove(); ifr.remove(); }catch(e){} }, 500);
+      resolve(ok);
+    };
+    ifr.addEventListener('load', ()=> limpar(true));
+    ifr.addEventListener('error', ()=> limpar(false));
+    document.body.appendChild(ifr); document.body.appendChild(f);
+    try{ f.submit(); }catch(e){ limpar(false); return; }
+    setTimeout(()=> limpar(false), 20000);
+  });
+}
+
 async function enviar(btn){
   if(!ENVIO.url){
     aviso('O envio ainda não foi ligado nesta sala. Baixe uma cópia e mande para a sua contato no Alegre-Ser.');
@@ -809,13 +837,20 @@ async function enviar(btn){
   const corpo = JSON.stringify(carga);
   const cab = {'Content-Type':'text/plain;charset=utf-8'};
   let estado = 'falhou';
+
+  /* 1ª tentativa: fetch normal — quando dá certo, conseguimos ler a confirmação */
   try{
     const r = await fetch(ENVIO.url, {method:'POST', headers:cab, body:corpo, redirect:'follow'});
-    estado = r.ok ? 'ok' : 'falhou';
-  }catch(e){
-    /* o Apps Script costuma bloquear a leitura da resposta; manda às cegas */
-    try{ await fetch(ENVIO.url, {method:'POST', mode:'no-cors', headers:cab, body:corpo});
-         estado = 'provavel'; }catch(e2){ estado = 'falhou'; }
+    if(r.ok){
+      let j = null; try{ j = await r.json(); }catch(e){}
+      estado = (!j || j.ok !== false) ? 'ok' : 'falhou';
+    }
+  }catch(e){ /* segue para o plano B */ }
+
+  /* 2ª tentativa: formulário para um iframe escondido. Não é bloqueado por CORS
+     e funciona até com a página aberta direto do computador (file://). */
+  if(estado !== 'ok'){
+    estado = await enviarPorFormulario(corpo) ? 'provavel' : 'falhou';
   }
   btn.disabled = false; btn.textContent = rotulo;
 
