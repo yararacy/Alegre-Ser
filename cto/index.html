@@ -571,16 +571,14 @@ function abaAlinhamento(){
   </div>
 
   <div class="parte">
-    ${cabParte(1,'Materiais que vocês vão compartilhar')}
-    <p class="dica">Marque a situação de cada item. Não precisa preparar nada novo — queremos o material como ele é.</p>
-    <div class="tabela"><div class="rolagem"><table>
-      <thead><tr><th style="width:52%">Material</th><th>Situação</th><th>Quando podem enviar</th></tr></thead><tbody>`;
+    ${cabParte(1,'O essencial de cada material')}
+    <p class="dica">Nada precisa ser enviado nem anexado — sabemos que muitos desses pontos são sensíveis. Em cada um, escreva apenas o essencial: o número, a data, a principal conclusão ou o que já existe hoje. Se for delicado, um resumo em uma linha já basta.</p>
+    <div class="veu leve">`;
   MATERIAIS.forEach((m,i)=>{
-    h += `<tr><td>${esc(m)}</td>
-      <td data-rot="Situação"><input type="text" data-campo="mat_s_${i}" value="${esc(respostas['mat_s_'+i]||'')}" placeholder="temos / não temos"></td>
-      <td data-rot="Quando podem enviar"><input type="text" data-campo="mat_q_${i}" value="${esc(respostas['mat_q_'+i]||'')}"></td></tr>`;
+    h += `<div class="q"><div class="q-rot"><span>${esc(m)}</span></div>
+      <textarea data-campo="mat_${i}">${esc(respostas['mat_'+i]||'')}</textarea></div>`;
   });
-  h += `</tbody></table></div></div></div>
+  h += `</div></div>
 
   <div class="parte">
     ${cabParte(2,'O retrato da liderança em números')}
